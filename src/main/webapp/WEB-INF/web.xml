@@ -3,6 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee            http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 	<display-name>Servlet 3.0 Web Application</display-name>
+	
+	<!-- Filtro do Open session in view, controle de transacao do hibernate -->
+	<filter>
+  		<filter-name>conexaoFilter</filter-name>
+  		<filter-class>bolao.web.filter.ConexaoHibernateFilter</filter-class>
+  	</filter>
+  	<filter-mapping>
+  		<filter-name>conexaoFilter</filter-name>
+  		<url-pattern>/*</url-pattern>
+  	</filter-mapping>
+	
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -12,6 +23,8 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.jsf</url-pattern>
 	</servlet-mapping>
+	
+	<!-- Configuracao do JNDI -->
 	<resource-ref>
 		<res-ref-name>jdbc/BolaoDB</res-ref-name>
 		<res-type>javax.sql.DataSource</res-type>

@@ -1,4 +1,4 @@
-package bolao.mb;
+package bolao.web;
 
 import javax.faces.bean.ManagedBean;
 
