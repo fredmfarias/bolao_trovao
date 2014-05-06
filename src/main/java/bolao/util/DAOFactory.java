@@ -1,9 +1,13 @@
 package bolao.util;
 
+import bolao.dao.UsuarioDAO;
+import bolao.dao.impl.UsuarioDAOHibernate;
+
 
 public class DAOFactory {
 	
-	public static UsuarioDao criarUsuarioDAO(){
-		return new UsuarioDaoHibernate();
+	public static UsuarioDAO criarUsuarioDAO(){
+		return new UsuarioDAOHibernate(HibernateUtil
+					.getSessionFactory().getCurrentSession());
 	}
 }

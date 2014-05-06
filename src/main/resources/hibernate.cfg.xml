@@ -35,7 +35,10 @@
         <property name="hbm2ddl.auto">update</property>
 		
 		<!-- Necessario ao funcionamento do filtro de conexao -->
-		<property name="current_session_context_class">thread</property> 
+		<property name="current_session_context_class">thread</property>
+		
+		<!-- Mapeando classes -->
+		<mapping class="bolao.model.Usuario" />
 		
 	</session-factory>
 </hibernate-configuration>
