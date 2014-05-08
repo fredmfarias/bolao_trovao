@@ -1,69 +1,45 @@
-body, td, th {
+html{font-size: 11px;}
+
+body{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	background: linear-gradient(green, yellow);
+	font-size: 1em;
+	color: #715d5d;
+	margin: 0;
+	padding: 0;
 }
 
-th {
-	background: url(#{resource['imagens:fundo_claro.png']}); 
-	min-height: 25px;
-	padding: 3px;
+body.corpo {
+	background: url(../imagens/bg_head.png) repeat-x;
 }
 
-img {
-	border:0px;
+div#container {
+	width: 999px;
+	height: auto;
+	margin: 0 auto;
 }
 
-#container {
-	width: 770px;
-	height: 100%;
-	margin: 0 auto
+div#head {
+	width: 100%;
+	height: 108px;
 }
 	
-#titulo {
-	float: left;
+div#head div#titulo {
+	width: 100%;
+	padding-top: 70px;
 	font-size: 25pt;
 	font-variant: small-caps;
 	font-weight: bold;
 }
 
-#barra_menu {
-	background: url(#{resource['imagens:fundo_barra_menu.png']}) repeat-x; 
-	min-height: 25px;
-	padding: 3px;
-	clear:both;
+div#head div#barra_menu {
+	height: 35px;
+	margin: 6px 0;
 }
 
 #corpo {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	min-height: 300px;
-}
-
-#rodape {
-	background: url(#{resource['imagens:fundo_barra_rodape.png']}) repeat-x;
-	height: 100px;
-	margin-top: 5px;
-	padding: 10px;
-	text-align: center;
-}
-
-#logotipo {
-	text-align: right; 
-	float: right;
-}
-
-.info {
-	font-weight: bold;
-	color: green;
-}
-
-.warn {
-	font-weight: bold;
-	color: #FFCC00;
-}
-
-.fatal, .error {
-	font-weight: bold;
-	color: red;
+	width: 100%;
+	height: auto;
+	background: #f7f7f7;
+	float: left;
+	display: inline;	
 }
