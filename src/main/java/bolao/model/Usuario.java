@@ -26,10 +26,10 @@ public class Usuario implements Serializable{
 	@GeneratedValue
 	private Integer id;
 	private String nome;
-	private String email;
+	private String telefone;
 	
 	@NaturalId
-	private String login;
+	private String email;
 	private String senha;
 	private boolean ativo;
 	
@@ -63,14 +63,6 @@ public class Usuario implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
 	}
 
 	public String getSenha() {
@@ -107,7 +99,6 @@ public class Usuario implements Serializable{
 		int result = 1;
 		result = prime * result + (ativo ? 1231 : 1237);
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result
 				+ ((permissao == null) ? 0 : permissao.hashCode());
@@ -132,11 +123,6 @@ public class Usuario implements Serializable{
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (login == null) {
-			if (other.login != null)
-				return false;
-		} else if (!login.equals(other.login))
-			return false;
 		if (nome == null) {
 			if (other.nome != null)
 				return false;
@@ -158,5 +144,13 @@ public class Usuario implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 }
