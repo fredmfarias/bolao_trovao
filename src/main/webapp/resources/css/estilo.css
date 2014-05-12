@@ -6,10 +6,50 @@ body{
 	color: #715d5d;
 	margin: 0;
 	padding: 0;
+	background-color: #c5d5e0;
 }
 
-body.corpo {
-	background: url(../imagens/bg_head.png) repeat-x;
+div#head{
+	width: 100%;
+	height: 300px;
+	background: url(../imagens/bg_head.png) repeat-x; 
+}
+
+div#head div#menu_topo {
+	height: 20px;
+	margin-right: 50px;
+	padding-top: 20px;
+}
+
+div#head div#menu_topo ul {
+	margin: 0;
+	padding-right: 30;
+	list-style: none;
+	float: right;
+}
+
+div#head div#menu_topo ul li {
+	float: left;
+	display: inline;
+	margin: 3px 5px 0 5px;
+	color: #fff;
+}
+
+div#head div#menu_topo ul li a {
+	text-decoration: none;
+	color: #fff;
+}
+
+div#head div#menu_topo ul li a:hover {
+	text-decoration: underline;
+}
+
+div#head div#logo{
+	width: 235px;
+	height: 215px;
+	background: url(../imagens/logo_site.png) no-repeat;
+	float: left;
+	margin-left:100px;
 }
 
 div#container {
@@ -18,28 +58,21 @@ div#container {
 	margin: 0 auto;
 }
 
-div#head {
-	width: 100%;
-	height: 108px;
-}
-	
-div#head div#titulo {
-	width: 100%;
-	padding-top: 70px;
-	font-size: 25pt;
-	font-variant: small-caps;
-	font-weight: bold;
-}
-
-div#head div#barra_menu {
-	height: 35px;
-	margin: 6px 0;
-}
-
-#corpo {
+div#center {
 	width: 100%;
 	height: auto;
 	background: #f7f7f7;
 	float: left;
-	display: inline;	
+	display: inline;
+}
+
+div#center div#content {
+	width: 957px;
+	height: auto;
+	background: #fff;
+	margin: 10px;
+	padding: 10px 10px;
+	border: 1px solid #dedede;
+	float: left;
+	display: inline;
 }

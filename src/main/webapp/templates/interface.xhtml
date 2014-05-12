@@ -11,29 +11,25 @@
 	<link type="text/css" rel="stylesheet"
 		href="#{facesContext.externalContext.requestContextPath}/resources/css/estilo.css" />
 </h:head>
-<h:body styleClass="corpo">
-	<div id="logo">
-		<h1 class="none">Bolão</h1>
-	</div>
-	<div id="container">
-		<div id="head">
-			<div id="menu_topo">
-				<ui:insert name="menuTopo">
-					<ul>
-						<li><a href="#">Ajuda</a></li>
-						<li>|</li>
-						<li><a href="#">Sair</a></li>
-					</ul>
-				</ui:insert>
-			</div>
-		</div>
-		<div id="barra_menu">
-			<ui:insert name="barra_menu">
-				<ui:include src="/restrito/menu_sistema.xhtml" />
+<h:body>
+	<div id="head">
+		<div id="menu_topo">
+			<ui:insert name="menuTopo">
+				<ul>
+					<li><a href="#">Ajuda</a></li>
+					<li>|</li>
+					<li><a href="#">Sair</a></li>
+				</ul>
 			</ui:insert>
 		</div>
-		<div id="corpo">
-			<ui:insert name="corpo" />
+		<div id="logo"></div>
+	</div>
+	<div id="container">
+		<div id="center">
+			<div id="content">
+				<ui:insert name="conteudo">
+				</ui:insert>
+			</div>
 		</div>
 	</div>
 </h:body>
