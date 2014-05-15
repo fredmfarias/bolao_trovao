@@ -43,7 +43,7 @@
 				
            		<p:outputLabel for="pwd1" value="#{msg['label.senha']}" />
            		<p:password id="pwd1" value="#{usuarioMB.usuario.senha}" match="pwd2" required="true"
-           				feedback="true"
+           				feedback="true" validatorMessage="#{msg.MN0004}"
                         promptLabel="Senha de 6 a 12 digítos." weakLabel="#{msg['label.fraca']}"
                         goodLabel="#{msg['label.boa']}" strongLabel="#{msg['label.forte']}" />
  

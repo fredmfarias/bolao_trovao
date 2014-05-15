@@ -1,12 +1,11 @@
 package bolao.web;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
 
 import bolao.controller.UsuarioController;
 import bolao.model.Usuario;
+import bolao.util.MessagesProperty;
 
 @ManagedBean(name="usuarioMB")
 @RequestScoped
@@ -19,12 +18,10 @@ public class UsuarioMB {
 	}
 	
 	public String salvar() {
-		FacesContext context = FacesContext.getCurrentInstance();
-
+		
 		String senha = this.usuario.getSenha();
 		if (!senha.equals(this.confirmarSenha)) {
-			FacesMessage facesMessage = new FacesMessage("A senha não foi confirmada corretamente");
-			context.addMessage(null, facesMessage);
+			MessagesProperty.errorMsg("MN0004");
 			return null;
 		}
 
@@ -32,12 +29,10 @@ public class UsuarioMB {
 			UsuarioController usuarioRN = new UsuarioController();
 			usuarioRN.salvar(this.usuario);
 			
-			FacesMessage facesMessage = new FacesMessage("Usuario add com sucesso!");
-			context.addMessage(null, facesMessage);
-		}catch(Exception e){
+			MessagesProperty.sucessoMsg("MN0001");
+		}catch(Throwable e){
 			e.printStackTrace();
-			FacesMessage facesMessage = new FacesMessage("Falha ao adicionar usuario");
-			context.addMessage(null, facesMessage);
+			MessagesProperty.errorMsg("MN0005");
 		}
 		
 		return null;
