@@ -14,8 +14,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import org.hibernate.annotations.NaturalId;
-
 @Entity
 @Table(name="usuario")
 public class Usuario implements Serializable{
@@ -24,14 +22,24 @@ public class Usuario implements Serializable{
 	
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Long id;
+	
+	@Column(nullable = false)
 	private String nome;
+	
+	@Column(nullable = false)
 	private String email;
+	
+	@Column(nullable = false)
 	private String telefone;
 	
-	@NaturalId
+	@Column(unique = true, nullable = false)
 	private String login;
+	
+	@Column(nullable = false)
 	private String senha;
+	
+	@Column(nullable = false)
 	private boolean ativo;
 	
 	@ElementCollection(targetClass = String.class)
@@ -42,11 +50,11 @@ public class Usuario implements Serializable{
 	@Column(name = "permissao", length=50)
 	private Set<String> permissao = new HashSet<String>();
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -2,6 +2,6 @@ package bolao.dao;
 
 import bolao.model.Usuario;
 
-public interface UsuarioDAO {
-	public void salvar(Usuario usuario);
+public interface UsuarioDAO extends DAOBase<Usuario>{
+
 }

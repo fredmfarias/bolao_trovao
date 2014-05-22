@@ -1,10 +1,11 @@
-package bolao.web;
+package bolao.apresentacao.mb;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
-import bolao.controller.UsuarioController;
 import bolao.model.Usuario;
+import bolao.services.IUsuarioService;
 import bolao.util.MessagesProperty;
 
 @ManagedBean(name="usuarioMB")
@@ -12,6 +13,9 @@ import bolao.util.MessagesProperty;
 public class UsuarioMB {
 	private Usuario usuario;
 	private String confirmarSenha;
+	
+	@ManagedProperty(value="#{UsuarioService}")
+	IUsuarioService usuarioService;
 	
 	public UsuarioMB(){
 		this.usuario = new Usuario();
@@ -26,8 +30,7 @@ public class UsuarioMB {
 		}
 
 		try{
-			UsuarioController usuarioRN = new UsuarioController();
-			usuarioRN.salvar(this.usuario);
+			getUsuarioService().addUsuario(usuario);
 			
 			MessagesProperty.sucessoMsg("MN0001");
 		}catch(Throwable e){
@@ -50,5 +53,13 @@ public class UsuarioMB {
 	}
 	public void setConfirmarSenha(String confirmarSenha) {
 		this.confirmarSenha = confirmarSenha;
+	}
+
+	public IUsuarioService getUsuarioService() {
+		return usuarioService;
+	}
+
+	public void setUsuarioService(IUsuarioService usuarioService) {
+		this.usuarioService = usuarioService;
 	}
 }
