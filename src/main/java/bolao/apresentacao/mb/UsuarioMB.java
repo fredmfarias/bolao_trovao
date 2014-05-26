@@ -29,6 +29,11 @@ public class UsuarioMB {
 			return null;
 		}
 
+		if(getUsuarioService().existeLogin(getUsuario().getLogin())){
+			MessagesProperty.errorMsg("MN0006");
+			return null;
+		}
+		
 		try{
 			getUsuarioService().addUsuario(usuario);
 			
@@ -40,6 +45,11 @@ public class UsuarioMB {
 		
 		return null;
 	}
+	
+	public void handleBlurEvent() {
+        if(getUsuarioService().existeLogin(getUsuario().getLogin()))
+        	MessagesProperty.errorMsg("MN0006");
+    }
 	
 	public Usuario getUsuario() {
 		return usuario;

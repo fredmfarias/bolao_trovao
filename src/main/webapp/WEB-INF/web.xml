@@ -31,6 +31,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 		    /WEB-INF/spring/spring-data.xml
+		    /WEB-INF/spring/spring-security.xml
 	     </param-value>
 	</context-param>
 	
@@ -54,5 +55,16 @@
 	<welcome-file-list>
 		<welcome-file>/home.xhtml</welcome-file>
 	</welcome-file-list>
+	
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
 	
 </web-app>

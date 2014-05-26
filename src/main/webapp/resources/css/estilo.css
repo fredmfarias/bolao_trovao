@@ -76,3 +76,37 @@ div#center div#content {
 	float: left;
 	display: inline;
 }
+
+div#center div#content .ui-messages-info, 
+div#center div#content .ui-messages-warn,
+div#center div#content .ui-messages-error,
+div#center div#content .ui-messages-fatal{
+	margin:0 0 10px 0;
+}
+
+div#center div#content .ui-messages-info{
+	color:#3c904e;
+	background-color:#d7fdd9;
+	border-color:#b0e6b2;
+}
+
+div#center div#content .ui-messages-info-icon{
+	background:url(../imagens/messages.png) no-repeat 0px -52px;
+	display:block;
+	float:left;
+	margin:0;
+	padding:0;
+	position:relative;
+	height:24px;
+	width:24px;
+	margin-top:-4px;
+}
+
+div#center div#content .ui-messages-info-summary{
+	margin-left:10px;
+	font-weight:bold;
+}
+
+div#center div#content .ui-messages-info-detail{
+	margin-left:5px;
+}

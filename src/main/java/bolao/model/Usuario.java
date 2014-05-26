@@ -48,7 +48,11 @@ public class Usuario implements Serializable{
 			uniqueConstraints ={@UniqueConstraint(columnNames = {"usuario","permissao"})},
 			joinColumns = @JoinColumn(name = "usuario"))
 	@Column(name = "permissao", length=50)
-	private Set<String> permissao = new HashSet<String>();
+	private Set<String> permissao;
+	
+	public Usuario(){
+		this.permissao = new HashSet<String>();
+	}
 	
 	public Long getId() {
 		return id;
@@ -112,5 +116,13 @@ public class Usuario implements Serializable{
 
 	public void setLogin(String login) {
 		this.login = login;
+	}
+	
+	public void addPermissao(String permissao){
+		this.permissao.add(permissao);
+	}
+	
+	public void removePermissao(String permissao){
+		this.permissao.remove(permissao);
 	}
 }
