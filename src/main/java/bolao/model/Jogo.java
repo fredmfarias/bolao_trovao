@@ -37,10 +37,13 @@ public class Jogo implements Serializable{
 	private Date dataJogo;
 	
 	@Column(nullable = false)
-	private String local;
+	private String localJogo;
 	
 	@Column(nullable = false)
 	private Integer numeroJogo;
+	
+	@Column(nullable = false)
+	private Integer rodada;
 	
 	@Column(nullable = false)
 	private Character grupo;
@@ -95,12 +98,12 @@ public class Jogo implements Serializable{
 		this.dataJogo = dataJogo;
 	}
 
-	public String getLocal() {
-		return local;
+	public String getLocalJogo() {
+		return localJogo;
 	}
 
-	public void setLocal(String local) {
-		this.local = local;
+	public void setLocalJogo(String localJogo) {
+		this.localJogo = localJogo;
 	}
 
 	public Integer getNumeroJogo() {
@@ -125,5 +128,17 @@ public class Jogo implements Serializable{
 
 	public void setPesoPontucao(int pesoPontucao) {
 		this.pesoPontucao = pesoPontucao;
+	}
+
+	public Integer getRodada() {
+		return rodada;
+	}
+
+	public void setRodada(Integer rodada) {
+		this.rodada = rodada;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}	
 }
