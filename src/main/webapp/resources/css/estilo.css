@@ -110,3 +110,141 @@ div#center div#content .ui-messages-info-summary{
 div#center div#content .ui-messages-info-detail{
 	margin-left:5px;
 }
+
+.escudos {
+	width:160px;
+	height:160px;
+	background:url("resources/imagens/escudos.png")  no-repeat;
+}
+
+/*  linha um */
+.brasil{
+	background-position: -60px -62px;
+}
+
+.croacia{
+	background-position: -250px -62px;
+}
+
+.mexico{
+	background-position: -445px -62px;
+}
+
+.camaroes{
+	background-position: -635px -62px;
+}
+
+.espanha{
+	background-position: -818px -62px;
+}
+
+.holanda{
+	background-position: -1005px -62px;
+}
+
+.chile{
+	background-position: -1192px -62px;
+}
+
+.australia{
+	background-position: -1380px -62px;
+}
+
+/*  linha dois */
+.colombia{
+	background-position: -60px -285px;
+}
+
+.grecia{
+	background-position: -250px -285px;
+}
+
+.costa_do_marfim{
+	background-position: -445px -285px;
+}
+
+.japao{
+	background-position: -635px -285px;
+}
+
+.uruguai{
+	background-position: -818px -285px;
+}
+
+.costa_rica{
+	background-position: -1005px -285px;
+}
+
+.inglaterra{
+	background-position: -1192px -285px;
+}
+
+.italia{
+	background-position: -1380px -285px;
+}
+
+/*  linha tres */
+.suica{
+	background-position: -60px -505px;
+}
+
+.equador{
+	background-position: -250px -505px;
+}
+
+.franca{
+	background-position: -445px -505px;
+}
+
+.honduras{
+	background-position: -635px -505px;
+}
+
+.argentina{
+	background-position: -818px -505px;
+}
+
+.bosnia{
+	background-position: -1005px -505px;
+}
+
+.ira{
+	background-position: -1192px -505px;
+}
+
+.nigeria{
+	background-position: -1380px -505px;
+}
+
+/*  linha quatro */
+.alemanha{
+	background-position: -60px -730px;
+}
+
+.portugal{
+	background-position: -250px -730px;
+}
+
+.gana{
+	background-position: -445px -730px;
+}
+
+.estados_unidos{
+	background-position: -635px -730px;
+}
+
+.belgica{
+	background-position: -818px -730px;
+}
+
+.argelia{
+	background-position: -1005px -730px;
+}
+
+.russia{
+	background-position: -1192px -730px;
+}
+
+.coreia_do_sul{
+	background-position: -1380px -730px;
+}

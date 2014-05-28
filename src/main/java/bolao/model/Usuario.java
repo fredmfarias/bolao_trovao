@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -15,13 +16,13 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="usuario")
+@Table(name="tb_usuario")
 public class Usuario implements Serializable{
 
 	private static final long serialVersionUID = 3026097908340994246L;
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(nullable = false)
@@ -44,9 +45,9 @@ public class Usuario implements Serializable{
 	
 	@ElementCollection(targetClass = String.class)
 	@JoinTable(
-			name = "usuario_permissao",
-			uniqueConstraints ={@UniqueConstraint(columnNames = {"usuario","permissao"})},
-			joinColumns = @JoinColumn(name = "usuario"))
+			name = "tb_usuario_permissao",
+			uniqueConstraints ={@UniqueConstraint(columnNames = {"id_usuario","permissao"})},
+			joinColumns = @JoinColumn(name = "id_usuario"))
 	@Column(name = "permissao", length=50)
 	private Set<String> permissao;
 	
