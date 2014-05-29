@@ -1,5 +1,4 @@
-﻿
-INSERT INTO tb_clube (nome, escudo) VALUES ('Brasil', 'brasil');
+﻿INSERT INTO tb_clube (nome, escudo) VALUES ('Brasil', 'brasil');
 INSERT INTO tb_clube (nome, escudo) VALUES ('Croácia', 'croacia');
 INSERT INTO tb_clube (nome, escudo) VALUES ('México', 'mexico');
 INSERT INTO tb_clube (nome, escudo) VALUES ('Camarões', 'camaroes');
@@ -14,7 +13,7 @@ INSERT INTO tb_clube (nome, escudo) VALUES ('Grécia', 'grecia');
 INSERT INTO tb_clube (nome, escudo) VALUES ('Costa do Marfim', 'costa_do_marfim');
 INSERT INTO tb_clube (nome, escudo) VALUES ('Japão', 'japao');
 
-INSERT INTO tb_clube (nome, escudo) VALUES ('Uruguai', 'Uruguai');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Uruguai', 'uruguai');
 INSERT INTO tb_clube (nome, escudo) VALUES ('Costa Rica', 'costa_rica');
 INSERT INTO tb_clube (nome, escudo) VALUES ('Inglaterra', 'inglaterra');
 INSERT INTO tb_clube (nome, escudo) VALUES ('Itália', 'italia');

@@ -1,5 +1,0 @@
-﻿INSERT INTO tb_jogo (id_clube_casa, id_clube_visitante, dataJogo, localJogo,
-numeroJogo, rodada, grupo, pesoPontucao ) 
-VALUES ((select id from tb_clube where escudo = 'croacia'), 
-(select id from tb_clube where escudo = 'argentina'),
-now(), 'maracana', 1, 1, 'A', 1);
