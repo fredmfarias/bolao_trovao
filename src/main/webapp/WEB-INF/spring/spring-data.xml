@@ -8,20 +8,14 @@
 		        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 		        http://www.springframework.org/schema/context 
 		        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-
-	<!-- Beans Declaration -->
-	<bean id="Usuario" class="bolao.model.Usuario"/>
 	
-	<!-- Usuario Service Declaration -->
-	<bean id="UsuarioService" class="bolao.services.impl.UsuarioService">
-		<property name="usuarioDAO" ref="UsuarioDAOHibernate" />
-	</bean>
+	<!-- Seta anotaçoes para serem usadas pelo Spring -->
+	<context:annotation-config />
 	
-	<!-- Usuario DAO Declaration -->
-	<bean id="UsuarioDAOHibernate" class="bolao.dao.impl.UsuarioDAOHibernate">
-		<property name="sessionFactory" ref="SessionFactory" />
-	</bean>
+	<!-- Define o pacote onde o Spring vai procurar por beans anotados -->
+	<context:component-scan base-package="bolao.services.impl, bolao.dao.impl"/>
 	
+	<!-- Configuracao do Banco de Dados -->	
 	<bean id="DataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName">
 			<value>java:/comp/env/jdbc/BolaoDB</value>
@@ -49,10 +43,10 @@
 		</property>
 	</bean>
 	
-	<!-- Enable the configuration of transactional behavior based on annotations -->
+	<!-- define que as transaçoes irao ser anotadas -->
     <tx:annotation-driven transaction-manager="txManager"/>
 
-	<!-- Transaction Manager is defined -->
+	<!-- Configuracao do gerente de transacoes do Spring -->
     <bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
        <property name="sessionFactory" ref="SessionFactory"/>
     </bean>

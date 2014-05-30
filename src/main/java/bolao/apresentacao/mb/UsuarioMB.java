@@ -14,8 +14,8 @@ public class UsuarioMB {
 	private Usuario usuario;
 	private String confirmarSenha;
 	
-	@ManagedProperty(value="#{UsuarioService}")
-	IUsuarioService usuarioService;
+	@ManagedProperty(value="#{usuarioService}")
+	private IUsuarioService usuarioService;
 	
 	public UsuarioMB(){
 		this.usuario = new Usuario();

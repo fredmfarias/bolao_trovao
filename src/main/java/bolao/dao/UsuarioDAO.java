@@ -3,5 +3,6 @@ package bolao.dao;
 import bolao.model.Usuario;
 
 public interface UsuarioDAO extends DAOBase<Usuario>{
-	public Long countLogin(String login);
+	Long countLogin(String login);
+	Long buscaIdUsuarioPorLogin(String login);
 }

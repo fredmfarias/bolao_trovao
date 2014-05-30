@@ -1,26 +1,38 @@
 package bolao.services.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
+import bolao.dao.JogoDAO;
 import bolao.dao.UsuarioDAO;
-import bolao.excecoes.BolaoException;
+import bolao.excecoes.UsuarioException;
 import bolao.model.Usuario;
+import bolao.services.IApostaService;
 import bolao.services.IUsuarioService;
 import bolao.util.Constantes;
 
 @Transactional(readOnly = true)
+@Service("usuarioService")
 public class UsuarioService implements IUsuarioService {
 	
-	UsuarioDAO usuarioDAO;
+	@Autowired
+	private UsuarioDAO usuarioDAO;
+	
+	@Autowired
+	private JogoDAO jogoDAO;
+	
+	@Autowired
+	private IApostaService apostaService;
 	
 	@Override
 	@Transactional(readOnly = false)
-	public void addUsuario(Usuario usuario) throws BolaoException {
+	public void addUsuario(Usuario usuario) throws UsuarioException {
 		
 		try {
 			validaUsuarioBase(usuario);
-		} catch (BolaoException e) {
+		} catch (UsuarioException e) {
 			throw e;
 		}
 						
@@ -30,39 +42,59 @@ public class UsuarioService implements IUsuarioService {
 		usuario.setSenha(senhaCriptografada);
 		usuario.addPermissao(Constantes.ROLE_USUARIO);
 		
-		getUsuarioDAO().salvar(usuario);
+		try{
+			this.usuarioDAO.salvar(usuario);
+				
+			apostaService.addAposta(usuario, this.jogoDAO.listAll());
+		}
+		catch (Exception e) {
+			throw new UsuarioException("Erro ao adcionar Usuario", e);
+		}
 	}
 	
 	public boolean existeLogin(String login){
-		return getUsuarioDAO().countLogin(login) > 0;
-	}
-
-	public UsuarioDAO getUsuarioDAO() {
-		return usuarioDAO;
-	}
-
-	public void setUsuarioDAO(UsuarioDAO usuarioDAO) {
-		this.usuarioDAO = usuarioDAO;
+		return this.usuarioDAO.countLogin(login) > 0;
 	}
 	
-	public void validaUsuarioBase(Usuario usuario) throws BolaoException{
+	public void validaUsuarioBase(Usuario usuario) throws UsuarioException{
 		
 		if(usuario == null)
-			throw new BolaoException("Usuário nulo");
+			throw new UsuarioException("Usuário nulo");
 		
 		if(usuario.getNome() == null)
-			throw new BolaoException("Nome de usuário não pode ser nulo");
+			throw new UsuarioException("Nome de usuário não pode ser nulo");
 		
 		if(usuario.getEmail() == null)
-			throw new BolaoException("Email de usuário não pode ser nulo");
+			throw new UsuarioException("Email de usuário não pode ser nulo");
 		
 		if(usuario.getLogin() == null)
-			throw new BolaoException("Login de usuário não pode ser nulo");
+			throw new UsuarioException("Login de usuário não pode ser nulo");
 		
 		if(usuario.getSenha() == null)
-			throw new BolaoException("Senha de usuário não pode ser nulo");
+			throw new UsuarioException("Senha de usuário não pode ser nulo");
 		
 		if(usuario.getTelefone() == null)
-			throw new BolaoException("Telefone de usuário não pode ser nulo");		
+			throw new UsuarioException("Telefone de usuário não pode ser nulo");		
+	}
+
+	@Override
+	public Usuario buscaUsuarioParaSessao(String login) throws UsuarioException {
+		Long id;
+		try{
+			id = this.usuarioDAO.buscaIdUsuarioPorLogin(login);
+		}catch(Exception e){
+			throw new UsuarioException("Erro de banco de dados", e);
+		}
+		
+		if(id == null){
+			throw new UsuarioException("Estranho! Nenhum usuario encontrado");
+		}
+		
+		Usuario usuario = new Usuario();
+		
+		usuario.setId(id);
+		usuario.setLogin(login);
+		
+		return usuario;
 	}
 }

@@ -8,10 +8,17 @@
 
 <ui:composition template="/templates/interface.xhtml">
 	<ui:define name="titulo">
-		xx
+		Apostas
 	</ui:define>
 	<ui:define name="conteudo">
-		<p:spinner />
+		<p:dataTable var="aposta" value="#{apostaMB.apostas}">
+			<p:column headerText="Id">
+				<h:outputText value="#{aposta.id}" />
+			</p:column>
+			<p:column headerText="imagem">
+				<p:graphicImage width="60px" height="60px" styleClass="escudos #{aposta.jogo.clubeCasa.escudo}"/>
+			</p:column>
+		</p:dataTable>
 	</ui:define>
 </ui:composition>
 </html>

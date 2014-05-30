@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import bolao.dao.DAOBase;
 
 
 public abstract class GenericHibernate<T> implements DAOBase<T> {
 	
+	@Autowired
 	private SessionFactory sessionFactory;
 	
 	protected abstract Class<T> getEntityClass();	
