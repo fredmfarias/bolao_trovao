@@ -1,5 +1,6 @@
 package bolao.services.impl;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,9 @@ import bolao.services.IApostaService;
 
 @Transactional(readOnly=true)
 @Service("apostaService")
-public class ApostaService implements IApostaService {
+public class ApostaService implements IApostaService, Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Autowired
 	private ApostaDAO apostaDAO;

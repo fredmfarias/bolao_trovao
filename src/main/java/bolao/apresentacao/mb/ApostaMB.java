@@ -1,5 +1,6 @@
 package bolao.apresentacao.mb;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -13,8 +14,9 @@ import bolao.util.MessagesProperty;
 
 @ManagedBean(name="apostaMB")
 @ViewScoped
-public class ApostaMB extends MB{
+public class ApostaMB extends MB implements Serializable{
 	
+	private static final long serialVersionUID = -3719644829272321357L;
 	@ManagedProperty(value="#{apostaService}")
 	private IApostaService apostaService;
 	private List<Aposta> apostas;
@@ -28,6 +30,9 @@ public class ApostaMB extends MB{
 			e.printStackTrace();
 			MessagesProperty.errorMsg("MN0007");
 		}
+		
+		for(Aposta a : this.apostas)
+			System.out.println("<img class=\"escudos " + a.getJogo().getClubeCasa().getEscudo() + " \"\\>");
 	}
 
 	public IApostaService getApostaService() {

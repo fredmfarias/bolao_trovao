@@ -112,42 +112,42 @@ div#center div#content .ui-messages-info-detail{
 }
 
 .escudos {
-	width:160px;
-	height:160px;
+	width:52px;
+	height:52px;
 	background:url("../imagens/escudos.png")  no-repeat;
 }
 
 /*  linha um */
 .brasil{
-	background-position: -60px -62px;
+	background-position: -5px -10px;
 }
 
 .croacia{
-	background-position: -250px -62px;
+	background-position: -64px -10px;
 }
 
 .mexico{
-	background-position: -445px -62px;
+	background-position: -76px -10px;
 }
 
 .camaroes{
-	background-position: -635px -62px;
+	background-position: -180px -10px;
 }
 
 .espanha{
-	background-position: -818px -62px;
+	background-position: -240px -10px;
 }
 
 .holanda{
-	background-position: -1005px -62px;
+	background-position: -300px -10px;
 }
 
 .chile{
-	background-position: -1192px -62px;
+	background-position: -360px -10px;
 }
 
 .australia{
-	background-position: -1380px -62px;
+	background-position: -420px -10px;
 }
 
 /*  linha dois */
