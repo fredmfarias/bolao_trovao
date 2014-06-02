@@ -127,15 +127,15 @@ div#center div#content .ui-messages-info-detail{
 }
 
 .mexico{
-	background-position: -76px -10px;
+	background-position: -123px -10px;
 }
 
 .camaroes{
-	background-position: -180px -10px;
+	background-position: -182px -10px;
 }
 
 .espanha{
-	background-position: -240px -10px;
+	background-position: -241px -10px;
 }
 
 .holanda{
@@ -143,108 +143,126 @@ div#center div#content .ui-messages-info-detail{
 }
 
 .chile{
-	background-position: -360px -10px;
+	background-position: -359px -10px;
 }
 
 .australia{
-	background-position: -420px -10px;
+	background-position: -418px -10px;
 }
 
 /*  linha dois */
 .colombia{
-	background-position: -60px -285px;
-}
-
-.grecia{
-	background-position: -250px -285px;
-}
-
-.costa_do_marfim{
-	background-position: -445px -285px;
-}
-
-.japao{
-	background-position: -635px -285px;
-}
-
-.uruguai{
-	background-position: -818px -285px;
-}
-
-.costa_rica{
-	background-position: -1005px -285px;
-}
-
-.inglaterra{
-	background-position: -1192px -285px;
-}
-
-.italia{
-	background-position: -1380px -285px;
+	background-position: -5px -80px;
+}                        
+                         
+.grecia{                 
+	background-position: -64px -80px;
+}                        
+                         
+.costa_do_marfim{        
+	background-position: -123px -80px;
+}                        
+                         
+.japao{                  
+	background-position: -182px -80px;
+}                        
+                         
+.uruguai{                
+	background-position: -241px -80px;
+}                        
+                         
+.costa_rica{             
+	background-position: -300px -80px;
+}                        
+                         
+.inglaterra{             
+	background-position: -359px -80px;
+}                        
+                         
+.italia{                 
+	background-position: -418px -80px;
 }
 
 /*  linha tres */
 .suica{
-	background-position: -60px -505px;
-}
-
-.equador{
-	background-position: -250px -505px;
-}
-
-.franca{
-	background-position: -445px -505px;
-}
-
-.honduras{
-	background-position: -635px -505px;
-}
-
-.argentina{
-	background-position: -818px -505px;
-}
-
-.bosnia{
-	background-position: -1005px -505px;
-}
-
-.ira{
-	background-position: -1192px -505px;
-}
-
-.nigeria{
-	background-position: -1380px -505px;
+	background-position: -5px -150px;
+}                        
+                         
+.equador{                
+	background-position: -64px -150px;
+}                        
+                         
+.franca{                 
+	background-position: -123px -150px;
+}                        
+                         
+.honduras{               
+	background-position: -182px -150px;
+}                        
+                         
+.argentina{              
+	background-position: -241px -150px;
+}                        
+                         
+.bosnia{                 
+	background-position: -300px -150px;
+}                        
+                         
+.ira{                    
+	background-position: -359px -150px;
+}                        
+                         
+.nigeria{                
+	background-position: -418px -150px;
 }
 
 /*  linha quatro */
 .alemanha{
-	background-position: -60px -730px;
+	background-position: -5px -220px;
+}                        
+                         
+.portugal{               
+	background-position: -64px -220px;
+}                        
+                         
+.gana{                   
+	background-position: -123px -220px;
+}                        
+                         
+.estados_unidos{         
+	background-position: -182px -220px;
+}                        
+                         
+.belgica{                
+	background-position: -241px -220px;
+}                        
+                         
+.argelia{                
+	background-position: -300px -220px;
+}                        
+                         
+.russia{                 
+	background-position: -359px -220px;
+}                        
+                         
+.coreia_do_sul{          
+	background-position: -418px -220px;
 }
 
-.portugal{
-	background-position: -250px -730px;
+.dia{
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #a0a0a0;
 }
 
-.gana{
-	background-position: -445px -730px;
+.celula{
+	position: relative;
+	height: 100%;
+	vertical-align: middle;
 }
 
-.estados_unidos{
-	background-position: -635px -730px;
-}
-
-.belgica{
-	background-position: -818px -730px;
-}
-
-.argelia{
-	background-position: -1005px -730px;
-}
-
-.russia{
-	background-position: -1192px -730px;
-}
-
-.coreia_do_sul{
-	background-position: -1380px -730px;
+.numero{
+	padding-top: 10px;
+	font-size: 12px;
+	display: block;
 }

@@ -30,9 +30,6 @@ public class ApostaMB extends MB implements Serializable{
 			e.printStackTrace();
 			MessagesProperty.errorMsg("MN0007");
 		}
-		
-		for(Aposta a : this.apostas)
-			System.out.println("<img class=\"escudos " + a.getJogo().getClubeCasa().getEscudo() + " \"\\>");
 	}
 
 	public IApostaService getApostaService() {

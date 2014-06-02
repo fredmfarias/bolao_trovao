@@ -12,11 +12,34 @@
 	</ui:define>
 	<ui:define name="conteudo">
 		<p:dataTable var="aposta" value="#{apostaMB.apostas}">
-			<p:column headerText="Id">
-				<h:outputText value="#{aposta.id}" />
+
+			<f:facet name="header">
+            	#{msg['label.apostas']}
+        	</f:facet>
+		
+			<p:column headerText="#{msg['label.data']}">
+				<h:outputText styleClass="dia" value="#{aposta.jogo.dataJogo}" />
 			</p:column>
-			<p:column headerText="imagem">
-				<p:graphicImage width="60px" height="60px" styleClass="escudos #{aposta.jogo.clubeCasa.escudo}"/>
+			
+			<p:column width="600" headerText="#{msg['label.confronto']}">
+				
+				<h:outputText styleClass="numero" value="#{msg['label.jogo']} #{aposta.jogo.numeroJogo}" />
+				
+				<h:outputText style="{color: blue;}" value="#{aposta.jogo.clubeCasa.nome}" />
+				
+				<img src="../resources/imagens/img_trans.gif"
+					class="escudos #{aposta.jogo.clubeCasa.escudo}" />
+					
+				<h:outputText value="X" />
+				
+				<img src="../resources/imagens/img_trans.gif"
+					class="escudos #{aposta.jogo.clubeVisitante.escudo}" />
+				
+				<h:outputText value="#{aposta.jogo.clubeVisitante.nome}" />
+			</p:column>
+			
+			<p:column headerText="Local">	
+				<h:outputText value="#{aposta.jogo.localJogo}" />
 			</p:column>
 		</p:dataTable>
 	</ui:define>
