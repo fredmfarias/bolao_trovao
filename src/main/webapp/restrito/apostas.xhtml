@@ -11,37 +11,52 @@
 		Apostas
 	</ui:define>
 	<ui:define name="conteudo">
-		<p:dataTable var="aposta" value="#{apostaMB.apostas}">
-
-			<f:facet name="header">
-            	#{msg['label.apostas']}
-        	</f:facet>
-		
-			<p:column headerText="#{msg['label.data']}">
-				<h:outputText styleClass="dia" value="#{aposta.jogo.dataJogo}" />
-			</p:column>
-			
-			<p:column width="600" headerText="#{msg['label.confronto']}">
+		<h:form id="apostas">
+			<p:dataTable var="aposta" value="#{apostaMB.apostas}">
+	
+				<f:facet name="header">
+	            	#{msg['label.apostas']}
+	        	</f:facet>
 				
-				<h:outputText styleClass="numero" value="#{msg['label.jogo']} #{aposta.jogo.numeroJogo}" />
+				<p:column headerText="#{msg['label.data']}">
+					<h:outputText value="#{aposta.jogo.dataJogo}" />
+				</p:column>
 				
-				<h:outputText style="{color: blue;}" value="#{aposta.jogo.clubeCasa.nome}" />
-				
-				<img src="../resources/imagens/img_trans.gif"
-					class="escudos #{aposta.jogo.clubeCasa.escudo}" />
+				<p:column width="600" headerText="#{msg['label.confronto']}">
 					
-				<h:outputText value="X" />
+					<h:outputText value="#{msg['label.jogo']} #{aposta.jogo.numeroJogo}" />
+					
+					<div id="confronto">
+						
+						<div id="mandante">
+							<h:outputText styleClass="selecao" value="#{aposta.jogo.clubeCasa.nome}" />
+					
+							<img src="../resources/imagens/img_trans.gif"
+								class="escudos #{aposta.jogo.clubeCasa.escudo}"/>
+						</div>
+						
+						<div id="placar">
+							<p:spinner size="2" min="0"/>
+					
+							<h:outputText style="padding: 5px;" value="X" />
+					
+							<p:spinner size="2" min="0"/>	
+						</div>
+						
+						<div id="visitante">	
+							<img src="../resources/imagens/img_trans.gif"
+								class="escudos #{aposta.jogo.clubeVisitante.escudo}" />
+					
+							<h:outputText  styleClass="selecao" value="#{aposta.jogo.clubeVisitante.nome}" />
+						</div>
+					</div>
+				</p:column>
 				
-				<img src="../resources/imagens/img_trans.gif"
-					class="escudos #{aposta.jogo.clubeVisitante.escudo}" />
-				
-				<h:outputText value="#{aposta.jogo.clubeVisitante.nome}" />
-			</p:column>
-			
-			<p:column headerText="Local">	
-				<h:outputText value="#{aposta.jogo.localJogo}" />
-			</p:column>
-		</p:dataTable>
+				<p:column headerText="Local">	
+					<h:outputText value="#{aposta.jogo.localJogo}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
 	</ui:define>
 </ui:composition>
 </html>

@@ -1,5 +1,6 @@
 package bolao.dao.impl;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -9,7 +10,9 @@ import bolao.dao.ApostaDAO;
 import bolao.model.Aposta;
 
 @Repository("apostaDAO")
-public class ApostaDAOHibernate extends GenericHibernate<Aposta> implements ApostaDAO {
+public class ApostaDAOHibernate extends GenericHibernate<Aposta> implements ApostaDAO, Serializable {
+
+	private static final long serialVersionUID = 3208898506557074873L;
 
 	@Override
 	protected Class<Aposta> getEntityClass() {

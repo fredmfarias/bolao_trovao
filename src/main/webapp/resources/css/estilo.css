@@ -111,10 +111,32 @@ div#center div#content .ui-messages-info-detail{
 	margin-left:5px;
 }
 
+div#confronto div{
+	display: inline-block;
+	text-align: right;
+}
+
+div#confronto div#mandante{
+	width: 35%;
+}
+
+div#confronto div#visitante{
+	width: 35%;
+	text-align: left;
+}
+
+div#confronto div#placar{
+	width: 25%; 
+	text-align: center !important;
+	display: inline-block;
+}
+
 .escudos {
 	width:52px;
 	height:52px;
 	background:url("../imagens/escudos.png")  no-repeat;
+	vertical-align: middle;
+	display: inline-block;
 }
 
 /*  linha um */
@@ -249,20 +271,14 @@ div#center div#content .ui-messages-info-detail{
 	background-position: -418px -220px;
 }
 
-.dia{
+.tabela td {
+	text-align: center !important;
+}
+
+.selecao{
 	font-size: 12px;
 	text-transform: uppercase;
-	color: #a0a0a0;
-}
-
-.celula{
-	position: relative;
-	height: 100%;
+	font-weight: bold;
 	vertical-align: middle;
-}
-
-.numero{
-	padding-top: 10px;
-	font-size: 12px;
-	display: block;
+	padding-left: 5px;
 }
