@@ -48,4 +48,16 @@ public class ApostaService implements IApostaService, Serializable {
 			throw new ApostaException("Nao foi possivel recuperar as apostas do usuario");
 		}
 	}
+
+	@Override
+	public void salvaListAposta(List<Aposta> apostas) throws ApostaException {
+		
+		try{
+			for(Aposta a : apostas){
+				this.apostaDAO.atualizar(a);
+			}
+		}catch(Exception e){
+			throw new ApostaException("Nao foi possivel atualizar as apostas do usuario");
+		}
+	}
 }

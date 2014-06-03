@@ -7,4 +7,8 @@ public class BolaoException extends Exception {
 	public BolaoException(String message) {
 		super(message);
 	}
+	
+	public BolaoException(String message, Throwable throwable) {
+		super(message, throwable);
+	}
 }

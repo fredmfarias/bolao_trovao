@@ -12,19 +12,24 @@
 	</ui:define>
 	<ui:define name="conteudo">
 		<h:form id="apostas">
-			<p:dataTable var="aposta" value="#{apostaMB.apostas}">
+			<p:dataTable styleClass="tabela" var="aposta" value="#{apostaMB.apostas}">
 	
 				<f:facet name="header">
 	            	#{msg['label.apostas']}
 	        	</f:facet>
 				
 				<p:column headerText="#{msg['label.data']}">
-					<h:outputText value="#{aposta.jogo.dataJogo}" />
+					<h:outputText styleClass="dia" value="#{utilMB.dataUtil.obterNomeDiaDaSemana(aposta.jogo.dataJogo)}" />
+					<br />
+					<h:outputText styleClass="data" value="#{utilMB.dataUtil.formatarDDMM(aposta.jogo.dataJogo)}" />
+					<br />
+					<h:outputText styleClass="hora" value="#{utilMB.dataUtil.formatarHHmm(aposta.jogo.dataJogo)}" />
 				</p:column>
 				
 				<p:column width="600" headerText="#{msg['label.confronto']}">
 					
-					<h:outputText value="#{msg['label.jogo']} #{aposta.jogo.numeroJogo}" />
+					<h:outputText value="#{msg['label.jogo']} #{aposta.jogo.numeroJogo} - " />
+					<h:outputText style="font-weight: bold;" value="Grupo #{aposta.jogo.grupo}" />
 					
 					<div id="confronto">
 						
@@ -56,6 +61,20 @@
 					<h:outputText value="#{aposta.jogo.localJogo}" />
 				</p:column>
 			</p:dataTable>
+			
+			<div id="BarraControllerContainner" class="glb-conteudo">
+				<div id="bolao-barra">
+					<div class="envelope">
+						<div class="bolao-barra-corpo">
+							<div class="aposta-info">
+								<div id="elemento"></div>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+			
 		</h:form>
 	</ui:define>
 </ui:composition>

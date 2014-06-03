@@ -114,6 +114,7 @@ div#center div#content .ui-messages-info-detail{
 div#confronto div{
 	display: inline-block;
 	text-align: right;
+	padding-top: 20px;
 }
 
 div#confronto div#mandante{
@@ -278,7 +279,62 @@ div#confronto div#placar{
 .selecao{
 	font-size: 12px;
 	text-transform: uppercase;
-	font-weight: bold;
 	vertical-align: middle;
 	padding-left: 5px;
+}
+
+.dia{
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #A0A0A0;
+}
+
+.data{
+	font-weight: bold;
+	font-size: 15px;
+	color: #333;
+}
+
+.hora{
+	font-size: 12px;
+	color: #676767;
+}
+
+.glb-conteudo {
+	margin: 0 auto !important;
+	width: 81em;
+	text-align: left;
+}
+
+#bolao-barra {
+    bottom: 0px;
+    color: #909090;
+    position: fixed;
+    height: 60px;
+    z-index: 9999999;
+    width: 960px;
+}
+
+div#bolao-barra div.envelope {
+    position: absolute;
+    background: url("../imagens/bg_sombra_transparent.png") repeat scroll 0% 0% transparent;
+    width: 904px;
+    border-radius: 3px 0px 0px;
+    bottom: 0px;
+    z-index: 2;
+    height: 60px;
+    display: block;
+}
+
+div#bolao-barra div.bolao-barra-corpo {
+    position: relative;
+    margin: 3px -1px 0px 3px;
+    background: url("../imagens/bg-botoes-barra.png") repeat-x scroll 0% 0% transparent;
+    height: 57px;
+}
+
+#bolao-barra div.bolao-barra-corpo div.aposta-info {
+    float: left;
+    border-right: 1px solid #AAA;
+    border-top: 1px solid #AAA;
 }
