@@ -11,6 +11,10 @@
 		Apostas
 	</ui:define>
 	<ui:define name="conteudo">
+		<f:metadata>  
+    		<f:event type="preRenderView" listener="#{aplicacaoMB.cronometroRegressivo()}"/>  
+		</f:metadata>
+				
 		<h:form id="apostas">
 			<p:dataTable styleClass="tabela" var="aposta" value="#{apostaMB.apostas}">
 	
@@ -34,18 +38,18 @@
 					<div id="confronto">
 						
 						<div id="mandante">
-							<h:outputText styleClass="selecao" value="#{aposta.jogo.clubeCasa.nome}" />
+							<h:outputText styleClass="selecao" value="#{aposta.jogo.clubeCasa.nome}"  />
 					
 							<img src="../resources/imagens/img_trans.gif"
 								class="escudos #{aposta.jogo.clubeCasa.escudo}"/>
 						</div>
 						
 						<div id="placar">
-							<p:spinner size="2" min="0"/>
+							<p:spinner id="spPlacarMandante" size="2" min="0" disabled="#{apostaMB.permiteAposta()}"/>
 					
 							<h:outputText style="padding: 5px;" value="X" />
 					
-							<p:spinner size="2" min="0"/>	
+							<p:spinner id="spPlacarVisitante" size="2" min="0" disabled="#{apostaMB.permiteAposta()}"/>	
 						</div>
 						
 						<div id="visitante">	
@@ -66,15 +70,22 @@
 				<div id="bolao-barra">
 					<div class="envelope">
 						<div class="bolao-barra-corpo">
-							<div class="aposta-info">
-								<div id="elemento"></div>
+							<div class="bolao-status">
+								<div class="aposta-aberta">
+									<span class="label"> Apostas <strong> ABERTAS </strong></span> 
+									<span id="elemento" class="data"></span>
+								</div>
+							</div>
+							<div class="bolao-status">
+								<div class="apostar">
+									<p:commandLink value="Apostar" actionListener="#" />
+								</div>
 							</div>
 						</div>
-					
 					</div>
+					
 				</div>
 			</div>
-			
 		</h:form>
 	</ui:define>
 </ui:composition>

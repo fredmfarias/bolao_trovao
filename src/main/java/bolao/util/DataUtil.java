@@ -57,4 +57,25 @@ public final class DataUtil {
         
         return semana[calendar.get(Calendar.DAY_OF_WEEK) - 1];
     }
+    
+    public static Date obterData(int dia, int mes, int ano
+    		, int hora, int minutos) {
+
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.set(Calendar.DAY_OF_MONTH, dia);
+        calendar.set(Calendar.MONTH, mes - 1);
+        calendar.set(Calendar.YEAR, ano);
+        calendar.set(Calendar.HOUR, hora);
+        calendar.set(Calendar.MINUTE, minutos);
+
+        return calendar.getTime();
+    }
+    
+    public static boolean isDataAnterior(Date data) {
+    	
+    	Date dataAtual = new Date();
+        
+        return data.before(dataAtual);
+    }
 }

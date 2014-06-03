@@ -10,6 +10,7 @@ import javax.faces.bean.ViewScoped;
 
 import bolao.model.Aposta;
 import bolao.services.IApostaService;
+import bolao.util.DataUtil;
 import bolao.util.MessagesProperty;
 
 @ManagedBean(name="apostaMB")
@@ -17,9 +18,13 @@ import bolao.util.MessagesProperty;
 public class ApostaMB extends MB implements Serializable{
 	
 	private static final long serialVersionUID = -3719644829272321357L;
+	
 	@ManagedProperty(value="#{apostaService}")
 	private IApostaService apostaService;
+	
 	private List<Aposta> apostas;
+	
+	private Boolean permiteAposta;
 	
 	@PostConstruct
 	public void init(){
@@ -46,5 +51,12 @@ public class ApostaMB extends MB implements Serializable{
 
 	public void setApostas(List<Aposta> apostas) {
 		this.apostas = apostas;
+	}
+	
+	public boolean permiteAposta(){
+		if(this.permiteAposta == null){
+			this.permiteAposta = DataUtil.isDataAnterior(dataLimiteAposta());
+		}
+		return this.permiteAposta;
 	}
 }
