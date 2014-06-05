@@ -43,6 +43,9 @@ public class Usuario implements Serializable{
 	@Column(nullable = false)
 	private boolean ativo;
 	
+	@Column(nullable = false)
+	private boolean pago;
+	
 	@ElementCollection(targetClass = String.class)
 	@JoinTable(
 			name = "tb_usuario_permissao",
@@ -125,5 +128,17 @@ public class Usuario implements Serializable{
 	
 	public void removePermissao(String permissao){
 		this.permissao.remove(permissao);
+	}
+
+	public boolean isPago() {
+		return pago;
+	}
+
+	public void setPago(boolean pago) {
+		this.pago = pago;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 }

@@ -13,47 +13,49 @@
 	<ui:define name="menuTopo"></ui:define>
 	<ui:define name="conteudo">
 		<h:form id="cadastro">
-							
-			<h:panelGrid columns="2">
-				<p:outputLabel value="#{msg['label.nome']}" for="nome" />
-				<p:inputText id="nome"
-					value="#{usuarioMB.usuario.nome}" size="30" maxlength="30"
-					required="true" requiredMessage="teste" >
-					<f:validateLength minimum="10" maximum="30" />
-				</p:inputText>
-	
-				<p:outputLabel value="#{msg['label.email']}:" for="email" />
-				<p:inputText id="email" 
-						value="#{usuarioMB.usuario.email}" size="50" maxlength="50"
-						required="true" validatorMessage="#{msg.MN0003}">
-						<f:validateRegex pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
-				</p:inputText>
+			<div align="center" >				
+				<h:panelGrid columns="2">
+					<p:outputLabel value="#{msg['label.nome']}" for="nome" />
+					<p:inputText id="nome"
+						value="#{usuarioMB.usuario.nome}" size="50" maxlength="50"
+						required="true" >
+						<f:validateLength minimum="10" maximum="50" />
+					</p:inputText>
+		
+					<p:outputLabel value="#{msg['label.email']}:" for="email" />
+					<p:inputText id="email" 
+							value="#{usuarioMB.usuario.email}" size="50" maxlength="50"
+							required="true">
+							<f:validateRegex pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
+					</p:inputText>
+					
+					<p:outputLabel value="#{msg['label.telefone']}" for="telefone"/>
+					<p:inputMask id="telefone" value="#{usuarioMB.usuario.telefone}" 
+						mask="(99) 9999-9999" required="true"
+						 />
+					
+					<p:outputLabel value="#{msg['label.login']}" for="login" />
+					<p:inputText id="login"
+						value="#{usuarioMB.usuario.login}" maxlength="30"
+						required="true">
+						<p:ajax event="blur"  listener="#{usuarioMB.handleBlurEvent()}" />
+						<f:validateLength minimum="5" maximum="30" />
+					</p:inputText>
+					
+	           		<p:outputLabel for="pwd1" value="#{msg['label.senha']}" />
+	           		<p:password id="pwd1" value="#{usuarioMB.usuario.senha}" match="pwd2" required="true"
+	           				feedback="true" validatorMessage="#{msg.MN0004}"
+	                        promptLabel="Senha de 6 a 12 digítos." weakLabel="#{msg['label.fraca']}"
+	                        goodLabel="#{msg['label.boa']}" strongLabel="#{msg['label.forte']}" />
+	 
+	            	<p:outputLabel for="pwd2" value="#{msg['label.confirmar.senha']}" />
+	            	<p:password id="pwd2" value="#{usuarioMB.confirmarSenha}" required="true" />
+					
+					<h:outputText value="" />
+				</h:panelGrid>
 				
-				<p:outputLabel value="#{msg['label.telefone']}" for="telefone"/>
-				<p:inputMask id="telefone" value="#{usuarioMB.usuario.telefone}" 
-					mask="(99) 9999-9999" required="true"
-					 />
-				
-				<p:outputLabel value="#{msg['label.login']}" for="login" />
-				<p:inputText id="login"
-					value="#{usuarioMB.usuario.login}" size="30" maxlength="30"
-					required="true">
-					<p:ajax event="blur"  listener="#{usuarioMB.handleBlurEvent()}" />
-					<f:validateLength minimum="5" maximum="30" />
-				</p:inputText>
-				
-           		<p:outputLabel for="pwd1" value="#{msg['label.senha']}" />
-           		<p:password id="pwd1" value="#{usuarioMB.usuario.senha}" match="pwd2" required="true"
-           				feedback="true" validatorMessage="#{msg.MN0004}"
-                        promptLabel="Senha de 6 a 12 digítos." weakLabel="#{msg['label.fraca']}"
-                        goodLabel="#{msg['label.boa']}" strongLabel="#{msg['label.forte']}" />
- 
-            	<p:outputLabel for="pwd2" value="#{msg['label.confirmar.senha']}" />
-            	<p:password id="pwd2" value="#{usuarioMB.confirmarSenha}" required="true" />
-				
-			</h:panelGrid>
-			<div align="center" >
-					<p:commandButton style="horizontal-align:center" actionListener="#{usuarioMB.salvar}" value="Salvar" />
+				<p:commandButton action="#{usuarioMB.salvar}" value="Salvar" icon="ui-icon-disk" />
+				<p:commandButton immediate="true" action="login?faces-redirect=true" value="Cancelar" icon="ui-icon-close"/>
           	</div>			
 		</h:form>
 	</ui:define>

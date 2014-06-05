@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import bolao.excecoes.BolaoException;
+
 @Entity
 @Table(name="tb_aposta")
 public class Aposta implements Serializable{
@@ -63,6 +65,44 @@ public class Aposta implements Serializable{
 
 	public void setApostaPlacarVisitante(Integer apostaPlacarVisitante) {
 		this.apostaPlacarVisitante = apostaPlacarVisitante;
+	}
+	
+	public String getApostaPlacarCasaString() {
+		if(this.apostaPlacarCasa == null){
+			return null;
+		}
+		return "" + apostaPlacarCasa;
+	}
+
+	public void setApostaPlacarCasaString(String apostaPlacarCasaString) throws BolaoException {
+		if(apostaPlacarCasaString == null || apostaPlacarCasaString.isEmpty()){
+			this.apostaPlacarCasa = null;
+		}else{
+			try{
+				this.apostaPlacarCasa = Integer.parseInt(apostaPlacarCasaString);
+			}catch(NumberFormatException e){
+				throw new BolaoException("Aposta invalida, informe um numero valido.");
+			}
+		}
+	}
+	
+	public String getApostaPlacarVisitanteString() {
+		if(this.apostaPlacarVisitante == null){
+			return null;
+		}
+		return "" + apostaPlacarVisitante;
+	}
+
+	public void setApostaPlacarVisitanteString(String apostaPlacarVisitanteString) throws BolaoException {
+		if(apostaPlacarVisitanteString == null || apostaPlacarVisitanteString.isEmpty()){
+			this.apostaPlacarVisitante = null;
+		}else{
+			try{
+				this.apostaPlacarVisitante = Integer.parseInt(apostaPlacarVisitanteString);
+			}catch(NumberFormatException e){
+				throw new BolaoException("Aposta invalida, informe um numero valido.");
+			}
+		}
 	}
 
 	public Usuario getUsuario() {

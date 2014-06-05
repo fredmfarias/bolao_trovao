@@ -4,14 +4,19 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import org.primefaces.context.RequestContext;
+
+import bolao.excecoes.ApostaException;
 import bolao.model.Aposta;
 import bolao.services.IApostaService;
 import bolao.util.DataUtil;
 import bolao.util.MessagesProperty;
+import bolao.util.PrimeFacesUtil;
 
 @ManagedBean(name="apostaMB")
 @ViewScoped
@@ -36,7 +41,41 @@ public class ApostaMB extends MB implements Serializable{
 			MessagesProperty.errorMsg("MN0007");
 		}
 	}
+	
+	public void salvar(){
+		if(faltaPreencherAposta()){
+			PrimeFacesUtil.executeJavaScript("PF('dlg').show()");
+		}else{
+			atualizar();
+		}
+	}
+	
+	public void atualizar(){
+		
+		try {
+			this.apostaService.salvaListAposta(this.apostas);
+			
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "Apostas realizadas!");
+	         
+	        RequestContext.getCurrentInstance().showMessageInDialog(message);
+			
+			MessagesProperty.sucessoMsg("MN0001");
+		} catch (ApostaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			MessagesProperty.errorMsg("MN0011");
+		}
+	}
 
+	private boolean faltaPreencherAposta(){
+		for(Aposta a : this.apostas){
+			if(a.getApostaPlacarCasa() == null || a.getApostaPlacarVisitante() == null){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public IApostaService getApostaService() {
 		return apostaService;
 	}
@@ -55,8 +94,12 @@ public class ApostaMB extends MB implements Serializable{
 	
 	public boolean permiteAposta(){
 		if(this.permiteAposta == null){
-			this.permiteAposta = DataUtil.isDataAnterior(dataLimiteAposta());
+			this.permiteAposta = !DataUtil.isDataAnterior(dataLimiteAposta());
 		}
 		return this.permiteAposta;
+	}
+	
+	public String cssAExibir(){
+		return permiteAposta() ? "apostar" : "ranking";
 	}
 }

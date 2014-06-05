@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/interface.xhtml">
+	<ui:define name="titulo">
+		Apostas
+	</ui:define>
+	<ui:define name="conteudo">
+		<p:dataTable styleClass="tabela" var="aposta"
+			value="#{apostaMB.apostas}">
+
+			<f:facet name="header">
+	            	#{msg['label.apostas']}
+	        	</f:facet>
+
+			<p:column headerText="#{msg['label.data']}">
+				<h:outputText styleClass="dia"
+					value="#{utilMB.dataUtil.obterNomeDiaDaSemana(aposta.jogo.dataJogo)}" />
+				<br />
+				<h:outputText styleClass="data"
+					value="#{utilMB.dataUtil.formatarDDMM(aposta.jogo.dataJogo)}" />
+				<br />
+				<h:outputText styleClass="hora"
+					value="#{utilMB.dataUtil.formatarHHmm(aposta.jogo.dataJogo)}" />
+			</p:column>
+			<p:column headerText="Local">
+				<h:outputText value="#{aposta.jogo.localJogo}" />
+			</p:column>
+		</p:dataTable>
+	</ui:define>
+</ui:composition>
+</html>

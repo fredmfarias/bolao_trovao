@@ -1,5 +1,6 @@
 package bolao.services.impl;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,12 @@ import bolao.services.IJogoService;
 
 @Transactional(readOnly=true)
 @Service("jogoService")
-public class JogoService implements IJogoService {
+public class JogoService implements IJogoService, Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Autowired
 	JogoDAO jogoDAO;
 	

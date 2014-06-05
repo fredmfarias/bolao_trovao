@@ -43,7 +43,7 @@ public class UsuarioMB {
 			MessagesProperty.errorMsg("MN0005");
 		}
 		
-		return null;
+		return "login";
 	}
 	
 	public void handleBlurEvent() {

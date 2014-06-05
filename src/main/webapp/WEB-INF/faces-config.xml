@@ -5,6 +5,10 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
     
+    <lifecycle>
+		<phase-listener>bolao.util.MensagensPhaseListener</phase-listener>
+	</lifecycle>
+    
     <!-- JSF and Spring are integrated -->
   	<application>
     	<el-resolver>

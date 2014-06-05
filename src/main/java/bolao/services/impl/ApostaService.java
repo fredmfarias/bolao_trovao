@@ -13,6 +13,7 @@ import bolao.model.Aposta;
 import bolao.model.Jogo;
 import bolao.model.Usuario;
 import bolao.services.IApostaService;
+import bolao.services.IBolaoService;
 
 @Transactional(readOnly=true)
 @Service("apostaService")
@@ -22,6 +23,9 @@ public class ApostaService implements IApostaService, Serializable {
 	
 	@Autowired
 	private ApostaDAO apostaDAO;
+	
+	@Autowired
+	private IBolaoService bolaoService;
 	
 	@Override
 	@Transactional(readOnly=false)
@@ -50,7 +54,12 @@ public class ApostaService implements IApostaService, Serializable {
 	}
 
 	@Override
+	@Transactional(readOnly=false)
 	public void salvaListAposta(List<Aposta> apostas) throws ApostaException {
+		
+		if(!this.bolaoService.permiteAposta()){
+			throw new ApostaException("Prazo de aposta ultrapassado.");
+		}
 		
 		try{
 			for(Aposta a : apostas){

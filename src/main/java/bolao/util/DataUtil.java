@@ -66,8 +66,9 @@ public final class DataUtil {
         calendar.set(Calendar.DAY_OF_MONTH, dia);
         calendar.set(Calendar.MONTH, mes - 1);
         calendar.set(Calendar.YEAR, ano);
-        calendar.set(Calendar.HOUR, hora);
+        calendar.set(Calendar.HOUR_OF_DAY, hora);
         calendar.set(Calendar.MINUTE, minutos);
+        calendar.set(Calendar.SECOND, 0);
 
         return calendar.getTime();
     }

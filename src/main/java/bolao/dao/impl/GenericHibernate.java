@@ -41,7 +41,7 @@ public abstract class GenericHibernate<T> implements DAOBase<T> {
 
 	@Override
 	public void atualizar(T objeto) {
-		getSession().update(objeto);		
+		getSession().update(objeto);	
 	}
 
 	@Override

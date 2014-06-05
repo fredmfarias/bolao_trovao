@@ -6,21 +6,22 @@ import javax.faces.bean.ManagedProperty;
 
 import bolao.excecoes.UsuarioException;
 import bolao.model.Usuario;
+import bolao.services.IBolaoService;
 
 public class MB {
 	
 	@ManagedProperty("#{sessaoMB}")
 	SessaoMB sessaoMB;
 	
-	@ManagedProperty("#{aplicacaoMB}")
-	AplicacaoMB aplicacaoMB;
+	@ManagedProperty("#{bolaoService}")
+	IBolaoService bolaoService;
 	
 	public Usuario getUsuarioLogado() throws UsuarioException{
 		return sessaoMB.getUsuarioLogado();
 	}
 	
 	public Date dataLimiteAposta() {
-		return aplicacaoMB.dataLimiteAposta();
+		return this.bolaoService.dataLimiteAposta();
 	}
 
 	public SessaoMB getSessaoMB() {
@@ -31,11 +32,11 @@ public class MB {
 		this.sessaoMB = sessaoMB;
 	}
 
-	public AplicacaoMB getAplicacaoMB() {
-		return aplicacaoMB;
+	public IBolaoService getBolaoService() {
+		return bolaoService;
 	}
 
-	public void setAplicacaoMB(AplicacaoMB aplicacaoMB) {
-		this.aplicacaoMB = aplicacaoMB;
+	public void setBolaoService(IBolaoService bolaoService) {
+		this.bolaoService = bolaoService;
 	}
 }

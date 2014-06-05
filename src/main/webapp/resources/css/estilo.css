@@ -54,6 +54,13 @@ div#head div#logo{
 	background: url(../imagens/logo_site.png) no-repeat;
 	float: left;
 	margin-left:100px;
+	cursor: hand;
+}
+
+div#head div#logo a{
+	height: 210px; 
+	width: 235px;
+	margin: 0; padding: 0; border: 0; display:block;
 }
 
 div#container {
@@ -358,7 +365,7 @@ div#bolao-barra div.bolao-barra-corpo {
 }
 
 #bolao-barra .apostar {
-    background: url('../imagens/img-barra.png') no-repeat scroll -242px 0px transparent;
+    background: url('../imagens/img-barra.png') no-repeat scroll 0px 0px transparent;
     height: 31px;
     padding-top: 1em;
     margin-top: 7px;
@@ -371,9 +378,33 @@ div#bolao-barra div.bolao-barra-corpo {
     text-decoration: none;
 }
 
+#bolao-barra .ranking {
+    background: url('../imagens/img-barra.png') no-repeat scroll 0px -43px transparent;
+    height: 31px;
+    padding-top: 1em;
+    margin-top: 7px;
+}
+
+#bolao-barra .ranking .ui-commandlink {
+    color: #fabb16;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
 #bolao-barra .aposta-aberta{
 	height: 47px;
 	text-align: center;
+}
+
+#bolao-barra .aposta-fechada{
+	height: 47px;
+	text-align: center;
+	color: #CA0000;
+	font-size: 1.3em;
+	padding-top: 20px;
+	font-weight: bold;	
 }
 
 #bolao-barra div.bolao-barra-corpo div.bolao-status span.label {
@@ -391,4 +422,53 @@ div#bolao-barra div.bolao-barra-corpo {
 #bolao-barra div.bolao-barra-corpo div.bolao-status span.data {
     font-size: 1em;
     color: #5e66d5;
+}
+
+
+.bemVindo{
+	margin: 0px !important;
+	padding: 0px;
+	border: 0px none;
+	outline: 0px none;
+	font-size: 100%;
+	font-family: inherit;
+	margin-right: 30px !important;
+}
+
+.bemVindo .estilo-p1{
+	color: #323232;
+	font-size: 2.17em;
+	letter-spacing: -0.07em;
+	line-height: 0.7em;
+	margin: 0px !important;
+}
+
+.bemVindo .estilo-p2{
+	color: #323232;
+	font-size: 3.33em;
+	font-weight: bold;
+	letter-spacing: -0.07em;
+	line-height: 1em;
+	margin: 0px !important;
+}
+
+.bemVindo .estilo-p3{
+	color: #818181;
+	font-size: 1.67em;
+	letter-spacing: -0.05em;
+	line-height: 1.5em;
+	margin: 0px !important;
+	text-align: right;
+}
+
+.bemVindo ul{
+    margin: 2em 0px !important;
+    list-style: none outside none;
+}
+
+.bemVindo ul li{
+	color: #5E5E5E;
+	font-weight: bold;
+	list-style-image: url('../imagens/img_bullet.gif');
+	margin: 0.3em 0px 0.3em 0px;
 }

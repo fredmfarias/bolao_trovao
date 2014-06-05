@@ -1,5 +1,7 @@
 package bolao.services.impl;
 
+import java.io.Serializable;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,8 +17,13 @@ import bolao.util.Constantes;
 
 @Transactional(readOnly = true)
 @Service("usuarioService")
-public class UsuarioService implements IUsuarioService {
+public class UsuarioService implements IUsuarioService, Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7592047598648932947L;
+
 	@Autowired
 	private UsuarioDAO usuarioDAO;
 	
@@ -39,6 +46,7 @@ public class UsuarioService implements IUsuarioService {
 		String senhaCriptografada = DigestUtils
 										.md5DigestAsHex(usuario.getSenha().getBytes());
 		
+		usuario.setAtivo(true);
 		usuario.setSenha(senhaCriptografada);
 		usuario.addPermissao(Constantes.ROLE_USUARIO);
 		
