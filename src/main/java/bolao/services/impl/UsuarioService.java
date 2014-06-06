@@ -12,6 +12,7 @@ import bolao.dao.UsuarioDAO;
 import bolao.excecoes.UsuarioException;
 import bolao.model.Usuario;
 import bolao.services.IApostaService;
+import bolao.services.IBolaoService;
 import bolao.services.IUsuarioService;
 import bolao.util.Constantes;
 
@@ -33,6 +34,9 @@ public class UsuarioService implements IUsuarioService, Serializable {
 	@Autowired
 	private IApostaService apostaService;
 	
+	@Autowired
+	private IBolaoService bolaoService;
+	
 	@Override
 	@Transactional(readOnly = false)
 	public void addUsuario(Usuario usuario) throws UsuarioException {
@@ -41,6 +45,10 @@ public class UsuarioService implements IUsuarioService, Serializable {
 			validaUsuarioBase(usuario);
 		} catch (UsuarioException e) {
 			throw e;
+		}
+		
+		if(!this.bolaoService.permiteAposta()){
+			throw new UsuarioException("Prazo de cadastro de usuário ultrapassado.");
 		}
 						
 		String senhaCriptografada = DigestUtils

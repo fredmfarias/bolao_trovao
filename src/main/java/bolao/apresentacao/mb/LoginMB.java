@@ -1,5 +1,7 @@
 package bolao.apresentacao.mb;
 
+import java.io.Serializable;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -10,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @ManagedBean(name = "loginMB")
 @RequestScoped
-public class LoginMB {
-
+public class LoginMB extends MB implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
 	public void login() {
 		try {
 			HttpServletRequest request = (HttpServletRequest) FacesContext

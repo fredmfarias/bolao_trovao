@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedProperty;
 import bolao.excecoes.UsuarioException;
 import bolao.model.Usuario;
 import bolao.services.IBolaoService;
+import bolao.util.DataUtil;
 
 public class MB {
 	
@@ -22,6 +23,10 @@ public class MB {
 	
 	public Date dataLimiteAposta() {
 		return this.bolaoService.dataLimiteAposta();
+	}
+	
+	public boolean permiteAposta(){
+		return !DataUtil.isDataAnterior(dataLimiteAposta());
 	}
 
 	public SessaoMB getSessaoMB() {

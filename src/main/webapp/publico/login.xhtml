@@ -14,11 +14,7 @@
 		Login
 	</ui:define>
 
-	<ui:define name="conteudo">
-		<f:metadata>  
-    		<f:event type="preRenderView" listener="#{aplicacaoMB.cronometroRegressivo()}"/>  
-		</f:metadata>
-		
+	<ui:define name="conteudo">		
 		<h:form id="formLogin" prependId="false">
 			<div align="center">
 				<h:panelGrid columns="2" >
@@ -39,7 +35,7 @@
 					<h:panelGrid columns="2" cellpadding="5">
 							
 						<p:outputLabel value="Login:" for="j_username" />
-						<p:inputText id="j_username" required="true" maxlength="14"
+						<p:inputText id="j_username" required="true" maxlength="30"
 							requiredMessage="Login obrigatório" />
 			
 						<p:outputLabel value="Senha:" for="j_password" />
@@ -53,7 +49,8 @@
 						
 						<h:outputText value="" />
 						
-						<a href="usuario.jsf" style="float: right;">Cadastre-se</a>
+						<p:commandLink style="float: right;" immediate="true"
+							rendered="#{loginMB.permiteAposta()}" value="Cadastre-se" action="usuario"/>
 					</h:panelGrid>
 				</h:panelGrid>
 			</div>

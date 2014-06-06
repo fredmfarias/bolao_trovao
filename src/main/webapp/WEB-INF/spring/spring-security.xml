@@ -11,7 +11,7 @@
 			always-use-default-target="true" default-target-url="/restrito/apostas.jsf"
 			authentication-failure-url="/publico/login.jsf?login_error=1" />
 		<logout logout-success-url="/publico/login.jsf" />
-		<remember-me />
+		<!-- <remember-me />  -->
 	</http>
 
 	<authentication-manager>

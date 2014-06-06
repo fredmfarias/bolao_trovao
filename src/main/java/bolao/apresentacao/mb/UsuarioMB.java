@@ -4,6 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
+import bolao.excecoes.UsuarioException;
 import bolao.model.Usuario;
 import bolao.services.IUsuarioService;
 import bolao.util.MessagesProperty;
@@ -38,6 +39,8 @@ public class UsuarioMB {
 			getUsuarioService().addUsuario(usuario);
 			
 			MessagesProperty.sucessoMsg("MN0001");
+		}catch(UsuarioException e){
+			MessagesProperty.errorMsg("MN0012");
 		}catch(Throwable e){
 			e.printStackTrace();
 			MessagesProperty.errorMsg("MN0005");
