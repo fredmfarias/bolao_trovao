@@ -4,7 +4,7 @@
 		auth="Container"
 		type="javax.sql.DataSource"
 		username="postgres"
-		password="LLrassA10"
+		password="oex9536"
 		driverClassName="org.postgresql.Driver"
 		url="jdbc:postgresql://localhost:5432/bolao"
 		maxActive="100"
@@ -12,11 +12,3 @@
 		maxWait="10000"
 		 />
 </Context>
-
-<!-- password="LLrassA10" 
-url="jdbc:postgresql://107.170.185.121:5432/bolao"
--->
-
-<!-- password="oex9536" 
-url="jdbc:postgresql://localhost:5432/bolao"
--->
