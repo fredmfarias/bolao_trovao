@@ -54,7 +54,7 @@
 
 	<!-- Welcome Page -->
 	<welcome-file-list>
-		<welcome-file>/publico/login.jsf</welcome-file>
+		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 	
 	<filter>
