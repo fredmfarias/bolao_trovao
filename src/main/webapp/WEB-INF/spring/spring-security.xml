@@ -7,6 +7,8 @@
 	<http>
 
 		<intercept-url pattern="/restrito/**" access="ROLE_USUARIO" />
+		<intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
+		
 		<form-login login-page="/publico/login.jsf"
 			always-use-default-target="true" default-target-url="/restrito/apostas.jsf"
 			authentication-failure-url="/publico/login.jsf?login_error=1" />

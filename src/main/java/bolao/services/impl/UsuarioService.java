@@ -1,6 +1,7 @@
 package bolao.services.impl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -112,5 +113,20 @@ public class UsuarioService implements IUsuarioService, Serializable {
 		usuario.setLogin(login);
 		
 		return usuario;
+	}
+
+	@Override
+	public List<Usuario> getAllUsuarios() {
+		return this.usuarioDAO.listaUsuariosPorPagamento();
+	}
+
+	@Override
+	@Transactional(readOnly = false)
+	public void atualizaUsuario(Usuario usuario) throws UsuarioException {
+		try {
+			this.usuarioDAO.atualizar(usuario);
+		} catch (Exception e) {
+			throw new UsuarioException("usuario nao atualizado");
+		}		
 	}
 }

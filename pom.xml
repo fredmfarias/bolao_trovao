@@ -16,6 +16,11 @@
 			<url>http://repository.primefaces.org</url>
 			<layout>default</layout>
 		</repository>
+		
+		<repository>
+			<id>org.springframework.security.taglibs.facelets</id>
+			<url>http://spring-security-facelets-taglib.googlecode.com/svn/repo/</url>
+		</repository>
 	</repositories>
 	
 	<properties>
@@ -123,7 +128,26 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>${spring.security.version}</version>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>		
+		
+		<!-- Spring security facelets taglib para funcionamente em paginas xhtml-->
+	  	<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>facelets-taglib-jsf20-spring-3</artifactId>
+			<version>0.5</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+	  		<artifactId>taglib-core</artifactId>
+	  		<version>0.4</version>
+	  	</dependency>
+		
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>

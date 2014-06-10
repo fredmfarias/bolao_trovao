@@ -16,13 +16,24 @@
 		</f:metadata>
 				
 		<h:form id="apostas">
-			<p:dataTable styleClass="tabela" var="aposta" value="#{apostaMB.apostas}">
+			<p:dataTable styleClass="tabela" var="aposta" 
+				value="#{apostaMB.apostas}" widgetVar="apostasTable" 
+				filteredValue="#{apostaMB.datasFiltradas}">
 	
 				<f:facet name="header">
 	            	#{msg['label.apostas']}
 	        	</f:facet>
-				
-				<p:column headerText="#{msg['label.data']}">
+								
+				<p:column headerText="#{msg['label.data']}" filterBy="#{aposta.jogo.dataJogo}" 
+					filterMatchMode="contains" >
+					
+					<f:facet name="filter">
+						<p:selectOneMenu onchange="PF('apostasTable').filter()">
+							<f:selectItem itemLabel="Selecione..." itemValue="#{null}" noSelectionOption="true"/>
+							<f:selectItems value="#{apostaMB.datas}" var="data" itemLabel="#{utilMB.dataUtil.formatarDDMMYYYY(data)}"/>
+						</p:selectOneMenu>
+					</f:facet>
+					
 					<h:outputText styleClass="dia" value="#{utilMB.dataUtil.obterNomeDiaDaSemana(aposta.jogo.dataJogo)}" />
 					<br />
 					<h:outputText styleClass="data" value="#{utilMB.dataUtil.formatarDDMM(aposta.jogo.dataJogo)}" />

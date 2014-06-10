@@ -1,6 +1,7 @@
 package bolao.services.impl;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,11 @@ public class JogoService implements IJogoService, Serializable {
 
 	public void setJogoDAO(JogoDAO jogoDAO) {
 		this.jogoDAO = jogoDAO;
+	}
+
+	@Override
+	public List<Date> getAllDatasJogos() {
+		return getJogoDAO().datasJogos();
 	}
 
 }

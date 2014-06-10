@@ -1,6 +1,7 @@
 package bolao.apresentacao.mb;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -14,6 +15,7 @@ import org.primefaces.context.RequestContext;
 import bolao.excecoes.ApostaException;
 import bolao.model.Aposta;
 import bolao.services.IApostaService;
+import bolao.services.IJogoService;
 import bolao.util.DataUtil;
 import bolao.util.MessagesProperty;
 import bolao.util.PrimeFacesUtil;
@@ -27,10 +29,17 @@ public class ApostaMB extends MB implements Serializable{
 	@ManagedProperty(value="#{apostaService}")
 	private IApostaService apostaService;
 	
+	@ManagedProperty(value="#{jogoService}")
+	private IJogoService jogoService;
+	
 	private List<Aposta> apostas;
 	
 	private Boolean permiteAposta;
 	
+	public List<Date> datas;
+	
+	public List<Aposta> apostasFiltradas;
+		
 	@PostConstruct
 	public void init(){
 		try{
@@ -65,6 +74,14 @@ public class ApostaMB extends MB implements Serializable{
 			e.printStackTrace();
 			MessagesProperty.errorMsg("MN0011");
 		}
+	}
+	
+	public List<Date> getDatas(){
+		if(this.datas == null){
+			this.datas = this.jogoService.getAllDatasJogos(); 
+		}
+		
+		return this.datas;
 	}
 
 	private boolean faltaPreencherAposta(){
@@ -101,5 +118,25 @@ public class ApostaMB extends MB implements Serializable{
 	
 	public String cssAExibir(){
 		return permiteAposta() ? "apostar" : "ranking";
+	}
+
+	public IJogoService getJogoService() {
+		return jogoService;
+	}
+
+	public void setJogoService(IJogoService jogoService) {
+		this.jogoService = jogoService;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public List<Aposta> getDatasFiltradas() {
+		return apostasFiltradas;
+	}
+
+	public void setDatasFiltradas(List<Aposta> apostasFiltradas) {
+		this.apostasFiltradas = apostasFiltradas;
 	}
 }

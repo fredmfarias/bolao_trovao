@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/interface.xhtml">
+	<ui:define name="titulo">
+		Controle Usuários
+	</ui:define>
+	<ui:define name="conteudo">
+		<h:form id="apostas">
+			<p:dataTable id="usrTable" var="usuario" value="#{controleUsuarioMB.usuarios}"
+				widgetVar="usuariosTable">
+				
+				<p:column headerText="#{msg['label.ativo']}">
+					<p:selectBooleanCheckbox value="#{usuario.ativo}" disabled="true" />
+				</p:column>
+				
+				<p:column headerText="#{msg['label.nome']}"
+					filterBy="#{usuario.nome}" filterMatchMode="contains">
+					<h:outputText value="#{usuario.nome}" />					
+				</p:column>
+
+				<p:column headerText="#{msg['label.login']}">
+					<h:outputText value="#{usuario.login}" />
+				</p:column>
+
+				<p:column headerText="#{msg['label.email']}">
+					<h:outputText value="#{usuario.email}" />
+				</p:column>
+
+				<p:column headerText="#{msg['label.telefone']}">
+					<h:outputText value="#{usuario.telefone}" />
+				</p:column>
+
+				<p:column headerText="#{msg['label.pago']}">
+					<p:selectBooleanCheckbox value="#{usuario.pago}">
+						<p:ajax listener="#{controleUsuarioMB.atualizarUsuario(usuario)}" />
+					</p:selectBooleanCheckbox>
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

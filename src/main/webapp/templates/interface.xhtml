@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags">
+
 <!-- (1) -->
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -19,6 +21,10 @@
 			<div id="menu_topo">
 				<ui:insert name="menuTopo">
 					<ul>
+						<sec:ifAnyGranted roles="ROLE_ADMIN">
+							<li><a href="#{request.contextPath}/admin/controleUsuarios.jsf">Controle Usuários</a></li>
+							<li>|</li>
+						</sec:ifAnyGranted>
 						<li><a href="#{request.contextPath}/publico/regulamento.jsf">Regulamento</a></li>
 						<li>|</li>
 						<li><a href="#{request.contextPath}/j_spring_security_logout">Sair</a></li>

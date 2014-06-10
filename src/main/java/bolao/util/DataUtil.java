@@ -11,6 +11,7 @@ public final class DataUtil {
 
     public static final String FORMATO_DD_MM = "dd/MM";
     public static final String FORMATO_HHMM = "HH'h'mm";
+    public static final String FORMATO_DD_MM_YYYY = "dd/MM/yyyy";
 
     private static DataUtil INSTANCE = new DataUtil();
     
@@ -47,6 +48,10 @@ public final class DataUtil {
     public static String formatarHHmm(Date data) throws BolaoException {
         return DataUtil.formatar(data, DataUtil.FORMATO_HHMM);
     }
+    
+    public static String formatarDDMMYYYY(Date data) throws BolaoException {
+        return DataUtil.formatar(data, DataUtil.FORMATO_DD_MM_YYYY);
+    }
 
     public static String obterNomeDiaDaSemana(Date data) {
     	String semana[] = {"Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"};
@@ -70,6 +75,17 @@ public final class DataUtil {
         calendar.set(Calendar.MINUTE, minutos);
         calendar.set(Calendar.SECOND, 0);
 
+        return calendar.getTime();
+    }
+    
+    public static Date obterData(int dia, int mes, int ano) {
+
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.set(Calendar.DAY_OF_MONTH, dia);
+        calendar.set(Calendar.MONTH, mes - 1);
+        calendar.set(Calendar.YEAR, ano);
+       
         return calendar.getTime();
     }
     
