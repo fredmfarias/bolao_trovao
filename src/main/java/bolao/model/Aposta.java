@@ -117,8 +117,8 @@ public class Aposta implements Serializable{
 		return pontuacao;
 	}
 
-	public void addPontuacao(Integer pontuacao) {
-		this.pontuacao += pontuacao;
+	public void setPontuacao(Integer pontuacao) {
+		this.pontuacao = pontuacao;
 	}
 
 	public static long getSerialversionuid() {

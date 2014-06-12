@@ -14,6 +14,7 @@ import bolao.model.Jogo;
 import bolao.model.Usuario;
 import bolao.services.IApostaService;
 import bolao.services.IBolaoService;
+import bolao.util.Constantes;
 
 @Transactional(readOnly=true)
 @Service("apostaService")
@@ -67,6 +68,66 @@ public class ApostaService implements IApostaService, Serializable {
 			}
 		}catch(Exception e){
 			throw new ApostaException("Nao foi possivel atualizar as apostas do usuario");
+		}
+	}
+
+	@Override
+	public List<Aposta> buscaApostasPorJogo(Jogo jogo) throws ApostaException {
+		try{
+			return this.apostaDAO.buscaAPostasPorJogo(jogo.getId());
+		}catch(NullPointerException e){
+			throw new ApostaException("Erro ao buscar apostas, jogo nulo");
+		}catch (Exception e) {
+			throw new ApostaException("Nao foi possivel recuperar as apostas do jogo");
+		}
+	}
+	
+	public void calculaPontuacao(Aposta aposta){
+		
+		if(aposta == null || aposta.getJogo() == null){
+			throw new NullPointerException("Aposta ou jogo nao pode ser nulo");
+		}
+		
+		// variaveis que armazena placar do time de casa e visitante
+		Integer pc = aposta.getJogo().getPlacarCasa();
+		Integer pv = aposta.getJogo().getPlacarVisitante();
+
+		// variaveis que armazena apostas do time de casa e visitante
+		Integer ac = aposta.getApostaPlacarCasa();
+		Integer av = aposta.getApostaPlacarVisitante();
+
+		// logica da pontuacao
+		if ((pc == null) || (pv == null) || (ac == null) || (av == null)) {
+			aposta.setPontuacao(
+					Constantes.PONTUACAO_AN * aposta.getJogo().getPesoPontucao());
+		} else if ((ac > av && pc < pv) || (ac < av && pc > pv)
+				|| (ac == av && pc != pv) || (ac != av && pc == pv)) {
+			// Se não houver acerto de nada
+			aposta.setPontuacao(
+					Constantes.PONTUACAO_AN * aposta.getJogo().getPesoPontucao());
+		} else if ((ac > av && pc > pv && ac != pc && av != pv)
+				|| (ac < av && pc < pv && ac != pc && av != pv)) {
+			// Se acertar o ganhador do jogo
+			aposta.setPontuacao(
+					Constantes.PONTUACAO_AG * aposta.getJogo().getPesoPontucao());
+		} else if ((ac > av && pc > pv && ac != pc && av == pv)
+				|| (ac < av && pc < pv && ac == pc && av != pv)) {
+			// Se acertar o placar do perdedor do jogo
+			aposta.setPontuacao(
+					Constantes.PONTUACAO_APP * aposta.getJogo().getPesoPontucao());
+		} else if ((ac > av && pc > pv && ac == pc && av != pv)
+				|| (ac < av && pc < pv && ac != pc && av == pv)) {
+			// Se acertar o placar o vencedor do jogo
+			aposta.setPontuacao(
+					Constantes.PONTUACAO_APG * aposta.getJogo().getPesoPontucao());
+		} else if (ac == pc && av == pv) {
+			// Se acertar o placar do jogo
+			aposta.setPontuacao(
+					Constantes.PONTUACAO_AP * aposta.getJogo().getPesoPontucao());
+		} else if (ac == av && pc == pv && ac != pc) {
+			// Se acertar que o jogo eh empate, mas com placar diferente
+			aposta.setPontuacao(
+					Constantes.PONTUACAO_AE * aposta.getJogo().getPesoPontucao());
 		}
 	}
 }

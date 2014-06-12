@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/interface.xhtml">
+	<ui:define name="titulo">
+		Controle do Placar
+	</ui:define>
+	<ui:define name="conteudo">
+		<h:form id="ranking">
+			<p:dataTable styleClass="tabela" var="jogo" 
+				value="#{jogoMB.jogos}" widgetVar="jogosTable" 
+				filteredValue="#{jogoMB.jogosFiltrados}">
+	
+				<f:facet name="header">
+	            	#{msg['label.jogos']}
+	        	</f:facet>
+								
+				<p:column headerText="#{msg['label.data']}" filterBy="#{jogo.dataJogo}" 
+					filterMatchMode="contains" >
+					
+					<f:facet name="filter">
+						<p:selectOneMenu onchange="PF('jogosTable').filter()">
+							<f:selectItem itemLabel="Selecione..." itemValue="#{null}" noSelectionOption="true"/>
+							<f:selectItems value="#{jogoMB.datas}" var="data" itemLabel="#{utilMB.dataUtil.formatarDDMMYYYY(data)}"/>
+						</p:selectOneMenu>
+					</f:facet>
+					
+					<h:outputText styleClass="dia" value="#{utilMB.dataUtil.obterNomeDiaDaSemana(jogo.dataJogo)}" />
+					<br />
+					<h:outputText styleClass="data" value="#{utilMB.dataUtil.formatarDDMM(jogo.dataJogo)}" />
+					<br />
+					<h:outputText styleClass="hora" value="#{utilMB.dataUtil.formatarHHmm(jogo.dataJogo)}" />
+				</p:column>
+				
+				<p:column width="600" headerText="#{msg['label.confronto']}">
+					
+					<h:outputText value="#{msg['label.jogo']} #{aposta.jogo.numeroJogo} - " />
+					<h:outputText style="font-weight: bold;" value="Grupo #{aposta.jogo.grupo}" />
+					
+					<div id="confronto">
+						
+						<div id="mandante">
+							<h:outputText styleClass="selecao" value="#{aposta.jogo.clubeCasa.nome}"  />
+					
+							<img src="../resources/imagens/img_trans.gif"
+								class="escudos #{aposta.jogo.clubeCasa.escudo}"/>
+						</div>
+						
+						<div id="placar">
+							<p:spinner id="spPlacarMandante" size="2" 
+								min="0" max="99" value="#{aposta.apostaPlacarCasaString}"/>	
+												
+							<h:outputText style="padding: 5px;" value="X" />
+					
+							<p:spinner id="spPlacarVisitante" size="2" 
+								min="0" max="99" value="#{aposta.apostaPlacarVisitanteString}"/>	
+						</div>
+						
+						<div id="visitante">	
+							<img src="../resources/imagens/img_trans.gif"
+								class="escudos #{aposta.jogo.clubeVisitante.escudo}" />
+					
+							<h:outputText  styleClass="selecao" value="#{aposta.jogo.clubeVisitante.nome}" />
+						</div>
+					</div>
+				</p:column>
+				
+				<p:column headerText="Ação">	
+					<h:outputText value="#{aposta.jogo.localJogo}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
