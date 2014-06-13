@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import bolao.excecoes.BolaoException;
+
 @Entity
 @Table(name="tb_jogo")
 public class Jogo implements Serializable{
@@ -88,6 +90,44 @@ public class Jogo implements Serializable{
 
 	public void setPlacarVisitante(Integer placarVisitante) {
 		this.placarVisitante = placarVisitante;
+	}
+	
+	public String getPlacarCasaString() {
+		if(this.placarCasa == null){
+			return null;
+		}
+		return "" + placarCasa;
+	}
+
+	public void setPlacarCasaString(String placarCasaString) throws BolaoException {
+		if(placarCasaString == null || placarCasaString.isEmpty()){
+			this.placarCasa = null;
+		}else{
+			try{
+				this.placarCasa = Integer.parseInt(placarCasaString);
+			}catch(NumberFormatException e){
+				throw new BolaoException("Placar invalido, informe um numero valido.");
+			}
+		}
+	}
+	
+	public String getPlacarVisitanteString() {
+		if(this.placarVisitante == null){
+			return null;
+		}
+		return "" + placarVisitante;
+	}
+
+	public void setPlacarVisitanteString(String placarVisitanteString) throws BolaoException {
+		if(placarVisitanteString == null || placarVisitanteString.isEmpty()){
+			this.placarVisitante = null;
+		}else{
+			try{
+				this.placarVisitante = Integer.parseInt(placarVisitanteString);
+			}catch(NumberFormatException e){
+				throw new BolaoException("Placar invalido, informe um numero valido.");
+			}
+		}
 	}
 
 	public Date getDataJogo() {

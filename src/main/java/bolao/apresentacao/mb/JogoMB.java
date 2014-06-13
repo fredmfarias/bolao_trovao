@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import bolao.excecoes.JogoException;
 import bolao.model.Jogo;
 import bolao.services.IJogoService;
 import bolao.util.MessagesProperty;
@@ -40,10 +41,16 @@ public class JogoMB extends MB implements Serializable{
 		}
 	}
 	
-	public String cssAExibir(){
-		return permiteAposta() ? "apostar" : "ranking";
+	public void atualizaPlacar(){
+		try {
+			this.jogoService.atualizaJogo(jogoSelecionado);
+		} catch (JogoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			MessagesProperty.errorMsg("MN0015", e.getMessage());
+		}
 	}
-
+	
 	public IJogoService getJogoService() {
 		return jogoService;
 	}

@@ -32,4 +32,9 @@ public class JogoDAOHibernate extends GenericHibernate<Jogo> implements JogoDAO,
 		
 		return consulta.list();
 	}
+
+	@Override
+	public void merge(Jogo jogo) {
+		getSession().merge(jogo);		
+	}
 }

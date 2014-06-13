@@ -12,6 +12,6 @@ public interface DAOBase<T> {
 	
 	public void excluir(T objeto);
 	
-	public T getOne(Long id);
+	public T getOne(Integer id);
 	
 }

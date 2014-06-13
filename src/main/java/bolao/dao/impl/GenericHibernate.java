@@ -51,7 +51,7 @@ public abstract class GenericHibernate<T> implements DAOBase<T> {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public T getOne(Long id) {
+	public T getOne(Integer id) {
 		return (T) getSession().get(getEntityClass(), id);
 	}
 }

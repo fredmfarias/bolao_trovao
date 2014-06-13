@@ -101,7 +101,7 @@
 							<div class="bolao-status">
 								<div class="#{apostaMB.cssAExibir()}">
 									<p:commandLink rendered="#{apostaMB.permiteAposta()}" value="#{msg['label.apostar']}" actionListener="#{apostaMB.salvar()}" />
-									<p:commandLink rendered="#{!apostaMB.permiteAposta()}" value="#{msg['label.ranking']}" actionListener="#" />
+									<p:commandLink rendered="#{!apostaMB.permiteAposta()}" value="#{msg['label.ranking']}" action="ranking?faces-redirect=true" />
 								</div>
 							</div>
 						</div>

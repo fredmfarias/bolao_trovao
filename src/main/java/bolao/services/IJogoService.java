@@ -10,4 +10,5 @@ public interface IJogoService {
 	List<Jogo> getAllJogos();
 	List<Date> getAllDatasJogos();
 	void atualizaJogo(Jogo jogo) throws JogoException;
+	Jogo buscar(Jogo jogo) throws JogoException;
 }

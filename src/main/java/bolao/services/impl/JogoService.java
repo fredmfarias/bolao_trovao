@@ -54,15 +54,15 @@ public class JogoService implements IJogoService, Serializable {
 			throw new JogoException("Impossivel atualizar o jogo, nulo ou sem referencia");
 		}
 		
-		Jogo jogoAntigo = this.jogoDAO.getOne(new Long(jogo.getId()));
+		Jogo jogoAntigo = this.buscar(jogo);
 		
 		if(jogoAntigo == null){
 			throw new JogoException("Jogo nao encontrado");
 		}
 		
-		boolean mudouPlacar = jogoDiferePlacar(jogoAntigo, jogo);
+		boolean mudouPlacar = jogoDiferePlacar(jogo, jogoAntigo);
 		
-		this.jogoDAO.atualizar(jogo);
+		this.jogoDAO.merge(jogo);
 		
 		if(mudouPlacar){
 			try {
@@ -72,7 +72,7 @@ public class JogoService implements IJogoService, Serializable {
 					this.apostaService.calculaPontuacao(a);
 				}
 			} catch (ApostaException e) {
-				new JogoException("Nao foi possivel buscar as apostas do jogo.", e);
+				throw new JogoException("Nao foi possivel buscar as apostas do jogo.", e);
 			}
 		}
 		
@@ -83,5 +83,14 @@ public class JogoService implements IJogoService, Serializable {
 					!jogo1.getPlacarCasa().equals(jogo2.getPlacarCasa()))
 				|| (jogo1.getPlacarVisitante() != null && 
 					!jogo1.getPlacarVisitante().equals(jogo2.getPlacarVisitante()));
+	}
+
+	@Override
+	public Jogo buscar(Jogo jogo) throws JogoException {
+		try{
+			return this.jogoDAO.getOne(jogo.getId()); 
+		}catch(Exception e){
+			throw new JogoException("Falha ao buscar jogo");
+		}
 	}
 }

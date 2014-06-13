@@ -8,30 +8,13 @@
 
 <ui:composition template="/templates/interface.xhtml">
 	<ui:define name="titulo">
-		Apostas
+		Ranking
 	</ui:define>
 	<ui:define name="conteudo">
-		<p:dataTable styleClass="tabela" var="aposta"
-			value="#{apostaMB.apostas}">
-
-			<f:facet name="header">
-	            	#{msg['label.apostas']}
-	        	</f:facet>
-
-			<p:column headerText="#{msg['label.data']}">
-				<h:outputText styleClass="dia"
-					value="#{utilMB.dataUtil.obterNomeDiaDaSemana(aposta.jogo.dataJogo)}" />
-				<br />
-				<h:outputText styleClass="data"
-					value="#{utilMB.dataUtil.formatarDDMM(aposta.jogo.dataJogo)}" />
-				<br />
-				<h:outputText styleClass="hora"
-					value="#{utilMB.dataUtil.formatarHHmm(aposta.jogo.dataJogo)}" />
-			</p:column>
-			<p:column headerText="Local">
-				<h:outputText value="#{aposta.jogo.localJogo}" />
-			</p:column>
-		</p:dataTable>
+		<p>Olá! Estamos trabalhando para que o Ranking fique pronto o quanto antes.</p>
+		<p>Pedimos um pouco de paciência para a primeira parcial, após essa será tudo mais rápido.</p>
+		<p>OBRIGADO!</p>
+		<p>Atenciosamente, Equipe Bolão Trovão.</p>
 	</ui:define>
 </ui:composition>
 </html>

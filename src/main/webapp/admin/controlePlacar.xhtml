@@ -14,7 +14,9 @@
 		<h:form id="ranking">
 			<p:dataTable styleClass="tabela" var="jogo" 
 				value="#{jogoMB.jogos}" widgetVar="jogosTable" 
-				filteredValue="#{jogoMB.jogosFiltrados}">
+				filteredValue="#{jogoMB.jogosFiltrados}"
+				paginator="true"
+				rows="5">
 	
 				<f:facet name="header">
 	            	#{msg['label.jogos']}
@@ -39,39 +41,41 @@
 				
 				<p:column width="600" headerText="#{msg['label.confronto']}">
 					
-					<h:outputText value="#{msg['label.jogo']} #{aposta.jogo.numeroJogo} - " />
-					<h:outputText style="font-weight: bold;" value="Grupo #{aposta.jogo.grupo}" />
+					<h:outputText value="#{msg['label.jogo']} #{jogo.numeroJogo} - " />
+					<h:outputText style="font-weight: bold;" value="Grupo #{jogo.grupo}" />
 					
 					<div id="confronto">
 						
 						<div id="mandante">
-							<h:outputText styleClass="selecao" value="#{aposta.jogo.clubeCasa.nome}"  />
+							<h:outputText styleClass="selecao" value="#{jogo.clubeCasa.nome}"  />
 					
 							<img src="../resources/imagens/img_trans.gif"
-								class="escudos #{aposta.jogo.clubeCasa.escudo}"/>
+								class="escudos #{jogo.clubeCasa.escudo}"/>
 						</div>
 						
 						<div id="placar">
 							<p:spinner id="spPlacarMandante" size="2" 
-								min="0" max="99" value="#{aposta.apostaPlacarCasaString}"/>	
+								min="0" max="99" value="#{jogo.placarCasaString}"/>	
 												
 							<h:outputText style="padding: 5px;" value="X" />
 					
 							<p:spinner id="spPlacarVisitante" size="2" 
-								min="0" max="99" value="#{aposta.apostaPlacarVisitanteString}"/>	
+								min="0" max="99" value="#{jogo.placarVisitanteString}"/>	
 						</div>
 						
 						<div id="visitante">	
 							<img src="../resources/imagens/img_trans.gif"
-								class="escudos #{aposta.jogo.clubeVisitante.escudo}" />
+								class="escudos #{jogo.clubeVisitante.escudo}" />
 					
-							<h:outputText  styleClass="selecao" value="#{aposta.jogo.clubeVisitante.nome}" />
+							<h:outputText  styleClass="selecao" value="#{jogo.clubeVisitante.nome}" />
 						</div>
 					</div>
 				</p:column>
 				
-				<p:column headerText="Ação">	
-					<h:outputText value="#{aposta.jogo.localJogo}" />
+				<p:column headerText="Ação" style="text-align: center">
+					<p:commandButton icon="ui-icon-disk" title="Salvar" action="#{jogoMB.atualizaPlacar()}">
+						<f:setPropertyActionListener value="#{jogo}" target="#{jogoMB.jogoSelecionado}" />
+					</p:commandButton>
 				</p:column>
 			</p:dataTable>
 		</h:form>
