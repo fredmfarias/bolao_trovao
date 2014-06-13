@@ -129,4 +129,13 @@ public class UsuarioService implements IUsuarioService, Serializable {
 			throw new UsuarioException("usuario nao atualizado");
 		}		
 	}
+
+	@Override
+	public List<Usuario> buscaUsuariosAtivos() throws UsuarioException {
+		try {
+			return this.usuarioDAO.listaUsuariosPorSituacao(true);
+		} catch (Exception e) {
+			throw new UsuarioException("Falha ao buscar usuários");
+		}
+	}
 }

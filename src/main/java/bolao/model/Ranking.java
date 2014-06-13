@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tb_ranking")
-public class Ranking implements Serializable{
+public class Ranking implements Serializable, Comparable<Ranking>{
 	
 	private static final long serialVersionUID = 8523734710873743011L;
 	
@@ -36,6 +36,20 @@ public class Ranking implements Serializable{
 	
 	private int parcialPostada;
 
+	private int pontuacaoTotal;
+	
+	private int posicoesGanhas;
+	
+	public Ranking(){
+		this.acertosEmpateJogo = 0;
+		this.acertosGanhador = 0;
+		this.acertosNada = 0;
+		this.acertosPlacarJogo = 0;
+		this.acertosPlacarPerdedorJogo = 0;
+		this.acertosPlacarVencedorJogo = 0;
+		this.pontuacaoTotal = 0;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -56,48 +70,48 @@ public class Ranking implements Serializable{
 		return acertosNada;
 	}
 
-	public void setAcertosNada(int acertosNada) {
-		this.acertosNada = acertosNada;
+	public void addAcertosNada() {
+		this.acertosNada += 1;
 	}
 
 	public int getAcertosGanhador() {
 		return acertosGanhador;
 	}
 
-	public void setAcertosGanhador(int acertosGanhador) {
-		this.acertosGanhador = acertosGanhador;
+	public void addAcertosGanhador() {
+		this.acertosGanhador += 1;
 	}
 
 	public int getAcertosPlacarPerdedorJogo() {
 		return acertosPlacarPerdedorJogo;
 	}
 
-	public void setAcertosPlacarPerdedorJogo(int acertosPlacarPerdedorJogo) {
-		this.acertosPlacarPerdedorJogo = acertosPlacarPerdedorJogo;
+	public void addAcertosPlacarPerdedorJogo() {
+		this.acertosPlacarPerdedorJogo += 1;
 	}
 
 	public int getAcertosPlacarVencedorJogo() {
 		return acertosPlacarVencedorJogo;
 	}
 
-	public void setAcertosPlacarVencedorJogo(int acertosPlacarVencedorJogo) {
-		this.acertosPlacarVencedorJogo = acertosPlacarVencedorJogo;
+	public void addAcertosPlacarVencedorJogo() {
+		this.acertosPlacarVencedorJogo += 1;
 	}
 
 	public int getAcertosPlacarJogo() {
 		return acertosPlacarJogo;
 	}
 
-	public void setAcertosPlacarJogo(int acertosPlacarJogo) {
-		this.acertosPlacarJogo = acertosPlacarJogo;
+	public void addAcertosPlacarJogo() {
+		this.acertosPlacarJogo += 1;
 	}
 
 	public int getAcertosEmpateJogo() {
 		return acertosEmpateJogo;
 	}
 
-	public void setAcertosEmpateJogo(int acertosEmpateJogo) {
-		this.acertosEmpateJogo = acertosEmpateJogo;
+	public void addAcertosEmpateJogo() {
+		this.acertosEmpateJogo += 1;
 	}
 
 	public int getPosicao() {
@@ -116,7 +130,77 @@ public class Ranking implements Serializable{
 		this.parcialPostada = parcialPostada;
 	}
 
+	public int getPontuacaoTotal() {
+		return pontuacaoTotal;
+	}
+
+	public void addPontuacao(int pontuacaoTotal) {
+		this.pontuacaoTotal += pontuacaoTotal;
+	}
+
+	public int getPosicoesGanhas() {
+		return posicoesGanhas;
+	}
+
+	public void setPosicoesGanhas(int posicoesGanhas) {
+		this.posicoesGanhas = posicoesGanhas;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	@Override
+	public int compareTo(Ranking o) {
+		
+		if(this.pontuacaoTotal > o.getPontuacaoTotal()){
+			return -1;
+		}
+		
+		if(this.pontuacaoTotal < o.getPontuacaoTotal()){
+			return 1;
+		}
+		
+		if(this.acertosPlacarJogo > o.getAcertosPlacarJogo()){
+			return -1;
+		}
+		
+		if(this.acertosPlacarJogo < o.getAcertosPlacarJogo()){
+			return 1;
+		}
+		
+		if(this.acertosPlacarVencedorJogo > o.getAcertosPlacarVencedorJogo()){
+			return -1;
+		}
+		
+		if(this.acertosPlacarVencedorJogo < o.getAcertosPlacarVencedorJogo()){
+			return 1;
+		}
+		
+		if(this.acertosEmpateJogo > o.getAcertosEmpateJogo()){
+			return -1;
+		}
+		
+		if(this.acertosEmpateJogo < o.getAcertosEmpateJogo()){
+			return 1;
+		}
+		
+		if(this.acertosPlacarPerdedorJogo > o.getAcertosPlacarPerdedorJogo()){
+			return -1;
+		}
+		
+		if(this.acertosPlacarPerdedorJogo < o.getAcertosPlacarPerdedorJogo()){
+			return 1;
+		}
+		
+		if(this.acertosGanhador > o.getAcertosGanhador()){
+			return -1;
+		}
+		
+		if(this.acertosGanhador < o.getAcertosGanhador()){
+			return 1;
+		}
+		
+		return this.usuario.getNome().compareToIgnoreCase(o.getUsuario().getNome());
 	}
 }

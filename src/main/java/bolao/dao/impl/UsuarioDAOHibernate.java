@@ -49,4 +49,15 @@ public class UsuarioDAOHibernate extends GenericHibernate<Usuario> implements Us
 		
 		return consulta.list();
 	}
+
+	@Override
+	public List<Usuario> listaUsuariosPorSituacao(boolean situacao) {
+		String hql = "FROM Usuario u WHERE u.ativo = :ativo";
+		
+		Query consulta = super.getSession().createQuery(hql);
+		
+		consulta.setBoolean("ativo", situacao);
+		
+		return consulta.list();
+	}
 }

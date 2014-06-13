@@ -130,4 +130,16 @@ public class ApostaService implements IApostaService, Serializable {
 					Constantes.PONTUACAO_AE * aposta.getJogo().getPesoPontucao());
 		}
 	}
+
+	@Override
+	public List<Aposta> buscaApostasUsuarioComPontuacao(Usuario usuario)
+			throws ApostaException {
+		try{
+			return this.apostaDAO.buscaApostasUsuarioComPontuacao(usuario.getId());
+		}catch(NullPointerException e){
+			throw new ApostaException("Erro ao buscar apostas, Usuario nulo");
+		}catch (Exception e) {
+			throw new ApostaException("Nao foi possivel recuperar as apostas do usuario");
+		}
+	}
 }

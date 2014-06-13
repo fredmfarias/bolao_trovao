@@ -11,4 +11,5 @@ public interface IUsuarioService {
 	Usuario buscaUsuarioParaSessao(String login) throws UsuarioException;
 	List<Usuario> getAllUsuarios();
 	void atualizaUsuario(Usuario usuario) throws UsuarioException;
+	List<Usuario> buscaUsuariosAtivos() throws UsuarioException;
 }

@@ -8,4 +8,5 @@ public interface UsuarioDAO extends DAOBase<Usuario>{
 	Long countLogin(String login);
 	Long buscaIdUsuarioPorLogin(String login);
 	List<Usuario> listaUsuariosPorPagamento();
+	List<Usuario> listaUsuariosPorSituacao(boolean situacao);
 }
