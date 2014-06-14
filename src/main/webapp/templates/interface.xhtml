@@ -22,6 +22,10 @@
 				<ui:insert name="menuTopo">
 					<ul>
 						<sec:ifAnyGranted roles="ROLE_ADMIN">
+							<li><a href="#{request.contextPath}/admin/controleRanking.jsf">Controle do Ranking</a></li>
+							<li>|</li>
+							<li><a href="#{request.contextPath}/admin/controlePlacar.jsf">Controle do Placar</a></li>
+							<li>|</li>
 							<li><a href="#{request.contextPath}/admin/controleUsuarios.jsf">Controle Usuários</a></li>
 							<li>|</li>
 						</sec:ifAnyGranted>

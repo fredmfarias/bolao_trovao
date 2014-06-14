@@ -2,10 +2,13 @@ package bolao.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,26 +21,38 @@ public class Ranking implements Serializable, Comparable<Ranking>{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
+	@ManyToOne
+	@JoinColumn(name="id_usuario", nullable = false)
 	private Usuario usuario;
 	
+	@Column(nullable = false)
 	private int acertosNada;
 	
+	@Column(nullable = false)
 	private int acertosGanhador;
 	
+	@Column(nullable = false)
 	private int acertosPlacarPerdedorJogo;
 	
+	@Column(nullable = false)
 	private int acertosPlacarVencedorJogo;
 	
+	@Column(nullable = false)
 	private int acertosPlacarJogo;
 	
+	@Column(nullable = false)
 	private int acertosEmpateJogo;
 	
+	@Column(nullable = false)
 	private int posicao;
 	
+	@Column(nullable = false)
 	private int parcialPostada;
 
+	@Column(nullable = false)
 	private int pontuacaoTotal;
 	
+	@Column(nullable = false)
 	private int posicoesGanhas;
 	
 	public Ranking(){
@@ -200,7 +215,7 @@ public class Ranking implements Serializable, Comparable<Ranking>{
 		if(this.acertosGanhador < o.getAcertosGanhador()){
 			return 1;
 		}
-		
+				
 		return this.usuario.getNome().compareToIgnoreCase(o.getUsuario().getNome());
 	}
 }

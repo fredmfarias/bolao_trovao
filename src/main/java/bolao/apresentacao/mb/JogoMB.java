@@ -44,6 +44,7 @@ public class JogoMB extends MB implements Serializable{
 	public void atualizaPlacar(){
 		try {
 			this.jogoService.atualizaJogo(jogoSelecionado);
+			MessagesProperty.sucessoMsg("MN0001");
 		} catch (JogoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
