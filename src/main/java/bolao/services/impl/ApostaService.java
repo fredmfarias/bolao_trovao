@@ -142,4 +142,17 @@ public class ApostaService implements IApostaService, Serializable {
 			throw new ApostaException("Nao foi possivel recuperar as apostas do usuario");
 		}
 	}
+
+	@Override
+	public List<Aposta> buscaApostasUsuarioExibPorNumJogo(Usuario usuario)
+			throws ApostaException {
+		try{
+			return this.apostaDAO
+					.buscaApostasUsuarioExibPorNumJogo(usuario.getId());
+		}catch(NullPointerException e){
+			throw new ApostaException("Erro ao buscar apostas, Usuario nulo");
+		}catch (Exception e) {
+			throw new ApostaException("Nao foi possivel recuperar as apostas do usuario");
+		}
+	}
 }

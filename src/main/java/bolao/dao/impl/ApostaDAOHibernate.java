@@ -53,4 +53,17 @@ public class ApostaDAOHibernate extends GenericHibernate<Aposta> implements Apos
 		
 		return consulta.list();
 	}
+
+	@Override
+	public List<Aposta> buscaApostasUsuarioExibPorNumJogo(Long id_usuario) {
+		String hql = "FROM Aposta a inner join fetch a.jogo j WHERE (a.usuario.id = :id_usuario)"
+				+ "AND (a.pontuacao is not null) "
+				+ "ORDER BY j.numeroJogo DESC";
+		
+		Query consulta = super.getSession().createQuery(hql);
+		
+		consulta.setLong("id_usuario", id_usuario);
+		
+		return consulta.list();
+	}
 }

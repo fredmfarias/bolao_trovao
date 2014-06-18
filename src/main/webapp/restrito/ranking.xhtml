@@ -11,61 +11,138 @@
 		Ranking
 	</ui:define>
 	<ui:define name="conteudo">
-		<p:dataTable id="dtRankings" var="ranking"
-			value="#{controleRankingMB.rankings}" widgetVar="rankingsTable"
-			rowStyleClass="#{controleRankingMB.estiloLinha(ranking.posicao)}">
-
-			<f:facet name="header">
-	            	#{msg['label.ranking']}
-	        </f:facet>
-
-			<p:column headerText="#{msg['label.posicao']}">
-				<h:outputText value="#{ranking.posicao}" />
-			</p:column>
-
-			<p:column headerText="#{msg['label.nome']}" style="width: 30%">
-				<h:outputText styleClass="nomeRanking"
-					value="#{ranking.usuario.nome}" />
-			</p:column>
-
-			<p:column style="text-align: center"
-				headerText="#{msg['label.variacao']}">
-				<h:outputText
-					styleClass="#{controleRankingMB.estiloVariacao(ranking.posicoesGanhas)}"
-					value="#{ranking.posicoesGanhas}" />
-			</p:column>
-
-			<p:column style="text-align: center" headerText="#{msg['label.ap']}">
-				<h:outputText value="#{ranking.acertosPlacarJogo}" />
-			</p:column>
-
-			<p:column style="text-align: center" headerText="#{msg['label.apg']}">
-				<h:outputText value="#{ranking.acertosPlacarVencedorJogo}" />
-			</p:column>
-
-			<p:column style="text-align: center" headerText="#{msg['label.ae']}">
-				<h:outputText value="#{ranking.acertosEmpateJogo}" />
-			</p:column>
-
-			<p:column style="text-align: center" headerText="#{msg['label.app']}">
-				<h:outputText value="#{ranking.acertosPlacarPerdedorJogo}" />
-			</p:column>
-
-			<p:column style="text-align: center" headerText="#{msg['label.ag']}">
-				<h:outputText value="#{ranking.acertosGanhador}" />
-			</p:column>
-
-			<p:column style="text-align: center"
-				headerText="#{msg['label.zerou']}">
-				<h:outputText value="#{ranking.acertosNada}" />
-			</p:column>
-
-			<p:column style="text-align: center"
-				headerText="#{msg['label.pontuacao.total']}">
-				<h:outputText value="#{ranking.pontuacaoTotal}" />
-			</p:column>
-
-		</p:dataTable>
+		<h:form id="ranking">
+			
+			<div align="right">
+				<p:selectOneMenu value="#{rankingMB.parcialSelecionada}">
+					<f:selectItem itemLabel="Selecione uma parcial..." itemValue="" />
+					<f:selectItems value="#{rankingMB.parciais}" var="parcial" itemLabel="Parcial #{parcial}"/>
+					
+					<p:ajax event="change" listener="#{rankingMB.buscaRanking()}" update="dtRankings" />
+				</p:selectOneMenu>
+			</div>
+			
+			<p:spacer height="10" ></p:spacer> 
+			
+			<p:dataTable id="dtRankings" var="ranking"
+				value="#{rankingMB.rankings}" widgetVar="rankingsTable"
+				rowStyleClass="#{rankingMB.estiloLinha(ranking)}">
+	
+				<f:facet name="header">
+		            	#{msg['label.ranking']}
+		        </f:facet>
+	
+				<p:column style="text-align: center"
+					headerText="#{msg['label.posicao']}">
+					<h:outputText value="#{ranking.posicao}" />
+				</p:column>
+	
+				<p:column headerText="#{msg['label.nome']}" style="width: 30%">
+					<h:outputText styleClass="nomeRanking"
+						value="#{ranking.usuario.nome}" />
+				</p:column>
+	
+				<p:column style="text-align: center"
+					headerText="#{msg['label.variacao']}">
+					<h:outputText
+						styleClass="#{rankingMB.estiloVariacao(ranking.posicoesGanhas)}"
+						value="#{ranking.posicoesGanhas}" />
+				</p:column>
+	
+				<p:column style="text-align: center" headerText="#{msg['label.ap']}">
+					<h:outputText value="#{ranking.acertosPlacarJogo}" />
+				</p:column>
+	
+				<p:column style="text-align: center" headerText="#{msg['label.apg']}">
+					<h:outputText value="#{ranking.acertosPlacarVencedorJogo}" />
+				</p:column>
+	
+				<p:column style="text-align: center" headerText="#{msg['label.ae']}">
+					<h:outputText value="#{ranking.acertosEmpateJogo}" />
+				</p:column>
+	
+				<p:column style="text-align: center" headerText="#{msg['label.app']}">
+					<h:outputText value="#{ranking.acertosPlacarPerdedorJogo}" />
+				</p:column>
+	
+				<p:column style="text-align: center" headerText="#{msg['label.ag']}">
+					<h:outputText value="#{ranking.acertosGanhador}" />
+				</p:column>
+	
+				<p:column style="text-align: center"
+					headerText="#{msg['label.zerou']}">
+					<h:outputText value="#{ranking.acertosNada}" />
+				</p:column>
+	
+				<p:column style="width:10%;text-align: center"
+					headerText="#{msg['label.pontuacao.total']}">
+					<h:outputText value="#{ranking.pontuacaoTotal}" />
+				</p:column>
+				
+				<p:column style="width:5%;text-align: center"
+					headerText="#{msg['label.acao']}">
+					<p:commandButton update=":apostasDetalhes" oncomplete="PF('dlg').show()" 
+						icon="ui-icon-search" title="Visualizar"
+						action="#{rankingMB.buscaApostasUsuario()}">
+						<f:setPropertyActionListener value="#{ranking.usuario}" target="#{rankingMB.usuarioSelecionado}" />
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+		
+		<p:dialog header="Detalhe de Palpites" widgetVar="dlg" modal="true" resizable="false">
+			
+			<p:outputPanel id="apostasDetalhes" style="text-align:center; width: 750px" >
+				<p:dataTable id="dtApostas" styleClass="tabela" var="aposta" 
+					value="#{rankingMB.apostas}" widgetVar="apostasTable" 
+					paginator="true"
+					rows="4">
+		
+					<f:facet name="header">
+		            	#{msg['label.apostas']}
+		        	</f:facet>
+									
+					<p:column headerText="#{msg['label.data']}" >						
+						<h:outputText styleClass="dia" value="#{utilMB.dataUtil.obterNomeDiaDaSemana(aposta.jogo.dataJogo)}" />
+						<br />
+						<h:outputText styleClass="data" value="#{utilMB.dataUtil.formatarDDMM(aposta.jogo.dataJogo)}" />
+						<br />
+						<h:outputText styleClass="hora" value="#{utilMB.dataUtil.formatarHHmm(aposta.jogo.dataJogo)}" />
+					</p:column>
+					
+					<p:column width="600" headerText="#{msg['label.confronto']}">
+						
+						<h:outputText value="#{msg['label.jogo']} #{aposta.jogo.numeroJogo} - " />
+						<h:outputText style="font-weight: bold;" value="Grupo #{aposta.jogo.grupo}" />
+						
+						<div id="confronto">
+							
+							<div id="mandante">
+								<h:outputText styleClass="selecao" value="#{aposta.jogo.clubeCasa.nome}"  />
+						
+								<img src="../resources/imagens/img_trans.gif"
+									class="escudos #{aposta.jogo.clubeCasa.escudo}"/>
+							</div>
+							
+							<div id="placar">
+								<h:outputText styleClass="data" value="#{aposta.apostaPlacarCasa}" />
+																				
+								<h:outputText style="padding: 5px;" value="X" />
+								
+								<h:outputText styleClass="data" value="#{aposta.apostaPlacarVisitante}" />	
+							</div>
+							
+							<div id="visitante">	
+								<img src="../resources/imagens/img_trans.gif"
+									class="escudos #{aposta.jogo.clubeVisitante.escudo}" />
+						
+								<h:outputText  styleClass="selecao" value="#{aposta.jogo.clubeVisitante.nome}" />
+							</div>
+						</div>
+					</p:column>
+				</p:dataTable>
+			</p:outputPanel>	
+		</p:dialog>
 	</ui:define>
 </ui:composition>
 </html>

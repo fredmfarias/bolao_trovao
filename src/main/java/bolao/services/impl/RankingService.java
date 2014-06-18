@@ -50,7 +50,7 @@ public class RankingService implements IRankingService, Serializable {
 			}else if((a.getPontuacao() == Constantes.PONTUACAO_APG) || 
 					(a.getPontuacao() == (Constantes.PONTUACAO_APG * a.getJogo().getPesoPontucao()))){
 				ranking.addAcertosPlacarVencedorJogo();
-			}else if((a.getPontuacao() == Constantes.PONTUACAO_APP) || 
+			}else if(((a.getPontuacao() == Constantes.PONTUACAO_APP) && (a.getJogo().getPesoPontucao() == 1) ) || 
 					(a.getPontuacao() == (Constantes.PONTUACAO_APP * a.getJogo().getPesoPontucao()))){
 				ranking.addAcertosPlacarPerdedorJogo();
 			}else if((a.getPontuacao() == Constantes.PONTUACAO_AE) || 
