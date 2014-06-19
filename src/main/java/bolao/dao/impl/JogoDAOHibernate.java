@@ -37,4 +37,15 @@ public class JogoDAOHibernate extends GenericHibernate<Jogo> implements JogoDAO,
 	public void merge(Jogo jogo) {
 		getSession().merge(jogo);		
 	}
+
+	@Override
+	public List<Jogo> buscaTodosJogosComPlacar() {
+		String hql = "FROM Jogo j "
+				+ "WHERE (j.placarCasa is not null) and (j.placarVisitante is not null) "
+				+ "ORDER BY j.numeroJogo DESC";
+		
+		Query consulta = super.getSession().createQuery(hql);
+		
+		return consulta.list();
+	}
 }

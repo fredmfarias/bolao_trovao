@@ -93,4 +93,13 @@ public class JogoService implements IJogoService, Serializable {
 			throw new JogoException("Falha ao buscar jogo");
 		}
 	}
+
+	@Override
+	public List<Jogo> buscaTodosJogosComPlacar() throws JogoException {
+		try{
+			return this.jogoDAO.buscaTodosJogosComPlacar();
+		}catch(Exception e){
+			throw new JogoException("Falha ao buscar jogos");
+		}
+	}
 }

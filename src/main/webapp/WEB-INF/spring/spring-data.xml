@@ -31,7 +31,8 @@
 				<value>bolao.model.Clube</value>
 				<value>bolao.model.Usuario</value>
 				<value>bolao.model.Jogo</value>
-				<value>bolao.model.Ranking</value>				
+				<value>bolao.model.Ranking</value>
+				<value>bolao.model.RankingDetalhado</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

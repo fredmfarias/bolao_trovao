@@ -505,3 +505,13 @@ div#bolao-barra div.bolao-barra-corpo {
 	font-weight: bold;
 	color: #333;
 }
+
+.ui-selectmanymenu{
+	padding: 2px;
+	width: 400px;
+}
+
+.tabelaDT{
+	border: 0px !important;  
+    padding-left: 1em;  
+}

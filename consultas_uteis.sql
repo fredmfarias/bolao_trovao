@@ -33,10 +33,6 @@ select nome from tb_usuario u
 where id in (select id_usuario from tb_aposta where (apostaplacarcasa = 2 and apostaplacarvisitante = 1) and cod_jogo = 12)
 and ativo = true
 
-select nome from tb_usuario u
-where id in (select id_usuario from tb_aposta where (apostaplacarcasa = 1 and apostaplacarvisitante = 0) and cod_jogo = 16)
-and ativo = true
-
 --Oganizar producao
 UPDATE tb_jogo set placarcasa = null, placarvisitante = null;
 
