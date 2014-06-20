@@ -8,71 +8,44 @@
 
 <ui:composition template="/templates/interface.xhtml">
 	<ui:define name="titulo">
-		Controle do Ranking Detalhado
+		Ranking Detalhado
 	</ui:define>
 	<ui:define name="conteudo">
 		<h:form id="ranking">
 			
-			<p:selectManyMenu id="smmJogos" value="#{controleRankingDetalhadoMB.jogosSelecionados}"
-                          var="jogo" filter="true" filterMatchMode="contains" showCheckbox="true"
-                          converter="objectConverter">
-	 
-	            <f:selectItems value="#{controleRankingDetalhadoMB.jogos}" var="j" 
-	            	itemLabel="#{utilMB.dataUtil.formatarDDMMYYYY(j.dataJogo)}" itemValue="#{j}" />
-	 	        
-	 	        <p:column>
-	 	        	<div id="mandante" align="center">
-							<h:outputText styleClass="selecao" value="#{jogo.clubeCasa.nome}"  />
-					</div>
-	 	        </p:column>
-	 	        
-	 	        <p:column>
-	 	        	<div id="placar">
-						<h:outputText styleClass="data" value="#{jogo.placarCasa}" />
-																				
-						<h:outputText style="padding: 5px;" value="X" />
-								
-						<h:outputText styleClass="data" value="#{jogo.placarVisitante}" />						
-					</div>
-	 	        </p:column>
-	 	        
-	 	        <p:column>
-	 	        	<div id="visitante" align="center">	
-						<h:outputText  styleClass="selecao" value="#{jogo.clubeVisitante.nome}" />
-					</div>
-	 	        </p:column>
-        	</p:selectManyMenu>
+			<div align="right">
+				<p:selectOneMenu value="#{rankingDetalhadoMB.parcialSelecionada}">
+					<f:selectItem itemLabel="Selecione uma parcial..." itemValue="" />
+					<f:selectItems value="#{rankingDetalhadoMB.parciais}" var="parcial" itemLabel="Parcial #{parcial}"/>
+					
+					<p:ajax event="change" listener="#{rankingDetalhadoMB.buscaRanking()}" update=":dtRankingDetalhado" />
+				</p:selectOneMenu>
+			</div>
 			
-			<p:commandButton value="#{msg['label.gerar.ranking']}" 
-				actionListener="#{controleRankingDetalhadoMB.geraRankingDetalhado()}"
-				update=":dtRankingDetalhado" />
-			
-			<p:commandButton value="#{msg['label.publicar.ranking']}" 
-				actionListener="#{controleRankingDetalhadoMB.publicarRanking()}" 
-				update="smmJogos"/>
-			
+			<p:spacer height="10" ></p:spacer>
 		</h:form>
 		
 		<p:dataTable id="dtRankingDetalhado" var="rankingDetalhado" 
-			value="#{controleRankingDetalhadoMB.rankings}">
+			value="#{rankingDetalhadoMB.rankings}" 
+			rowStyleClass="#{rankingDetalhadoMB.estiloLinha(rankingDetalhado)}">
 	        
 	        <f:facet name="header">
-	            Ranking Detalhado
+	            Ranking Diário Detalhado
 	        </f:facet>
 	        
 	        <p:column style="width:16px">
 	            <p:rowToggler />
 	        </p:column>
 	        
-	        <p:column headerText="#{msg['label.posicao']}">
+	        <p:column style="width:60px; text-align: center;" headerText="#{msg['label.posicao']}">
 	            <h:outputText value="#{rankingDetalhado.posicao}" />
 	        </p:column>
 	        
 	        <p:column headerText="#{msg['label.nome']}">
-	            <h:outputText value="#{rankingDetalhado.usuario.nome}" />
+	            <h:outputText styleClass="nomeRanking" value="#{rankingDetalhado.usuario.nome}" />
 	        </p:column>
 	        
-	        <p:column headerText="#{msg['label.pontuacao.total']}">
+	        <p:column style="width:60px; text-align: center;" headerText="#{msg['label.pontuacao.total']}">
 	            <h:outputText value="#{rankingDetalhado.pontuacaoTotal}" />
 	        </p:column>
 	        

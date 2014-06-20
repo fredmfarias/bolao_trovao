@@ -10,4 +10,5 @@ public interface RankingDAO extends DAOBase<Ranking> {
 	Integer posicaoRanking(int parcial, Usuario usuario);
 	List<Ranking> buscarRankingPorParcial(int parcial);
 	List<Integer> buscarParciais();
+	List<Ranking> buscarRankingPorUsuario(Usuario usuario, int parcial);
 }

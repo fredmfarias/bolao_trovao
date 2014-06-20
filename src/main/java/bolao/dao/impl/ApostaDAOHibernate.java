@@ -58,7 +58,7 @@ public class ApostaDAOHibernate extends GenericHibernate<Aposta> implements Apos
 	@Override
 	public List<Aposta> buscaApostasUsuarioExibPorNumJogo(Long id_usuario) {
 		String hql = "FROM Aposta a inner join fetch a.jogo j WHERE (a.usuario.id = :id_usuario)"
-				+ "AND (a.pontuacao is not null) "
+				+ "AND (a.jogo.id IN (SELECT a.jogo.id FROM RankingDetalhado rd inner join rd.apostas a)) "
 				+ "ORDER BY j.numeroJogo DESC";
 		
 		Query consulta = super.getSession().createQuery(hql);

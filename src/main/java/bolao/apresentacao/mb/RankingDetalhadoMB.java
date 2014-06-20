@@ -9,31 +9,28 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 import bolao.excecoes.RankingException;
-import bolao.model.Jogo;
+import bolao.excecoes.UsuarioException;
 import bolao.model.RankingDetalhado;
-import bolao.services.IJogoService;
 import bolao.services.IRankingDetalhadoService;
 import bolao.util.MessagesProperty;
 
-@ManagedBean(name="controleRankingDetalhadoMB")
+@ManagedBean(name="rankingDetalhadoMB")
 @ViewScoped
-public class ControleRankingDetalhadoMB implements Serializable {
+public class RankingDetalhadoMB extends MB implements Serializable {
 	
 	private static final long serialVersionUID = -1277934680901455002L;
-	private List<Jogo> jogos;
-	private List<Jogo> jogosSelecionados;
+	
+	private int parcialSelecionada;
+	private List<Integer> parciais;
 	private List<RankingDetalhado> rankings;
-	
-	@ManagedProperty(value="#{jogoService}")
-	private IJogoService jogoService;
-	
+		
 	@ManagedProperty(value="#{rankingDetalhadoService}")
 	private IRankingDetalhadoService rankingDetalhadoService;
 		
 	@PostConstruct
 	public void init(){
 		try{
-			this.jogos = this.jogoService.buscaTodosJogosComPlacar();
+			this.parciais = this.rankingDetalhadoService.buscarParciais();
 			this.rankings = this.rankingDetalhadoService.buscarRankingDetalhadoPorParcial(
 					this.rankingDetalhadoService.ultimaParcialPostada());
 		}catch(Exception e){
@@ -41,46 +38,17 @@ public class ControleRankingDetalhadoMB implements Serializable {
 			MessagesProperty.errorMsg("MN0014");
 		}
 	}
-	
-	public void geraRankingDetalhado(){
+			
+	public void buscaRanking(){
 		try {
-			this.rankings = this.rankingDetalhadoService.geraRankingDetalhado(jogosSelecionados);
+			this.rankings = this.rankingDetalhadoService
+					.buscarRankingDetalhadoPorParcial(this.parcialSelecionada);
 		} catch (RankingException e) {
-			MessagesProperty.errorMsg("MN0016");
+			e.printStackTrace();
+			MessagesProperty.errorMsg("MN0014");
 		}
 	}
 	
-	public void publicarRanking(){
-		try {
-			this.rankingDetalhadoService.salvarRankingDetalhado(rankings);
-			this.jogosSelecionados = null;
-			MessagesProperty.sucessoMsg("MN0001");
-		} catch (RankingException e) {
-			MessagesProperty.errorMsg("MN0016");
-		}
-	}
-	
-	public List<Jogo> getJogos() {
-		return jogos;
-	}
-	public void setJogos(List<Jogo> jogos) {
-		this.jogos = jogos;
-	}
-	public List<Jogo> getJogosSelecionados() {
-		return jogosSelecionados;
-	}
-	public void setJogosSelecionados(List<Jogo> jogosSelecionados) {
-		this.jogosSelecionados = jogosSelecionados;
-	}
-
-	public IJogoService getJogoService() {
-		return jogoService;
-	}
-
-	public void setJogoService(IJogoService jogoService) {
-		this.jogoService = jogoService;
-	}
-
 	public IRankingDetalhadoService getRankingDetalhadoService() {
 		return rankingDetalhadoService;
 	}
@@ -100,5 +68,39 @@ public class ControleRankingDetalhadoMB implements Serializable {
 
 	public void setRankings(List<RankingDetalhado> rankings) {
 		this.rankings = rankings;
+	}
+
+	public int getParcialSelecionada() {
+		return parcialSelecionada;
+	}
+
+	public void setParcialSelecionada(int parcialSelecionada) {
+		this.parcialSelecionada = parcialSelecionada;
+	}
+
+	public List<Integer> getParciais() {
+		return parciais;
+	}
+
+	public void setParciais(List<Integer> parciais) {
+		this.parciais = parciais;
+	}
+	
+public String estiloLinha(RankingDetalhado ranking) {
+				
+		try {
+			if(ranking != null && ranking.getUsuario().getId().equals(
+					getUsuarioLogado().getId())){
+				return "background-usuario";
+			}else {
+				return null;
+			}
+			
+		} catch (UsuarioException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 }

@@ -79,11 +79,19 @@
 					<h:outputText value="#{ranking.pontuacaoTotal}" />
 				</p:column>
 				
-				<p:column style="width:5%;text-align: center"
+				<p:column style="width:10%;text-align: center"
 					headerText="#{msg['label.acao']}">
 					<p:commandButton update=":apostasDetalhes" oncomplete="PF('dlg').show()" 
 						icon="ui-icon-search" title="Visualizar"
 						action="#{rankingMB.buscaApostasUsuario()}">
+						<f:setPropertyActionListener value="#{ranking.usuario}" target="#{rankingMB.usuarioSelecionado}" />
+					</p:commandButton>
+					
+					<p:commandButton oncomplete="PF('dlgGrafico').show()" 
+						icon="ui-icon-image" title="Visualizar"
+						update=":graficoDetalhes"
+						action="#{rankingMB.geraGrafico()}"	>
+						
 						<f:setPropertyActionListener value="#{ranking.usuario}" target="#{rankingMB.usuarioSelecionado}" />
 					</p:commandButton>
 				</p:column>
@@ -142,6 +150,12 @@
 					</p:column>
 				</p:dataTable>
 			</p:outputPanel>	
+		</p:dialog>
+		
+		<p:dialog header="Gráfico de Desempenho no Ranking" widgetVar="dlgGrafico" modal="true" resizable="false">
+			<p:outputPanel id="graficoDetalhes" style="text-align:center;" >
+				<p:chart type="line" model="#{rankingMB.graficoRanking}" style="width:600px;" />
+			</p:outputPanel>
 		</p:dialog>
 	</ui:define>
 </ui:composition>

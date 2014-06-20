@@ -7,6 +7,7 @@ import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import bolao.dao.RankingDetalhadoDAO;
+import bolao.model.Ranking;
 import bolao.model.RankingDetalhado;
 import bolao.model.Usuario;
 
@@ -44,7 +45,8 @@ public class RankingDetalhadoDAOHibernate extends GenericHibernate<RankingDetalh
 
 	@Override
 	public List<RankingDetalhado> buscarRankingDetalhadoPorParcial(int parcial) {
-		String hql = "FROM RankingDetalhado r WHERE r.parcialPostada = :parcial";
+		String hql = "FROM RankingDetalhado r WHERE r.parcialPostada = :parcial"
+				+ " ORDER BY posicao";
 		
 		Query consulta = super.getSession().createQuery(hql);
 		
@@ -59,6 +61,21 @@ public class RankingDetalhadoDAOHibernate extends GenericHibernate<RankingDetalh
 				+ "ORDER BY r.parcialPostada";
 		
 		Query consulta = super.getSession().createQuery(hql);
+		
+		return consulta.list();
+	}
+	
+	@Override
+	public List<RankingDetalhado> buscarRankingPorUsuario(Usuario usuario, int parcial) {
+		String hql = "FROM RankingDetalhado r WHERE "
+				+ "r.usuario.id = :usuario"
+				+ " AND (parcialPostada <= :parcial)"
+				+ " ORDER BY parcialPostada";
+		
+		Query consulta = super.getSession().createQuery(hql);
+		
+		consulta.setLong("usuario", usuario.getId());
+		consulta.setInteger("parcial", parcial);
 		
 		return consulta.list();
 	}

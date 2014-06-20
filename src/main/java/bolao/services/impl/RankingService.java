@@ -170,4 +170,14 @@ public class RankingService implements IRankingService, Serializable {
 			throw new RankingException("Falha ao buscar numero de parciais");
 		}
 	}
+
+	@Override
+	public List<Ranking> buscarRankingPorUsuario(Usuario usuario, int parcial)
+			throws RankingException {
+		try{
+			return this.rankingDAO.buscarRankingPorUsuario(usuario, parcial);
+		}catch(Exception e){
+			throw new RankingException("Falha ao buscar rankings");
+		}
+	}
 }

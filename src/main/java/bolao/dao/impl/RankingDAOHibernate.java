@@ -44,7 +44,8 @@ public class RankingDAOHibernate extends GenericHibernate<Ranking> implements Ra
 
 	@Override
 	public List<Ranking> buscarRankingPorParcial(int parcial) {
-		String hql = "FROM Ranking r WHERE r.parcialPostada = :parcial";
+		String hql = "FROM Ranking r WHERE r.parcialPostada = :parcial"
+				+ " ORDER BY posicao";
 		
 		Query consulta = super.getSession().createQuery(hql);
 		
@@ -59,6 +60,21 @@ public class RankingDAOHibernate extends GenericHibernate<Ranking> implements Ra
 				+ "ORDER BY r.parcialPostada";
 		
 		Query consulta = super.getSession().createQuery(hql);
+		
+		return consulta.list();
+	}
+
+	@Override
+	public List<Ranking> buscarRankingPorUsuario(Usuario usuario, int parcial) {
+		String hql = "FROM Ranking r WHERE "
+				+ "(r.usuario.id = :usuario)"
+				+ " AND (parcialPostada <= :parcial)"
+				+ " ORDER BY parcialPostada";
+		
+		Query consulta = super.getSession().createQuery(hql);
+		
+		consulta.setLong("usuario", usuario.getId());
+		consulta.setInteger("parcial", parcial);
 		
 		return consulta.list();
 	}

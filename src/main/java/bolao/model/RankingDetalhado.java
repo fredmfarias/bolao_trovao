@@ -9,6 +9,7 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +17,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="tb_rankingDetalhado")
@@ -41,10 +41,9 @@ public class RankingDetalhado implements Serializable, Comparable<RankingDetalha
 	@Column(nullable = false)
 	private int pontuacaoTotal;
 	
-	@ElementCollection(targetClass = Integer.class)
+	@ElementCollection(targetClass = Aposta.class, fetch=FetchType.EAGER)
 	@JoinTable(
 			name = "tb_ranking_apostas",
-			uniqueConstraints ={@UniqueConstraint(columnNames = {"id_ranking","id_aposta"})},
 			joinColumns = @JoinColumn(name = "id_ranking"))
 	@Column(name = "id_aposta")
 	private Set<Aposta> apostas;

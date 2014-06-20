@@ -511,7 +511,28 @@ div#bolao-barra div.bolao-barra-corpo {
 	width: 400px;
 }
 
-.tabelaDT{
-	border: 0px !important;  
-    padding-left: 1em;  
+.placarDetalhe{
+	font-weight: bold;
+	font-size: 25px;
+	color: #333;
+}
+
+div#menu {
+	height: 35px;
+	margin: 6px 0;
+}
+
+div#menu form#formMenuPrincipal .ui-menubar {
+	height: 33px;
+	font-size:1.09em;
+	float: right;
+	margin: 0;
+	padding: 0;
+	background: url('../imagens/bg_menu.png') repeat-x;
+	border: 1px solid #cbcbcb;
+}
+
+div#menu form#formMenuPrincipal .ui-menubar .ui-menu-listCustom {
+	margin-left: 10px;
+	padding-left: 2px;
 }

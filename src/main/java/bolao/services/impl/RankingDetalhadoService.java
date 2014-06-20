@@ -134,4 +134,13 @@ public class RankingDetalhadoService implements IRankingDetalhadoService, Serial
 		}
 	}
 
+	@Override
+	public List<RankingDetalhado> buscarRankingPorUsuario(Usuario usuario, int parcial)
+			throws RankingException {
+		try{
+			return this.rankingDetalhadoDAO.buscarRankingPorUsuario(usuario, parcial);
+		}catch(Exception e){
+			throw new RankingException("Falha ao buscar rankings");
+		}
+	}
 }

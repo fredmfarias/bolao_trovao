@@ -22,6 +22,8 @@
 				<ui:insert name="menuTopo">
 					<ul>
 						<sec:ifAnyGranted roles="ROLE_ADMIN">
+							<li><a href="#{request.contextPath}/admin/controleRankingDetalhado.jsf">Controle do Ranking Detalhado</a></li>
+							<li>|</li>
 							<li><a href="#{request.contextPath}/admin/controleRanking.jsf">Controle do Ranking</a></li>
 							<li>|</li>
 							<li><a href="#{request.contextPath}/admin/controlePlacar.jsf">Controle do Placar</a></li>
@@ -40,6 +42,19 @@
 			</div>
 		</div>
 		<div id="container">
+			<div id="menu">
+				<ui:insert name="menu">
+					<h:form id="formMenuPrincipal">
+						<p:menubar>
+							<p:menuitem value="Apostas" url="/restrito/apostas.jsf" icon="ui-icon-extlink"/>
+							<p:menuitem value="Ranking Geral" url="/restrito/ranking.jsf" icon="ui-icon-extlink"/>
+							<p:menuitem value="Ranking Parcial Detalhado" 
+								url="/restrito/rankingDetalhado.jsf"
+								icon="ui-icon-extlink"/>
+						</p:menubar>
+					</h:form>
+				</ui:insert>
+			</div>
 			<div id="center">
 				<div id="content">
 					<h:form id="message">
