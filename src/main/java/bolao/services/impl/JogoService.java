@@ -13,8 +13,10 @@ import bolao.excecoes.ApostaException;
 import bolao.excecoes.JogoException;
 import bolao.model.Aposta;
 import bolao.model.Jogo;
+import bolao.model.Usuario;
 import bolao.services.IApostaService;
 import bolao.services.IJogoService;
+import bolao.services.IUsuarioService;
 
 @Transactional(readOnly=true)
 @Service("jogoService")
@@ -27,6 +29,9 @@ public class JogoService implements IJogoService, Serializable {
 	
 	@Autowired
 	IApostaService apostaService;
+	
+	@Autowired
+	IUsuarioService usuarioService;
 	
 	@Override
 	public List<Jogo> getAllJogos() {
@@ -76,6 +81,34 @@ public class JogoService implements IJogoService, Serializable {
 			}
 		}
 		
+	}
+	
+	@Override
+	@Transactional(readOnly=false)
+	public void adcionaJogo(Jogo jogo) throws JogoException {
+		
+		if(jogo == null){
+			throw new JogoException("Impossivel adcionar, jogo nulo");
+		}
+		
+		this.jogoDAO.salvar(jogo);
+				
+		try {
+			List<Usuario> usuarios = this.usuarioService.getAllUsuarios();
+				
+			for(Usuario u : usuarios){
+				Aposta aposta = new Aposta();
+				
+				aposta.setJogo(jogo);
+				aposta.setUsuario(u);
+								
+				this.apostaService.addAposta(aposta);
+			}
+		}catch (ApostaException e) {
+			throw new JogoException("Nao foi possivel adcionar aposta do jogo.", e);
+		}catch(Exception e){
+			throw new JogoException("Nao foi possivel adcionar jogo.", e);
+		}
 	}
 	
 	private boolean jogoDiferePlacar(Jogo jogo1, Jogo jogo2){

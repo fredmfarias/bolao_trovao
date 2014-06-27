@@ -12,4 +12,5 @@ public interface IJogoService {
 	List<Jogo> buscaTodosJogosComPlacar() throws JogoException;
 	void atualizaJogo(Jogo jogo) throws JogoException;
 	Jogo buscar(Jogo jogo) throws JogoException;
+	void adcionaJogo(Jogo jogo) throws JogoException;
 }

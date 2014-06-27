@@ -9,6 +9,7 @@ import bolao.model.Usuario;
 
 public interface IApostaService {
 	void addAposta(Usuario usuario, List<Jogo> jogos) throws ApostaException;
+	void addAposta(Aposta aposta) throws ApostaException;
 	List<Aposta> buscaApostasPorUsuario(Usuario usuario) throws ApostaException;
 	List<Aposta> buscaApostasUsuarioComPontuacao(Usuario usuario) throws ApostaException;
 	List<Aposta> buscaApostasUsuarioComPontuacao(Usuario usuario, List<Jogo> jogos) throws ApostaException;

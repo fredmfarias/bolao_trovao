@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/interface.xhtml">
+	<ui:define name="titulo">
+		Adciona Jogo
+	</ui:define>
+	<ui:define name="conteudo">
+		<h:form id="cadastro">
+							
+				<h:panelGrid columns="3">
+					
+					<p:selectOneMenu value="#{adcionarJogoMB.jogo.clubeCasa}" required="true" converter="objectConverter">
+							<f:selectItem itemLabel="Selecione Time Casa..." itemValue="#{null}"/>
+							<f:selectItems value="#{adcionarJogoMB.clubes}" var="clube" itemLabel="#{clube.nome}"/>
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="X" />
+					
+					<p:selectOneMenu value="#{adcionarJogoMB.jogo.clubeVisitante}" required="true" converter="objectConverter">
+							<f:selectItem itemLabel="Selecione Time Visitante..." itemValue="#{null}"/>
+							<f:selectItems value="#{adcionarJogoMB.clubes}" var="clube" itemLabel="#{clube.nome}"/>
+					</p:selectOneMenu>
+				</h:panelGrid>
+				
+				<h:panelGrid columns="2">
+					<p:outputLabel for="datetime" value="#{msg['label.data']}:" />
+        			<p:calendar id="datetime" value="#{adcionarJogoMB.jogo.dataJogo}" pattern="dd/MM/yyyy HH:mm:ss"
+        				required="true" />
+        				
+        			<p:outputLabel value="Local:" for="local" />
+					<p:inputText id="local"
+						value="#{adcionarJogoMB.jogo.localJogo}" size="50" maxlength="50"
+						required="true" >
+						<f:validateLength minimum="5" maximum="50" />
+					</p:inputText>
+					
+					<p:outputLabel value="Numero Jogo:" for="numeroJogo" />
+					<p:inputText id="numeroJogo"
+						value="#{adcionarJogoMB.jogo.numeroJogo}" size="2" maxlength="2"
+						required="true" >
+					</p:inputText>
+					
+					<p:outputLabel value="Rodada:" for="rodada" />
+					<p:inputText id="rodada"
+						value="#{adcionarJogoMB.jogo.rodada}" size="2" maxlength="2"
+						required="true" >
+					</p:inputText>
+					
+					<p:outputLabel value="#{msg['label.grupo']}:" for="grupo" />
+					<p:inputText id="grupo"
+						value="#{adcionarJogoMB.jogo.grupo}" size="2" maxlength="2"
+						required="true" >
+					</p:inputText>
+					
+					<p:outputLabel value="Peso Pontuação:" for="peso" />
+					<p:spinner id="peso" size="2"
+								min="1" max="10"
+								value="#{adcionarJogoMB.jogo.pesoPontucao}"
+								required="true" />
+									
+				</h:panelGrid>
+				
+			<div align="center" >
+				<p:commandButton action="#{adcionarJogoMB.salvar()}" value="Salvar" icon="ui-icon-disk" />
+				<p:commandButton immediate="true" action="/restrito/apostas?faces-redirect=true" value="Cancelar" icon="ui-icon-close"/>
+          	</div>			
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
