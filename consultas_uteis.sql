@@ -33,9 +33,13 @@ select nome from tb_usuario u
 where id in (select id_usuario from tb_aposta where (apostaplacarcasa = 2 and apostaplacarvisitante = 1) and cod_jogo = 12)
 and ativo = true
 
---Oganizar producao
-UPDATE tb_jogo set placarcasa = null, placarvisitante = null;
+select * from tb_usuario where id IN
+(SELECT id_usuario from tb_aposta a where a.apostaplacarcasa is null AND a.apostaplacarvisitante is null)
+and ativo = true
+order by nome
 
-UPDATE tb_aposta SET pontuacao = null;
-
-delete from tb_ranking;
+select * from tb_usuario where id NOT IN (select id from tb_usuario where id IN
+(SELECT id_usuario from tb_aposta a where a.apostaplacarcasa is null AND a.apostaplacarvisitante is null)
+and ativo = true)
+and ativo = true
+order by nome
