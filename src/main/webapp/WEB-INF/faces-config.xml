@@ -18,7 +18,7 @@
     
     <application>
 		<resource-bundle>
-			<base-name>bolao.resources.messages</base-name>
+			<base-name>messages</base-name>
 			<var>msg</var>
 		</resource-bundle>
 		<locale-config>
