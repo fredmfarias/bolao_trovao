@@ -11,6 +11,7 @@
 		Cadastro de Usuário
 	</ui:define>
 	<ui:define name="menuTopo"></ui:define>
+	<ui:define name="menu"></ui:define>
 	<ui:define name="conteudo">
 		<h:form id="cadastro">
 			<div align="center" >				
@@ -25,7 +26,8 @@
 					<p:outputLabel value="#{msg['label.email']}:" for="email" />
 					<p:inputText id="email" 
 							value="#{usuarioMB.usuario.email}" size="50" maxlength="50"
-							required="true">
+							required="true"
+							validatorMessage="E-mail inválido">
 							<f:validateRegex pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
 					</p:inputText>
 					
@@ -37,9 +39,11 @@
 					<p:outputLabel value="#{msg['label.login']}" for="login" />
 					<p:inputText id="login"
 						value="#{usuarioMB.usuario.login}" maxlength="30"
-						required="true">
+						required="true"
+						validatorMessage="Login só deve conter letras e/ou números">
 						<p:ajax event="blur"  listener="#{usuarioMB.handleBlurEvent()}" />
 						<f:validateLength minimum="5" maximum="30" />
+						<f:validateRegex pattern="([a-z]|[0-9]|[.]|[_]){5,15}"/>
 					</p:inputText>
 					
 	           		<p:outputLabel for="pwd1" value="#{msg['label.senha']}" />

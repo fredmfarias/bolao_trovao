@@ -18,8 +18,8 @@ public class BolaoService implements IBolaoService, Serializable{
 	 */
 	private static final long serialVersionUID = -1870079055351517970L;
 	
-	public static final int DIA = 04;
-	public static final int MES = 07;
+	public static final int DIA = 19;
+	public static final int MES = 12;
 	public static final int ANO = 2014;
 	public static final int HORA = 12;
 	public static final int MIN = 30;
