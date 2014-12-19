@@ -102,7 +102,7 @@ public class ApostaService implements IApostaService, Serializable {
 					Constantes.PONTUACAO_AN * aposta.getJogo().getPesoPontucao());
 		} else if ((ac > av && pc < pv) || (ac < av && pc > pv)
 				|| (ac == av && pc != pv) || (ac != av && pc == pv)) {
-			// Se não houver acerto de nada
+			// Se nao houver acerto de nada
 			aposta.setPontuacao(
 					Constantes.PONTUACAO_AN * aposta.getJogo().getPesoPontucao());
 		} else if ((ac > av && pc > pv && ac != pc && av != pv)

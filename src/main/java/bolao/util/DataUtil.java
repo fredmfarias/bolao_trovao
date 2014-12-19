@@ -54,7 +54,7 @@ public final class DataUtil {
     }
 
     public static String obterNomeDiaDaSemana(Date data) {
-    	String semana[] = {"Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"};
+    	String semana[] = {"Domingo","Segunda","TerÃ§a","Quarta","Quinta","Sexta","SÃ¡bado"};
     	
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(data);

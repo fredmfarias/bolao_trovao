@@ -49,7 +49,7 @@ public class UsuarioService implements IUsuarioService, Serializable {
 		}
 		
 		if(!this.bolaoService.permiteAposta()){
-			throw new UsuarioException("Prazo de cadastro de usuário ultrapassado.");
+			throw new UsuarioException("Prazo de cadastro de usuÃ¡rio ultrapassado.");
 		}
 						
 		String senhaCriptografada = DigestUtils
@@ -76,22 +76,22 @@ public class UsuarioService implements IUsuarioService, Serializable {
 	public void validaUsuarioBase(Usuario usuario) throws UsuarioException{
 		
 		if(usuario == null)
-			throw new UsuarioException("Usuário nulo");
+			throw new UsuarioException("UsuÃ¡rio nulo");
 		
 		if(usuario.getNome() == null)
-			throw new UsuarioException("Nome de usuário não pode ser nulo");
+			throw new UsuarioException("Nome de usuÃ¡rio nÃ£o pode ser nulo");
 		
 		if(usuario.getEmail() == null)
-			throw new UsuarioException("Email de usuário não pode ser nulo");
+			throw new UsuarioException("Email de usuÃ¡rio nÃ£o pode ser nulo");
 		
 		if(usuario.getLogin() == null)
-			throw new UsuarioException("Login de usuário não pode ser nulo");
+			throw new UsuarioException("Login de usuÃ¡rio nÃ£o pode ser nulo");
 		
 		if(usuario.getSenha() == null)
-			throw new UsuarioException("Senha de usuário não pode ser nulo");
+			throw new UsuarioException("Senha de usuÃ¡rio nÃ£o pode ser nulo");
 		
 		if(usuario.getTelefone() == null)
-			throw new UsuarioException("Telefone de usuário não pode ser nulo");		
+			throw new UsuarioException("Telefone de usuÃ¡rio nÃ£o pode ser nulo");		
 	}
 
 	@Override
@@ -135,7 +135,7 @@ public class UsuarioService implements IUsuarioService, Serializable {
 		try {
 			return this.usuarioDAO.listaUsuariosPorSituacao(true);
 		} catch (Exception e) {
-			throw new UsuarioException("Falha ao buscar usuários");
+			throw new UsuarioException("Falha ao buscar usuÃ¡rios");
 		}
 	}
 }

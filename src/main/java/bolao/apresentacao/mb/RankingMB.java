@@ -112,10 +112,10 @@ public class RankingMB extends MB implements Serializable{
 		this.graficoRanking = new LineChartModel();
 		
 		LineChartSeries posicao = new LineChartSeries();
-        posicao.setLabel("Posição");
+        posicao.setLabel("PosiÃ§Ã£o");
         
         LineChartSeries pontuacao = new LineChartSeries();
-        pontuacao.setLabel("Pontuação");
+        pontuacao.setLabel("PontuaÃ§Ã£o");
         pontuacao.setYaxis(AxisType.Y2);
         
         for(Ranking r : rankingsUsuario){
@@ -141,11 +141,11 @@ public class RankingMB extends MB implements Serializable{
         this.graficoRanking.getAxes()
         	.put(AxisType.X, new CategoryAxis("Parcial"));
         yAxis = this.graficoRanking.getAxis(AxisType.Y);
-        yAxis.setLabel("Posição");
+        yAxis.setLabel("PosiÃ§Ã£o");
         yAxis.setMin(60);
         yAxis.setMax(0);
         
-        Axis y2Axis = new LinearAxis("Pontuação");
+        Axis y2Axis = new LinearAxis("PontuaÃ§Ã£o");
         y2Axis.setMin(0);
         y2Axis.setMax(40);
          
