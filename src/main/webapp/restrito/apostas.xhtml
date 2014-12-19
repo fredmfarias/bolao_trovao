@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -110,12 +110,12 @@
 			</div>
 			<p:dialog header="Palpites" widgetVar="dlg">
 				<p>Existem jogos sem palpites. Deseja continuar mesmo assim?</p>
-        		<p><em>Não se preocupe, você poderá alterar suas apostas futuramente, 
+        		<p><em>NÃ£o se preocupe, vocÃª poderÃ¡ alterar suas apostas futuramente, 
         			contanto que esteja dentro do prazo.</em></p>
         
         		<div align="center">
         			<p:commandButton value="Sim" actionListener="#{apostaMB.atualizar()}" oncomplete="PF('dlg').hide()" />
-        			<p:commandButton value="Não" onclick="PF('dlg').hide()" />
+        			<p:commandButton value="NÃ£o" onclick="PF('dlg').hide()" />
         		</div>			
 			</p:dialog>
 		</h:form>
