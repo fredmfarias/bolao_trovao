@@ -67,6 +67,14 @@
 		<dispatcher>FORWARD</dispatcher>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
+	<filter>
+		<filter-name>EncodingUTF8</filter-name>
+		<filter-class>bolao.util.EncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>EncodingUTF8</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 	
 	<session-config>
 		<session-timeout>30</session-timeout>
