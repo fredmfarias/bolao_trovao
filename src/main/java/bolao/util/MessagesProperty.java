@@ -10,23 +10,12 @@ import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 
-/**
- * Projeto: SisPMJP                                             
- * Módulo: Util                                                       
- * Objetivo:  
- * 	Carregar as propriedades do sistema armazenadas no arquivo de properties;
- * 	Lançar mensagens no FacesContext através do FacesMessage;
- * 
- * @author Ricardo Silvestre.
- * @author José Carlos Lacerda
- * @since 27/05/2013.
- */
 public class MessagesProperty {
 
 	/**
 	 * Nome do arquivo de properties.
 	 */
-	private static final String RESOURCE_FILE_BASE = "bolao.resources.messages_pt_BR";
+	private static final String RESOURCE_FILE_BASE = "messages_pt_BR";
 
 	private static ResourceBundle bundle = ResourceBundle.getBundle(RESOURCE_FILE_BASE);
 	
