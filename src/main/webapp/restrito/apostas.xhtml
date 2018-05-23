@@ -57,13 +57,13 @@
 						
 						<div id="placar">
 							<p:spinner id="spPlacarMandante" size="2" 
-								min="0" max="99" disabled="#{!apostaMB.permiteAposta()}"
+								min="0" max="99" disabled="#{!(apostaMB.permiteAposta())}"
 								value="#{aposta.apostaPlacarCasaString}"/>	
 												
 							<h:outputText style="padding: 5px;" value="X" />
 					
 							<p:spinner id="spPlacarVisitante" size="2" 
-								min="0" max="99" disabled="#{!apostaMB.permiteAposta()}"
+								min="0" max="99" disabled="#{!(apostaMB.permiteAposta())}"
 								value="#{aposta.apostaPlacarVisitanteString}"/>	
 						</div>
 						
@@ -92,7 +92,7 @@
 										<span id="elemento" class="data"></span>
 									</div>
 								</p:outputPanel>
-								<p:outputPanel rendered="#{!apostaMB.permiteAposta()}">
+								<p:outputPanel rendered="#{!(apostaMB.permiteAposta())}">
 									<div class="aposta-fechada">
 										Apostas fechadas
 									</div>
@@ -101,7 +101,7 @@
 							<div class="bolao-status">
 								<div class="#{apostaMB.cssAExibir()}">
 									<p:commandLink rendered="#{apostaMB.permiteAposta()}" value="#{msg['label.apostar']}" actionListener="#{apostaMB.salvar()}" />
-									<p:commandLink rendered="#{!apostaMB.permiteAposta()}" value="#{msg['label.ranking']}" action="ranking?faces-redirect=true" />
+									<p:commandLink rendered="#{!(apostaMB.permiteAposta())}" value="#{msg['label.ranking']}" action="ranking?faces-redirect=true" />
 								</div>
 							</div>
 						</div>
