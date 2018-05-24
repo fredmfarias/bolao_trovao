@@ -4,7 +4,7 @@
 		auth="Container"
 		type="javax.sql.DataSource"
 		username="postgres"
-		password="oex9536"
+		password="qfv2216"
 		driverClassName="org.postgresql.Driver"
 		url="jdbc:postgresql://localhost:5432/bolao"
 		maxActive="100"

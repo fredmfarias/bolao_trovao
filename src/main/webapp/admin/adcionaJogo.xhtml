@@ -34,11 +34,10 @@
         				required="true" />
         				
         			<p:outputLabel value="Local:" for="local" />
-					<p:inputText id="local"
-						value="#{adcionarJogoMB.jogo.localJogo}" size="50" maxlength="50"
-						required="true" >
-						<f:validateLength minimum="5" maximum="50" />
-					</p:inputText>
+					<p:selectOneMenu id="local" value="#{adcionarJogoMB.jogo.estadio}" required="true" converter="objectConverter">
+							<f:selectItem itemLabel="Selecione Estádio..." itemValue="#{null}"/>
+							<f:selectItems value="#{adcionarJogoMB.estadios}" var="estadio" itemLabel="#{estadio.descricao}"/>
+					</p:selectOneMenu>
 					
 					<p:outputLabel value="Numero Jogo:" for="numeroJogo" />
 					<p:inputText id="numeroJogo"

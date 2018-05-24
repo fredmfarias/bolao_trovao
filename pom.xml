@@ -135,7 +135,7 @@
 			<version>${spring.security.version}</version>
 		</dependency>		
 		
-		<!-- Spring security facelets taglib para funcionamente em paginas xhtml
+		<!-- Spring security facelets taglib para funcionamente em paginas xhtml -->
 	  	<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>facelets-taglib-jsf20-spring-3</artifactId>
@@ -146,12 +146,12 @@
 			<groupId>org.springframework.security</groupId>
 	  		<artifactId>taglib-core</artifactId>
 	  		<version>0.4</version>
-	  	</dependency>-->
+	  	</dependency>
 		
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>5.0</version>
+			<version>6.2</version>
 		</dependency>
 
 		<dependency>

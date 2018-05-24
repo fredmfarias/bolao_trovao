@@ -1,39 +1,39 @@
-﻿INSERT INTO tb_clube (nome, escudo) VALUES ('Brasil', 'brasil');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Croácia', 'croacia');
-INSERT INTO tb_clube (nome, escudo) VALUES ('México', 'mexico');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Camarões', 'camaroes');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Arábia Saudita', 'arabia');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Egito', 'egy');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Rússia', 'rusia');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Uruguai', 'uru');
 
-INSERT INTO tb_clube (nome, escudo) VALUES ('Espanha', 'espanha');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Holanda', 'holanda');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Chile', 'chile');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Austrália', 'australia');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Espanha', 'esp');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Irã', 'irn');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Marrocos', 'mar');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Portugal', 'por');
+
+INSERT INTO tb_clube (nome, escudo) VALUES ('Austrália', 'aus');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Dinamarca', 'den');
+INSERT INTO tb_clube (nome, escudo) VALUES ('França', 'fra');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Peru', 'per');
+
+INSERT INTO tb_clube (nome, escudo) VALUES ('Argentina', 'arg');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Croácia', 'cro');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Islândia', 'isl');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Nigéria', 'nga');
+
+INSERT INTO tb_clube (nome, escudo) VALUES ('Brasil', 'bra');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Costa Rica', 'costa-rica');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Sérvia', 'srb');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Suíça', 'sui');
+
+INSERT INTO tb_clube (nome, escudo) VALUES ('Alemanha', 'ger');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Coreia do Sul', 'kor');
+INSERT INTO tb_clube (nome, escudo) VALUES ('México', 'mex');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Suécia', 'swe');
+
+INSERT INTO tb_clube (nome, escudo) VALUES ('Bélgica', 'bel');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Inglaterra', 'eng');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Panamá', 'pan');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Tunísia', 'tun');
 
 INSERT INTO tb_clube (nome, escudo) VALUES ('Colômbia', 'colombia');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Grécia', 'grecia');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Costa do Marfim', 'costa_do_marfim');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Japão', 'japao');
-
-INSERT INTO tb_clube (nome, escudo) VALUES ('Uruguai', 'uruguai');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Costa Rica', 'costa_rica');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Inglaterra', 'inglaterra');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Itália', 'italia');
-
-INSERT INTO tb_clube (nome, escudo) VALUES ('Suíça', 'suica');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Equador', 'equador');
-INSERT INTO tb_clube (nome, escudo) VALUES ('França', 'franca');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Honduras', 'honduras');
-
-INSERT INTO tb_clube (nome, escudo) VALUES ('Argentina', 'argentina');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Bósnia-Herzegovina', 'bosnia');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Irã', 'ira');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Nigéria', 'nigeria');
-
-INSERT INTO tb_clube (nome, escudo) VALUES ('Alemanha', 'alemanha');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Portugal', 'portugal');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Gana', 'gana');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Estados Unidos', 'estados_unidos');
-
-INSERT INTO tb_clube (nome, escudo) VALUES ('Bélgica', 'belgica');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Argélia', 'argelia');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Rússia', 'russia');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Coreia do Sul', 'coreia_do_sul');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Japão', 'japan');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Polônia', 'pol');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Senegal', 'sen');

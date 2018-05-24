@@ -18,11 +18,11 @@ public class BolaoService implements IBolaoService, Serializable{
 	 */
 	private static final long serialVersionUID = -1870079055351517970L;
 	
-	public static final int DIA = 19;
-	public static final int MES = 12;
-	public static final int ANO = 2014;
-	public static final int HORA = 12;
-	public static final int MIN = 30;
+	public static final int DIA = 14;
+	public static final int MES = 6;
+	public static final int ANO = 2018;
+	public static final int HORA = 10;
+	public static final int MIN = 00;
 	
 	public boolean permiteAposta() {
 		return !DataUtil.isDataAnterior(dataLimiteAposta());

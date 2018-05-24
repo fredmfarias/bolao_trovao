@@ -81,9 +81,6 @@ public class UsuarioService implements IUsuarioService, Serializable {
 		if(usuario.getNome() == null)
 			throw new UsuarioException("Nome de usuário não pode ser nulo");
 		
-		if(usuario.getEmail() == null)
-			throw new UsuarioException("Email de usuário não pode ser nulo");
-		
 		if(usuario.getLogin() == null)
 			throw new UsuarioException("Login de usuário não pode ser nulo");
 		

@@ -29,9 +29,6 @@ public class Usuario implements Serializable{
 	private String nome;
 	
 	@Column(nullable = false)
-	private String email;
-	
-	@Column(nullable = false)
 	private String telefone;
 	
 	@Column(unique = true, nullable = false)
@@ -72,14 +69,6 @@ public class Usuario implements Serializable{
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getSenha() {
@@ -147,7 +136,6 @@ public class Usuario implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (ativo ? 1231 : 1237);
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
@@ -170,11 +158,6 @@ public class Usuario implements Serializable{
 			return false;
 		Usuario other = (Usuario) obj;
 		if (ativo != other.ativo)
-			return false;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
 			return false;
 		if (id == null) {
 			if (other.id != null)

@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import bolao.excecoes.BolaoException;
@@ -24,11 +24,11 @@ public class Jogo implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "id_clube_casa", nullable = false)
 	private Clube clubeCasa;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "id_clube_visitante", nullable = false)
 	private Clube clubeVisitante;
 
@@ -38,8 +38,9 @@ public class Jogo implements Serializable{
 	@Column(nullable = false)
 	private Date dataJogo;
 	
-	@Column(nullable = false)
-	private String localJogo;
+	@ManyToOne
+	@JoinColumn(name = "id_estadio", nullable = false)
+	private Estadio estadio;
 	
 	@Column(nullable = false)
 	private Integer numeroJogo;
@@ -138,12 +139,12 @@ public class Jogo implements Serializable{
 		this.dataJogo = dataJogo;
 	}
 
-	public String getLocalJogo() {
-		return localJogo;
+	public Estadio getEstadio() {
+		return estadio;
 	}
 
-	public void setLocalJogo(String localJogo) {
-		this.localJogo = localJogo;
+	public void setEstadio(Estadio estadio) {
+		this.estadio = estadio;
 	}
 
 	public Integer getNumeroJogo() {

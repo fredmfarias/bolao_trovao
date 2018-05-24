@@ -8,10 +8,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
-import bolao.excecoes.UsuarioException;
 import bolao.model.Clube;
+import bolao.model.Estadio;
 import bolao.model.Jogo;
 import bolao.services.IClubeService;
+import bolao.services.IEstadioService;
 import bolao.services.IJogoService;
 import bolao.util.MessagesProperty;
 
@@ -28,17 +29,23 @@ public class AdcionarJogoMB implements Serializable {
 	
 	@ManagedProperty(value="#{clubeService}")
 	private IClubeService clubeService;
+
+	@ManagedProperty(value="#{estadioService}")
+	private IEstadioService estadioService;
 	
 	private Clube clubeSelecionadoCasa;
 	private Clube clubeSelecionadoVisitante;
 	
 	private List<Clube> clubes;
 	
+	private List<Estadio> estadios;
+	
 	@PostConstruct
 	public void init(){
 		try{
 			this.jogo = new Jogo();
 			this.clubes = this.clubeService.getAllClubes();
+			this.estadios = this.estadioService.getAllEstadios();
 		}catch(Exception e){
 			e.printStackTrace();
 			MessagesProperty.errorMsg("MN0018");
@@ -103,6 +110,22 @@ public class AdcionarJogoMB implements Serializable {
 
 	public void setClubeService(IClubeService clubeService) {
 		this.clubeService = clubeService;
+	}
+	
+	public IEstadioService getEstadioService() {
+		return estadioService;
+	}
+	
+	public void setEstadioService(IEstadioService estadioService) {
+		this.estadioService = estadioService;
+	}
+
+	public List<Estadio> getEstadios() {
+		return estadios;
+	}
+
+	public void setEstadios(List<Estadio> estadios) {
+		this.estadios = estadios;
 	}
 	
 }
