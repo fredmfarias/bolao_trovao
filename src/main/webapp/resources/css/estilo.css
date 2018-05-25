@@ -16,7 +16,6 @@ div#geral{
 div#head{
 	width: 100%;
 	height: 300px;
-	background: url(../imagens/bg_head.png) repeat-x; 
 }
 
 div#head div#menu_topo {
@@ -51,7 +50,6 @@ div#head div#menu_topo ul li a:hover {
 div#head div#logo{
 	width: 235px;
 	height: 215px;
-	background: url(../imagens/logo_site.png) no-repeat;
 	float: left;
 	margin-left:100px;
 	cursor: hand;
@@ -469,7 +467,7 @@ div#bolao-barra div.bolao-barra-corpo {
 .bemVindo ul li{
 	color: #5E5E5E;
 	font-weight: bold;
-	list-style-image: url('../imagens/img_bullet.gif');
+	
 	margin: 0.3em 0px 0.3em 0px;
 }
 

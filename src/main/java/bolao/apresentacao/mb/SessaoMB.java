@@ -28,6 +28,10 @@ public class SessaoMB {
 		
 		return usuarioLogado;
 	}
+	
+	public boolean estaLogado() {
+		return getLoginUsuarioLogado() != null;
+	}
 
 	public void setUsuarioLogado(Usuario usuario) {
 		this.usuarioLogado = usuario;

@@ -24,6 +24,7 @@
 	</repositories>
 	
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.0.4.RELEASE</spring.version>
 		<spring.security.version>3.2.4.RELEASE</spring.security.version>
 	</properties>
@@ -151,13 +152,15 @@
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>6.2</version>
+			<version>5.3</version>
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.primefaces.themes</groupId>
-			<artifactId>start</artifactId>
+			<artifactId>bootstrap</artifactId>
 			<version>1.0.10</version>
+			<scope>compile</scope>
 		</dependency>
 
 	</dependencies>
@@ -168,7 +171,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>3.3</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
