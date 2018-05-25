@@ -80,6 +80,7 @@
 		</ui:insert>
 		
 		<div class="card">
+			<p:messages id="msgPrincipal" showSummary="false" showDetail="true" autoUpdate="true" closable="true" />
 			<ui:insert name="conteudo" />
 		</div>
 	</section>
@@ -130,9 +131,7 @@
 			</div>
 			<div id="center">
 				<div id="content">
-					<h:form id="message">
-						<p:messages id="msgPrincipal" showSummary="false" showDetail="true" autoUpdate="true" closable="true"/>
-					</h:form>
+					
 					<ui:insert name="conteudo">
 					</ui:insert>
 				</div>
