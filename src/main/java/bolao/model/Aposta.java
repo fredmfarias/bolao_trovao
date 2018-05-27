@@ -1,8 +1,11 @@
 package bolao.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import bolao.enuns.SituacaoAposta;
 import bolao.excecoes.BolaoException;
 
 @Entity
@@ -34,6 +38,11 @@ public class Aposta implements Serializable{
 	private Usuario usuario;
 	
 	private Integer pontuacao;
+
+	private Date ultimaAtualizacao;
+
+	@Enumerated(EnumType.STRING)
+	private SituacaoAposta situacao;
 
 	public Integer getId() {
 		return id;
@@ -123,5 +132,45 @@ public class Aposta implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public Date getUltimaAtualizacao() {
+		return ultimaAtualizacao;
+	}
+	
+	public void setUltimaAtualizacao(Date ultimaAtualizacao) {
+		this.ultimaAtualizacao = ultimaAtualizacao;
+		
+		atualizaSituacao();
+	}
+	
+	public SituacaoAposta getSituacao() {
+		return situacao;
+	}
+
+	public void atualizaSituacao() {
+		
+		if(this.getJogo() == null) {
+			this.situacao = SituacaoAposta.INCONSISTENTE;
+			return;
+		}
+		
+		if(this.apostaPlacarCasa == null && this.apostaPlacarVisitante == null) {
+			this.situacao = SituacaoAposta.PENDENTE;
+			return;
+		}
+		
+		if(this.apostaPlacarCasa == null && this.apostaPlacarVisitante != null) {
+			this.situacao = SituacaoAposta.INCONSISTENTE;
+			return;
+		}
+		
+		if(this.apostaPlacarCasa != null && this.apostaPlacarVisitante == null) {
+			this.situacao = SituacaoAposta.INCONSISTENTE;
+			return;
+		}
+		
+		this.situacao = SituacaoAposta.OK;
+		
 	}
 }

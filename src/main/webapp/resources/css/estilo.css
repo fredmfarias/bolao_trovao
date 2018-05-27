@@ -1,6 +1,8 @@
-html{font-size: 11px;}
+html {
+	font-size: 11px;
+}
 
-body{
+body {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	color: #715d5d;
@@ -9,11 +11,11 @@ body{
 	background-color: #c5d5e0;
 }
 
-div#geral{
-	position:relative;
+div#geral {
+	position: relative;
 }
 
-div#head{
+div#head {
 	width: 100%;
 	height: 300px;
 }
@@ -47,25 +49,28 @@ div#head div#menu_topo ul li a:hover {
 	text-decoration: underline;
 }
 
-div#head div#logo{
+div#head div#logo {
 	width: 235px;
 	height: 215px;
 	float: left;
-	margin-left:100px;
+	margin-left: 100px;
 	cursor: hand;
 }
 
-div#head div#logo a{
-	height: 210px; 
+div#head div#logo a {
+	height: 210px;
 	width: 235px;
-	margin: 0; padding: 0; border: 0; display:block;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	display: block;
 }
 
 div#container {
 	width: 999px;
 	height: auto;
 	margin: 0 auto;
-	overflow:hidden;
+	overflow: hidden;
 	padding-bottom: 60px;
 }
 
@@ -88,233 +93,97 @@ div#center div#content {
 	display: inline;
 }
 
-div#center div#content .ui-messages-info, 
-div#center div#content .ui-messages-warn,
-div#center div#content .ui-messages-error,
-div#center div#content .ui-messages-fatal{
-	margin:0 0 10px 0;
+div#center div#content .ui-messages-info, div#center div#content .ui-messages-warn,
+	div#center div#content .ui-messages-error, div#center div#content .ui-messages-fatal
+	{
+	margin: 0 0 10px 0;
 }
 
-div#center div#content .ui-messages-info{
-	color:#3c904e;
-	background-color:#d7fdd9;
-	border-color:#b0e6b2;
+div#center div#content .ui-messages-info {
+	color: #3c904e;
+	background-color: #d7fdd9;
+	border-color: #b0e6b2;
 }
 
-div#center div#content .ui-messages-info-icon{
-	background:url(../imagens/messages.png) no-repeat 0px -52px;
-	display:block;
-	float:left;
-	margin:0;
-	padding:0;
-	position:relative;
-	height:24px;
-	width:24px;
-	margin-top:-4px;
+div#center div#content .ui-messages-info-icon {
+	background: url(../imagens/messages.png) no-repeat 0px -52px;
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	height: 24px;
+	width: 24px;
+	margin-top: -4px;
 }
 
-div#rodape{
+div#rodape {
 	width: 100%;
 	height: 60px;
 	position: absolute;
 	bottom: 0;
 }
 
-div#center div#content .ui-messages-info-summary{
-	margin-left:10px;
-	font-weight:bold;
+div#center div#content .ui-messages-info-summary {
+	margin-left: 10px;
+	font-weight: bold;
 }
 
-div#center div#content .ui-messages-info-detail{
-	margin-left:5px;
+div#center div#content .ui-messages-info-detail {
+	margin-left: 5px;
 }
 
-div#confronto div{
+div#confronto div {
 	display: inline-block;
 	text-align: right;
 	padding-top: 20px;
 }
 
-div#confronto div#mandante{
+div#confronto div#mandante {
 	width: 35%;
 }
 
-div#confronto div#visitante{
+div#confronto div#visitante {
 	width: 35%;
 	text-align: left;
 }
 
-div#confronto div#placar{
-	width: 25%; 
+div#confronto div#placar {
+	width: 25%;
 	text-align: center !important;
 	display: inline-block;
-}
-
-.escudos {
-	width:52px;
-	height:52px;
-	background:url("../imagens/escudos.png")  no-repeat;
-	vertical-align: middle;
-	display: inline-block;
-}
-
-/*  linha um */
-.brasil{
-	background-position: -5px -10px;
-}
-
-.croacia{
-	background-position: -64px -10px;
-}
-
-.mexico{
-	background-position: -123px -10px;
-}
-
-.camaroes{
-	background-position: -182px -10px;
-}
-
-.espanha{
-	background-position: -241px -10px;
-}
-
-.holanda{
-	background-position: -300px -10px;
-}
-
-.chile{
-	background-position: -359px -10px;
-}
-
-.australia{
-	background-position: -418px -10px;
-}
-
-/*  linha dois */
-.colombia{
-	background-position: -5px -80px;
-}                        
-                         
-.grecia{                 
-	background-position: -64px -80px;
-}                        
-                         
-.costa_do_marfim{        
-	background-position: -123px -80px;
-}                        
-                         
-.japao{                  
-	background-position: -182px -80px;
-}                        
-                         
-.uruguai{                
-	background-position: -241px -80px;
-}                        
-                         
-.costa_rica{             
-	background-position: -300px -80px;
-}                        
-                         
-.inglaterra{             
-	background-position: -359px -80px;
-}                        
-                         
-.italia{                 
-	background-position: -418px -80px;
-}
-
-/*  linha tres */
-.suica{
-	background-position: -5px -150px;
-}                        
-                         
-.equador{                
-	background-position: -64px -150px;
-}                        
-                         
-.franca{                 
-	background-position: -123px -150px;
-}                        
-                         
-.honduras{               
-	background-position: -182px -150px;
-}                        
-                         
-.argentina{              
-	background-position: -241px -150px;
-}                        
-                         
-.bosnia{                 
-	background-position: -300px -150px;
-}                        
-                         
-.ira{                    
-	background-position: -359px -150px;
-}                        
-                         
-.nigeria{                
-	background-position: -418px -150px;
-}
-
-/*  linha quatro */
-.alemanha{
-	background-position: -5px -220px;
-}                        
-                         
-.portugal{               
-	background-position: -64px -220px;
-}                        
-                         
-.gana{                   
-	background-position: -123px -220px;
-}                        
-                         
-.estados_unidos{         
-	background-position: -182px -220px;
-}                        
-                         
-.belgica{                
-	background-position: -241px -220px;
-}                        
-                         
-.argelia{                
-	background-position: -300px -220px;
-}                        
-                         
-.russia{                 
-	background-position: -359px -220px;
-}                        
-                         
-.coreia_do_sul{          
-	background-position: -418px -220px;
 }
 
 .tabela td {
 	text-align: center !important;
 }
 
-.selecao{
+.selecao {
 	font-size: 12px;
 	text-transform: uppercase;
 	vertical-align: middle;
 	padding-left: 5px;
 }
 
-.dia{
+.dia {
 	font-size: 12px;
 	text-transform: uppercase;
 	color: #A0A0A0;
 }
 
-.data{
+.data {
 	font-weight: bold;
 	font-size: 15px;
 	color: #333;
 }
 
-.hora{
+.hora {
 	font-size: 12px;
+	color: #676767;
+}
+
+.estadio {
+	font-size: 10px;
 	color: #676767;
 }
 
@@ -324,106 +193,7 @@ div#confronto div#placar{
 	text-align: left;
 }
 
-#bolao-barra {
-    bottom: 0;
-	color: #909090;
-	position: fixed;
-	height: 60px;
-	z-index: 9999999;
-	width: 700px;
-	padding-left: 200px;
-}
-
-div#bolao-barra div.envelope {
-    position: absolute;
-    background: url("../imagens/bg_sombra_transparent.png") repeat scroll 0% 0% transparent;
-    width: 452px;
-    border-radius: 3px 0px 0px;
-    bottom: 0px;
-    z-index: 2;
-    height: 60px;
-    display: block;
-}
-
-div#bolao-barra div.bolao-barra-corpo {
-    position: relative;
-    margin: 3px 3px 0px 3px;
-    background: url("../imagens/bg-botoes-barra.png") repeat-x scroll 0% 0% transparent;
-    height: 57px;
-}
-
-#bolao-barra div.bolao-barra-corpo div.bolao-status {
-    float: left;
-    border-top: 1px solid #AAA;
-    border-right: 1px solid #AAA;
-    height: 57px;
-    text-align: center;
-    width: 182px;
-    padding: 0px 20px;
-}
-
-#bolao-barra .apostar {
-    background: url('../imagens/img-barra.png') no-repeat scroll 0px 0px transparent;
-    height: 31px;
-    padding-top: 1em;
-    margin-top: 7px;
-}
-
-#bolao-barra .apostar .ui-commandlink {
-    color: #FFF;
-    font-size: large;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-#bolao-barra .ranking {
-    background: url('../imagens/img-barra.png') no-repeat scroll 0px -43px transparent;
-    height: 31px;
-    padding-top: 1em;
-    margin-top: 7px;
-}
-
-#bolao-barra .ranking .ui-commandlink {
-    color: #fabb16;
-    font-size: large;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-
-#bolao-barra .aposta-aberta{
-	height: 47px;
-	text-align: center;
-}
-
-#bolao-barra .aposta-fechada{
-	height: 47px;
-	text-align: center;
-	color: #CA0000;
-	font-size: 1.3em;
-	padding-top: 20px;
-	font-weight: bold;	
-}
-
-#bolao-barra div.bolao-barra-corpo div.bolao-status span.label {
-    font-size: 1.3em;
-    display: block;
-    padding-top: 5px;
-    color: #115b42;
-}
-
-#bolao-barra div.bolao-barra-corpo div.bolao-status span.label strong {
-    margin-left: 2px;
-    color: #fabb16;
-}
-
-#bolao-barra div.bolao-barra-corpo div.bolao-status span.data {
-    font-size: 1em;
-    color: #5e66d5;
-}
-
-
-.bemVindo{
+.bemVindo {
 	margin: 0px !important;
 	padding: 0px;
 	border: 0px none;
@@ -433,7 +203,7 @@ div#bolao-barra div.bolao-barra-corpo {
 	margin-right: 30px !important;
 }
 
-.bemVindo .estilo-p1{
+.bemVindo .estilo-p1 {
 	color: #323232;
 	font-size: 2.17em;
 	letter-spacing: -0.07em;
@@ -441,7 +211,7 @@ div#bolao-barra div.bolao-barra-corpo {
 	margin: 0px !important;
 }
 
-.bemVindo .estilo-p2{
+.bemVindo .estilo-p2 {
 	color: #323232;
 	font-size: 3.33em;
 	font-weight: bold;
@@ -450,7 +220,7 @@ div#bolao-barra div.bolao-barra-corpo {
 	margin: 0px !important;
 }
 
-.bemVindo .estilo-p3{
+.bemVindo .estilo-p3 {
 	color: #818181;
 	font-size: 1.67em;
 	letter-spacing: -0.05em;
@@ -459,57 +229,56 @@ div#bolao-barra div.bolao-barra-corpo {
 	text-align: right;
 }
 
-.bemVindo ul{
-    margin: 2em 0px !important;
-    list-style: none outside none;
+.bemVindo ul {
+	margin: 2em 0px !important;
+	list-style: none outside none;
 }
 
-.bemVindo ul li{
+.bemVindo ul li {
 	color: #5E5E5E;
 	font-weight: bold;
-	
 	margin: 0.3em 0px 0.3em 0px;
 }
 
-.background-ouro{
+.background-ouro {
 	background: #eeef8e
 }
 
-.background-prata{
+.background-prata {
 	background: #d0d0c5
 }
 
-.background-bronze{
+.background-bronze {
 	background: #f9d69a
 }
 
-.background-usuario{
+.background-usuario {
 	background: #acdd4a;
 }
 
-.decrescente{
+.decrescente {
 	color: #E00;
 }
 
-.crescente{
+.crescente {
 	color: #090;
 }
 
-.permanece{
-	color:#0000ff;
+.permanece {
+	color: #0000ff;
 }
 
-.nomeRanking{
+.nomeRanking {
 	font-weight: bold;
 	color: #333;
 }
 
-.ui-selectmanymenu{
+.ui-selectmanymenu {
 	padding: 2px;
 	width: 400px;
 }
 
-.placarDetalhe{
+.placarDetalhe {
 	font-weight: bold;
 	font-size: 25px;
 	color: #333;
@@ -522,7 +291,7 @@ div#menu {
 
 div#menu form#formMenuPrincipal .ui-menubar {
 	height: 33px;
-	font-size:1.09em;
+	font-size: 1.09em;
 	float: right;
 	margin: 0;
 	padding: 0;
@@ -533,4 +302,46 @@ div#menu form#formMenuPrincipal .ui-menubar {
 div#menu form#formMenuPrincipal .ui-menubar .ui-menu-listCustom {
 	margin-left: 10px;
 	padding-left: 2px;
+}
+
+figure {
+	float: right;
+	width: 30%;
+	text-align: center;
+	font-style: italic;
+	font-size: smaller;
+	text-indent: 0;
+	margin: 0.5em;
+	padding: 0.5em;
+	display: table;
+}
+
+img.scaled {
+	width: 100%;
+}
+
+figcaption {
+	display: table-caption;
+	caption-side: top;
+}
+
+.logo {
+	color: white;
+	font-size: 3.0em;
+	font-weight: bold;
+	letter-spacing: -0.07em;
+	margin: 0px !important;
+	text-decoration: none;
+}
+
+.ultimaAtualizacao {
+	display: inline;
+	font-weight: bold;
+	color: #616e73;
+	font-size: smaller;
+	text-indent: 0;
+}
+
+.inconsistente {
+	color: #db161d;
 }

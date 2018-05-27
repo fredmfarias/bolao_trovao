@@ -8,112 +8,107 @@
 	<ui:define name="titulo">
 		Apostas
 	</ui:define>
+	<ui:define name="tCard">
+	</ui:define>
 	<ui:define name="conteudo">
-		<f:metadata>  
-    		<f:event type="preRenderView" listener="#{aplicacaoMB.cronometroRegressivo()}"/>  
-		</f:metadata>
-				
+						
 		<h:form id="apostas">
-			<p:dataTable styleClass="tabela" var="aposta" 
-				value="#{apostaMB.apostas}" widgetVar="apostasTable" 
-				filteredValue="#{apostaMB.datasFiltradas}">
-	
-				<f:facet name="header">
-	            	#{msg['label.apostas']}
-	        	</f:facet>
-								
-				<p:column headerText="#{msg['label.data']}" filterBy="#{aposta.jogo.dataJogo}" 
-					filterMatchMode="contains" >
-					
-					<f:facet name="filter">
-						<p:selectOneMenu onchange="PF('apostasTable').filter()">
-							<f:selectItem itemLabel="Selecione..." itemValue="#{null}" noSelectionOption="true"/>
-							<f:selectItems value="#{apostaMB.datas}" var="data" itemLabel="#{utilMB.dataUtil.formatarDDMMYYYY(data)}"/>
-						</p:selectOneMenu>
-					</f:facet>
-					
-					<h:outputText styleClass="dia" value="#{utilMB.dataUtil.obterNomeDiaDaSemana(aposta.jogo.dataJogo)}" />
-					<br />
-					<h:outputText styleClass="data" value="#{utilMB.dataUtil.formatarDDMM(aposta.jogo.dataJogo)}" />
-					<br />
-					<h:outputText styleClass="hora" value="#{utilMB.dataUtil.formatarHHmm(aposta.jogo.dataJogo)}" />
-				</p:column>
-				
-				<p:column width="600" headerText="#{msg['label.confronto']}">
-					
-					<h:outputText value="#{msg['label.jogo']} #{aposta.jogo.numeroJogo} - " />
-					<h:outputText style="font-weight: bold;" value="Grupo #{aposta.jogo.grupo}" />
-					
-					<div id="confronto">
+			<div class="ui-fluid">
+				<p:dataTable styleClass="tabela" var="aposta" 
+					value="#{apostaMB.apostas}" widgetVar="apostasTable" 
+					filteredValue="#{apostaMB.datasFiltradas}" id="dtApostas">
+							
+					<!-- 				
+					<p:column headerText="#{msg['label.data']}" filterBy="#{aposta.jogo.dataJogo}" 
+						filterMatchMode="contains" >
 						
-						<div id="mandante">
-							<h:outputText styleClass="selecao" value="#{aposta.jogo.clubeCasa.nome}"  />
-					
-							<img src="../resources/imagens/escudos/#{aposta.jogo.clubeCasa.escudo}.png"/>
-						</div>
+						<f:facet name="filter">
+							<p:selectOneMenu onchange="PF('apostasTable').filter()">
+								<f:selectItem itemLabel="Selecione..." itemValue="#{null}" noSelectionOption="true"/>
+								<f:selectItems value="#{apostaMB.datas}" var="data" itemLabel="#{utilMB.dataUtil.formatarDDMMYYYY(data)}"/>
+							</p:selectOneMenu>
+						</f:facet>
 						
-						<div id="placar">
-							<p:spinner id="spPlacarMandante" size="2" 
-								min="0" max="99" disabled="#{!(apostaMB.permiteAposta())}"
-								value="#{aposta.apostaPlacarCasaString}"/>	
-												
-							<h:outputText style="padding: 5px;" value="X" />
-					
-							<p:spinner id="spPlacarVisitante" size="2" 
-								min="0" max="99" disabled="#{!(apostaMB.permiteAposta())}"
-								value="#{aposta.apostaPlacarVisitanteString}"/>	
-						</div>
+						<h:outputText styleClass="dia" value="#{utilMB.dataUtil.obterNomeDiaDaSemana(aposta.jogo.dataJogo)}" />
+						<br />
+						<h:outputText styleClass="data" value="#{utilMB.dataUtil.formatarDDMM(aposta.jogo.dataJogo)}" />
+						<br />
+						<h:outputText styleClass="hora" value="#{utilMB.dataUtil.formatarHHmm(aposta.jogo.dataJogo)}" />
+					</p:column>
+					 -->
+					 
+					<p:column headerText="#{msg['label.apostas']}" filterBy="#{aposta.jogo.dataJogo}" filterMatchMode="contains">
 						
-						<div id="visitante">	
-							<img src="../resources/imagens/escudos/#{aposta.jogo.clubeVisitante.escudo}.png" />
-					
-							<h:outputText  styleClass="selecao" value="#{aposta.jogo.clubeVisitante.nome}" />
-						</div>
-					</div>
-				</p:column>
-				
-				<p:column headerText="Local">	
-					<h:outputText value="#{aposta.jogo.estadio.descricao}" />
-				</p:column>
-			</p:dataTable>
-			
-			<div id="BarraControllerContainner" class="glb-conteudo">
-				<div id="bolao-barra">
-					<div class="envelope">
-						<div class="bolao-barra-corpo">
-							<div class="bolao-status">
-								<p:outputPanel rendered="#{apostaMB.permiteAposta()}">
-									<div class="aposta-aberta">
-										<span class="label"> Apostas <strong> ABERTAS </strong></span> 
-										<span id="elemento" class="data"></span>
-									</div>
-								</p:outputPanel>
-								<p:outputPanel rendered="#{!(apostaMB.permiteAposta())}">
-									<div class="aposta-fechada">
-										Apostas fechadas
-									</div>
-								</p:outputPanel>
+						<f:facet name="filter">
+							<p:selectOneMenu onchange="PF('apostasTable').filter()">
+								<f:selectItem itemLabel="Selecione..." itemValue="#{null}" noSelectionOption="true"/>
+								<f:selectItems value="#{apostaMB.datas}" var="data" itemLabel="#{utilMB.dataUtil.formatarDDMMYYYY(data)}"/>
+							</p:selectOneMenu>
+						</f:facet>
+						
+						<h:outputText value="#{msg['label.jogo']} #{aposta.jogo.numeroJogo} - " />
+						<h:outputText style="font-weight: bold;" value="Grupo #{aposta.jogo.grupo} | " />
+
+						<div class="ui-g">
+							
+							<div class="ui-g-2">
+								<figure>
+								  <p><img class="scaled" src="../resources/imagens/escudos/#{aposta.jogo.clubeCasa.escudo}.png"/></p>
+								  <figcaption>#{aposta.jogo.clubeCasa.nome}</figcaption>
+								</figure>
 							</div>
-							<div class="bolao-status">
-								<div class="#{apostaMB.cssAExibir()}">
-									<p:commandLink rendered="#{apostaMB.permiteAposta()}" value="#{msg['label.apostar']}" actionListener="#{apostaMB.salvar()}" />
-									<p:commandLink rendered="#{!(apostaMB.permiteAposta())}" value="#{msg['label.ranking']}" action="ranking?faces-redirect=true" />
+							
+							<div class="ui-g-8">
+								<div class="ui-g">
+									<div class="ui-g-5">
+										<p:selectOneMenu id="sPlacarMandante" value="#{aposta.apostaPlacarCasaString}" disabled="#{!(apostaMB.permiteAposta(aposta))}">
+								            <f:selectItem itemLabel="Palpite..." itemValue="#{null}" noSelectionOption="true"/>
+											<f:selectItems value="#{apostaMB.palpitesPossiveis}" var="palpite" />
+											
+											<p:ajax listener="#{apostaMB.atualizarAposta(aposta)}" update="pgUltimaAtualizacao, dtApostas"/>
+								        </p:selectOneMenu>
+									</div>
+									<div class="ui-g-2">
+										<h:outputText style="padding: 5px;" value="X" />
+									</div>
+									<div class="ui-g-5">
+										<p:selectOneMenu id="sPlacarVisitante" value="#{aposta.apostaPlacarVisitanteString}" disabled="#{!(apostaMB.permiteAposta(aposta))}">
+								            <f:selectItem itemLabel="Palpite..." itemValue="#{null}" noSelectionOption="true"/>
+											<f:selectItems value="#{apostaMB.palpitesPossiveis}" var="palpite" />
+											
+											<p:ajax listener="#{apostaMB.atualizarAposta(aposta)}" update="pgUltimaAtualizacao, dtApostas" />
+								        </p:selectOneMenu>
+									</div>
 								</div>
+								
+								<h:outputText style="font-weight: bold;" value="#{utilMB.dataUtil.formatarDDMM(aposta.jogo.dataJogo)} " />
+								<h:outputText value="#{utilMB.dataUtil.obterNomeDiaDaSemana(aposta.jogo.dataJogo)} " />
+								<h:outputText style="font-weight: bold;" value="#{utilMB.dataUtil.formatarHHmm(aposta.jogo.dataJogo)} " />
+								<br/>
+								<h:outputText styleClass="estadio" value="#{aposta.jogo.estadio.descricao} " />
+								<br/>
+								<h:panelGroup id="pgUltimaAtualizacao">
+									<h:outputText id="otInconsistente" styleClass="fa fa-fw fa-exclamation-triangle ultimaAtualizacao inconsistente" rendered="#{aposta.situacao eq 'INCONSISTENTE'}" value="Preencha o restante do palpite | " />
+									<h:outputText id="otUltimaAtualizacao" styleClass="fa fa-fw fa-save ultimaAtualizacao" rendered="#{aposta.ultimaAtualizacao != null}" value=" salvo em #{utilMB.dataUtil.formatarDDMMYYYYHHmmSS(aposta.ultimaAtualizacao)}" />
+								</h:panelGroup>
+							</div>
+							
+							<div class="ui-g-2">	
+								<figure style="float: left;">
+								  <p><img class="scaled" src="../resources/imagens/escudos/#{aposta.jogo.clubeVisitante.escudo}.png"/></p>
+								  <figcaption>#{aposta.jogo.clubeVisitante.nome}</figcaption>
+								</figure>
 							</div>
 						</div>
-					</div>
-				</div>
+					</p:column>
+					
+					<!-- 
+					<p:column headerText="Local">	
+						<h:outputText value="#{aposta.jogo.estadio.descricao}" />
+					</p:column>
+					 -->
+				</p:dataTable>
 			</div>
-			<p:dialog header="Palpites" widgetVar="dlg">
-				<p>Existem jogos sem palpites. Deseja continuar mesmo assim?</p>
-        		<p><em>Não se preocupe, você poderá alterar suas apostas futuramente, 
-        			contanto que esteja dentro do prazo.</em></p>
-        
-        		<div align="center">
-        			<p:commandButton value="Sim" actionListener="#{apostaMB.atualizar()}" oncomplete="PF('dlg').hide()" />
-        			<p:commandButton value="Não" onclick="PF('dlg').hide()" />
-        		</div>			
-			</p:dialog>
 		</h:form>
 	</ui:define>
 </ui:composition>

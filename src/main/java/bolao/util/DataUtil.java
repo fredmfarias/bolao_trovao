@@ -12,6 +12,7 @@ public final class DataUtil {
     public static final String FORMATO_DD_MM = "dd/MM";
     public static final String FORMATO_HHMM = "HH'h'mm";
     public static final String FORMATO_DD_MM_YYYY = "dd/MM/yyyy";
+    public static final String FORMATO_DD_MM_YYYY_mm_ss = "dd/MM/yyyy HH:mm:ss";
 
     private static DataUtil INSTANCE = new DataUtil();
     
@@ -28,6 +29,10 @@ public final class DataUtil {
 
         String dataFormatada = null;
 
+        if(data == null) {
+        	return null;
+        }
+        
         try {
 
             SimpleDateFormat formatador = new SimpleDateFormat(padrao);
@@ -51,6 +56,10 @@ public final class DataUtil {
     
     public static String formatarDDMMYYYY(Date data) throws BolaoException {
         return DataUtil.formatar(data, DataUtil.FORMATO_DD_MM_YYYY);
+    }
+
+    public static String formatarDDMMYYYYHHmmSS(Date data) throws BolaoException {
+    	return DataUtil.formatar(data, DataUtil.FORMATO_DD_MM_YYYY_mm_ss);
     }
 
     public static String obterNomeDiaDaSemana(Date data) {
@@ -94,5 +103,12 @@ public final class DataUtil {
     	Date dataAtual = new Date();
         
         return data.before(dataAtual);
+    }
+    
+    public static long diffMinutes(Date dataInicio, Date dataFim) {
+    	
+    	long diff = dataFim.getTime() - dataInicio.getTime();
+    	
+    	return diff / (60 * 1000); 
     }
 }

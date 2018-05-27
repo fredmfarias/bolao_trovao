@@ -1,6 +1,7 @@
 package bolao.services.impl;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import bolao.model.Jogo;
 import bolao.model.Usuario;
 import bolao.services.IApostaService;
 import bolao.services.IBolaoService;
+import bolao.services.IJogoService;
 import bolao.util.Constantes;
 
 @Transactional(readOnly=true)
@@ -28,6 +30,9 @@ public class ApostaService implements IApostaService, Serializable {
 	@Autowired
 	private IBolaoService bolaoService;
 	
+	@Autowired
+	private IJogoService jogoService;
+	
 	@Override
 	@Transactional(readOnly=false)
 	public void addAposta(Usuario usuario, List<Jogo> jogos) throws ApostaException{
@@ -37,6 +42,7 @@ public class ApostaService implements IApostaService, Serializable {
 			
 			aposta.setUsuario(usuario);
 			aposta.setJogo(j);
+			aposta.atualizaSituacao();
 			
 			this.apostaDAO.salvar(aposta);
 		}
@@ -175,5 +181,24 @@ public class ApostaService implements IApostaService, Serializable {
 		}catch (Exception e) {
 			throw new ApostaException("Nao foi adcionar aposta");
 		}		
+	}
+
+	@Override
+	@Transactional(readOnly=false)
+	public Aposta salva(Aposta aposta) throws ApostaException {
+		
+		try{
+			if(!this.jogoService.permiteAposta(aposta.getJogo())){
+				throw new ApostaException(String.format("Prazo de aposta para o jogo long %s ultrapassado.", aposta.getJogo().getNumeroJogo()));
+			}
+		
+			aposta.setUltimaAtualizacao(new Date());
+			
+			this.apostaDAO.atualizar(aposta);
+		}catch(Exception e){
+			throw new ApostaException("Nao foi possivel atualiza a aposta do usuario");
+		}
+		
+		return aposta;
 	}
 }

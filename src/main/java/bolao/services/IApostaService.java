@@ -16,5 +16,6 @@ public interface IApostaService {
 	List<Aposta> buscaApostasUsuarioExibPorNumJogo(Usuario usuario) throws ApostaException;
 	List<Aposta> buscaApostasPorJogo(Jogo jogo) throws ApostaException;
 	void salvaListAposta(List<Aposta> apostas) throws ApostaException;
+	Aposta salva(Aposta aposta) throws ApostaException;
 	void calculaPontuacao(Aposta aposta);
 }
