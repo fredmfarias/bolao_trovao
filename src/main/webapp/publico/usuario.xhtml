@@ -44,12 +44,16 @@
 	            	<p:outputLabel for="pwd2" value="#{msg['label.confirmar.senha']}" />
 	            	<p:password id="pwd2" value="#{usuarioMB.confirmarSenha}" required="true" />
 					
-					<h:outputText value="" />
-					<h:outputText value="" />
-		
-					<p:commandButton action="#{usuarioMB.salvar}" value="Salvar" icon="ui-icon-disk" />
-					<p:commandButton immediate="true" action="login?faces-redirect=true" value="Cancelar" icon="ui-icon-close"/>
 				</p:panelGrid>
+				
+				<div class="ui-g">
+					<div class="ui-g-6">
+						<p:commandButton action="#{usuarioMB.salvar}" value="Salvar" icon="ui-icon-disk" />
+					</div>
+					<div class="ui-g-6">
+						<p:commandButton immediate="true" action="login?faces-redirect=true" value="Cancelar" icon="ui-icon-close"/>
+					</div>
+				</div>
 				
           	</div>			
 		</h:form>

@@ -17,6 +17,8 @@ import bolao.model.Usuario;
 import bolao.services.IApostaService;
 import bolao.services.IJogoService;
 import bolao.services.IUsuarioService;
+import bolao.util.Constantes;
+import bolao.util.DataUtil;
 
 @Transactional(readOnly=true)
 @Service("jogoService")
@@ -134,5 +136,17 @@ public class JogoService implements IJogoService, Serializable {
 		}catch(Exception e){
 			throw new JogoException("Falha ao buscar jogos");
 		}
+	}
+
+	@Override
+	public boolean permiteAposta(Jogo jogo) throws JogoException{
+		
+		long diff = DataUtil.diffMinutes(new Date(), jogo.getDataJogo());
+		
+		if(diff < Constantes.MINUTOS_ANTES_PERMITE_APOSTA) {
+			return false;
+		}
+		
+		return true;
 	}
 }

@@ -8,7 +8,7 @@
     <lifecycle>
 		<phase-listener>bolao.util.MensagensPhaseListener</phase-listener>
 	</lifecycle>
-    
+	
     <!-- JSF and Spring are integrated -->
   	<application>
     	<el-resolver>

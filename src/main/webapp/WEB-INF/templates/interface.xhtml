@@ -8,7 +8,8 @@
 
 <!-- (1) -->
 <h:head>
-
+	<link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/imagens/favicon.ico"/>
+	
 	<f:facet name="first">
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,16 +27,17 @@
 		name="jquery/jquery.js" />
 	<h:outputScript target="body" name="js/util.js" />
 	<h:outputScript target="body" name="js/app.js" />
-
+	
 </h:head>
 <h:body>
 	
 	<header class="aw-topbar">
-		<h:graphicImage name="imagens/logo_bolao.png" style="height: 30px;" />
-		
+		<div style="padding: 4px 0px 0px 4px">
+			<a href="#{request.contextPath}/restrito/apostas.jsf" class="logo"><i class="fa fa-fw fa-soccer-ball-o"></i>BolaoTrovao</a>
 		<sec:isAuthenticated>
 			<a href="#" class="aw-toggle js-toggle"><i class="fa fa-bars"></i></a>
 		</sec:isAuthenticated>
+		</div>
 	</header>
 
 	<ui:insert name="menu">
@@ -62,6 +64,12 @@
 							</li>
 						</sec:ifAnyGranted>
 						<li>
+							<a href="#{request.contextPath}/restrito/ranking.jsf"><i class="fa  fa-fw fa-bar-chart-o"></i>Ranking Geral</a>
+						</li>
+						<li>
+							<a href="#{request.contextPath}/restrito/rankingDetalhado.jsf"><i class="fa  fa-fw fa-line-chart"></i>Ranking Detalhado</a>
+						</li>		
+						<li>
 							<a href="#{request.contextPath}/publico/regulamento.jsf"><i class="fa  fa-fw  fa-file-text"></i>Regulamento</a>
 						</li>
 						<li>
@@ -75,12 +83,13 @@
 	</ui:insert>
 
 	<section class="aw-content  js-content #{!(sessaoMB.estaLogado()) ? 'is-toggled' : ''} " >
-		<ui:insert name="tCard">
-			<h1 class="aw-page-title">Cadastro de usuário</h1>	
-		</ui:insert>
+		
+		<h1 class="aw-page-title"><ui:insert name="tCard" /></h1>	
 		
 		<div class="card">
-			<p:messages id="msgPrincipal" showSummary="false" showDetail="true" autoUpdate="true" closable="true" />
+			<p:messages id="msgPrincipal" showSummary="false" showDetail="true" closable="true">
+				<p:autoUpdate />
+			</p:messages>
 			<ui:insert name="conteudo" />
 		</div>
 	</section>

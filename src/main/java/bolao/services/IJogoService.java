@@ -13,4 +13,5 @@ public interface IJogoService {
 	void atualizaJogo(Jogo jogo) throws JogoException;
 	Jogo buscar(Jogo jogo) throws JogoException;
 	void adcionaJogo(Jogo jogo) throws JogoException;
+	boolean permiteAposta(Jogo jogo) throws JogoException;
 }

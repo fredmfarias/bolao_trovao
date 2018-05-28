@@ -2,6 +2,8 @@ package bolao.util;
 
 public class Constantes {
 	
+	public static final int MINUTOS_ANTES_PERMITE_APOSTA = 60;
+	
 	public static final String ROLE_USUARIO = "ROLE_USUARIO";
 	
 	public static final String ROLE_ADMIN = "ROLE_ADMIN";
