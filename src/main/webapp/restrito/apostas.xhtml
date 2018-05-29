@@ -16,27 +16,12 @@
 			<div class="ui-fluid">
 				<p:dataTable styleClass="tabela" var="aposta" 
 					value="#{apostaMB.apostas}" widgetVar="apostasTable" 
-					filteredValue="#{apostaMB.datasFiltradas}" id="dtApostas">
-							
-					<!-- 				
-					<p:column headerText="#{msg['label.data']}" filterBy="#{aposta.jogo.dataJogo}" 
-						filterMatchMode="contains" >
-						
-						<f:facet name="filter">
-							<p:selectOneMenu onchange="PF('apostasTable').filter()">
-								<f:selectItem itemLabel="Selecione..." itemValue="#{null}" noSelectionOption="true"/>
-								<f:selectItems value="#{apostaMB.datas}" var="data" itemLabel="#{utilMB.dataUtil.formatarDDMMYYYY(data)}"/>
-							</p:selectOneMenu>
-						</f:facet>
-						
-						<h:outputText styleClass="dia" value="#{utilMB.dataUtil.obterNomeDiaDaSemana(aposta.jogo.dataJogo)}" />
-						<br />
-						<h:outputText styleClass="data" value="#{utilMB.dataUtil.formatarDDMM(aposta.jogo.dataJogo)}" />
-						<br />
-						<h:outputText styleClass="hora" value="#{utilMB.dataUtil.formatarHHmm(aposta.jogo.dataJogo)}" />
-					</p:column>
-					 -->
-					 
+					filteredValue="#{apostaMB.datasFiltradas}" id="dtApostas"
+					rows="5"
+                    paginator="true"
+                    paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    rowsPerPageTemplate="5,10,15">
+												 
 					<p:column headerText="#{msg['label.apostas']}" filterBy="#{aposta.jogo.dataJogo}" filterMatchMode="contains">
 						
 						<f:facet name="filter">
@@ -47,7 +32,7 @@
 						</f:facet>
 						
 						<h:outputText value="#{msg['label.jogo']} #{aposta.jogo.numeroJogo} - " />
-						<h:outputText style="font-weight: bold;" value="Grupo #{aposta.jogo.grupo} | " />
+						<h:outputText style="font-weight: bold;" value="Grupo #{aposta.jogo.grupo}" />
 
 						<div class="ui-g">
 							
@@ -59,35 +44,36 @@
 							</div>
 							
 							<div class="ui-g-8">
-								<div class="ui-g">
-									<div class="ui-g-5">
-										<p:selectOneMenu id="sPlacarMandante" value="#{aposta.apostaPlacarCasaString}" disabled="#{!(apostaMB.permiteAposta(aposta))}">
-								            <f:selectItem itemLabel="Palpite..." itemValue="#{null}" noSelectionOption="true"/>
-											<f:selectItems value="#{apostaMB.palpitesPossiveis}" var="palpite" />
-											
-											<p:ajax listener="#{apostaMB.atualizarAposta(aposta)}" update="pgUltimaAtualizacao, dtApostas"/>
-								        </p:selectOneMenu>
+								<h:panelGroup id="pgAposta">
+									<div class="ui-g">
+										<div class="ui-g-5">
+											<p:selectOneMenu id="sPlacarMandante" value="#{aposta.apostaPlacarCasaString}" disabled="#{!(apostaMB.permiteAposta(aposta))}">
+									            <f:selectItem itemLabel="Palpite..." itemValue="#{null}" noSelectionOption="true"/>
+												<f:selectItems value="#{apostaMB.palpitesPossiveis}" var="palpite" />
+												
+												<p:ajax listener="#{apostaMB.atualizarAposta(aposta)}" update="pgAposta"/>
+									        </p:selectOneMenu>
+										</div>
+										<div class="ui-g-2">
+											<h:outputText style="padding: 5px;" value="X" />
+										</div>
+										<div class="ui-g-5">
+											<p:selectOneMenu id="sPlacarVisitante" value="#{aposta.apostaPlacarVisitanteString}" disabled="#{!(apostaMB.permiteAposta(aposta))}">
+									            <f:selectItem itemLabel="Palpite..." itemValue="#{null}" noSelectionOption="true"/>
+												<f:selectItems value="#{apostaMB.palpitesPossiveis}" var="palpite" />
+												
+												<p:ajax listener="#{apostaMB.atualizarAposta(aposta)}" update="pgAposta" />
+									        </p:selectOneMenu>
+										</div>
 									</div>
-									<div class="ui-g-2">
-										<h:outputText style="padding: 5px;" value="X" />
-									</div>
-									<div class="ui-g-5">
-										<p:selectOneMenu id="sPlacarVisitante" value="#{aposta.apostaPlacarVisitanteString}" disabled="#{!(apostaMB.permiteAposta(aposta))}">
-								            <f:selectItem itemLabel="Palpite..." itemValue="#{null}" noSelectionOption="true"/>
-											<f:selectItems value="#{apostaMB.palpitesPossiveis}" var="palpite" />
-											
-											<p:ajax listener="#{apostaMB.atualizarAposta(aposta)}" update="pgUltimaAtualizacao, dtApostas" />
-								        </p:selectOneMenu>
-									</div>
-								</div>
+									
+									<h:outputText style="font-weight: bold;" value="#{utilMB.dataUtil.formatarDDMM(aposta.jogo.dataJogo)} " />
+									<h:outputText value="#{utilMB.dataUtil.obterNomeDiaDaSemana(aposta.jogo.dataJogo)} " />
+									<h:outputText style="font-weight: bold;" value="#{utilMB.dataUtil.formatarHHmm(aposta.jogo.dataJogo)} " />
+									<br/>
+									<h:outputText styleClass="estadio" value="#{aposta.jogo.estadio.descricao} " />
+									<br/>
 								
-								<h:outputText style="font-weight: bold;" value="#{utilMB.dataUtil.formatarDDMM(aposta.jogo.dataJogo)} " />
-								<h:outputText value="#{utilMB.dataUtil.obterNomeDiaDaSemana(aposta.jogo.dataJogo)} " />
-								<h:outputText style="font-weight: bold;" value="#{utilMB.dataUtil.formatarHHmm(aposta.jogo.dataJogo)} " />
-								<br/>
-								<h:outputText styleClass="estadio" value="#{aposta.jogo.estadio.descricao} " />
-								<br/>
-								<h:panelGroup id="pgUltimaAtualizacao">
 									<h:outputText id="otInconsistente" styleClass="fa fa-fw fa-exclamation-triangle ultimaAtualizacao inconsistente" rendered="#{aposta.situacao eq 'INCONSISTENTE'}" value="Preencha o restante do palpite | " />
 									<h:outputText id="otUltimaAtualizacao" styleClass="fa fa-fw fa-save ultimaAtualizacao" rendered="#{aposta.ultimaAtualizacao != null}" value=" salvo em #{utilMB.dataUtil.formatarDDMMYYYYHHmmSS(aposta.ultimaAtualizacao)}" />
 								</h:panelGroup>

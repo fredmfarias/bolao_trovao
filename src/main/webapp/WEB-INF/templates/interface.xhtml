@@ -8,7 +8,7 @@
 
 <!-- (1) -->
 <h:head>
-	<link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/imagens/favicon.ico"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/resources/imagens/favicon.ico"/>
 	
 	<f:facet name="first">
 		<meta charset="UTF-8" />
@@ -94,61 +94,10 @@
 		</div>
 	</section>
 		
-	<!-- 
-	<div id="geral">
-		<div id="head">
-			<div id="menu_topo">
-				
-					<ul>
-						<sec:ifAnyGranted roles="ROLE_ADMIN">
-							<li><a href="#{request.contextPath}/admin/controleRankingDetalhado.jsf">Controle do Ranking Detalhado</a></li>
-							<li>|</li>
-							<li><a href="#{request.contextPath}/admin/controleRanking.jsf">Controle do Ranking</a></li>
-							<li>|</li>
-							<li><a href="#{request.contextPath}/admin/controlePlacar.jsf">Controle do Placar</a></li>
-							<li>|</li>
-							<li><a href="#{request.contextPath}/admin/controleUsuarios.jsf">Controle Usuários</a></li>
-							<li>|</li>
-						</sec:ifAnyGranted>
-						<li><a href="#{request.contextPath}/publico/regulamento.jsf">Regulamento</a></li>
-						<li>|</li>
-						<li><a href="#{request.contextPath}/j_spring_security_logout">Sair</a></li>
-					</ul>
-				
-			</div>
-			<div id="logo">
-				<a href="#{request.contextPath}/restrito/apostas.jsf"></a>
-			</div>
-		</div>
-		<section class="aw-content  js-content">
-			<ui:insert name="conteudo" />
-		</section>
-		
-		<div id="container">
-			<div id="menu">
-				<ui:insert name="menu">
-					<h:form id="formMenuPrincipal">
-						<p:menubar>
-							<p:menuitem value="Apostas" url="/restrito/apostas.jsf" icon="ui-icon-extlink"/>
-							<p:menuitem value="Ranking Geral" url="/restrito/ranking.jsf" icon="ui-icon-extlink"/>
-							<p:menuitem value="Ranking Parcial Detalhado" 
-								url="/restrito/rankingDetalhado.jsf"
-								icon="ui-icon-extlink"/>
-						</p:menubar>
-					</h:form>
-				</ui:insert>
-			</div>
-			<div id="center">
-				<div id="content">
-					
-					<ui:insert name="conteudo">
-					</ui:insert>
-				</div>
-			</div>
-		</div> 
-		<div id="rodape">
-			<ui:insert name="rodape"></ui:insert>
-		</div>
-	</div>-->
+	<p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+ 
+	<p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+	    <p:graphicImage name="imagens/loading.gif" />
+	</p:dialog>
 </h:body>
 </html>
