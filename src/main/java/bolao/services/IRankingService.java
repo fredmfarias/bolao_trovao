@@ -13,4 +13,5 @@ public interface IRankingService {
 	List<Ranking> buscarRankingPorParcial(int parcial) throws RankingException;
 	List<Integer> buscarParciais() throws RankingException;
 	List<Ranking> buscarRankingPorUsuario(Usuario usuario, int parcial) throws RankingException;
+	void colocaUsuarioNoRankingInicial(Usuario usuario) throws RankingException;
 }

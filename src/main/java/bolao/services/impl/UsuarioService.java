@@ -14,6 +14,7 @@ import bolao.excecoes.UsuarioException;
 import bolao.model.Usuario;
 import bolao.services.IApostaService;
 import bolao.services.IBolaoService;
+import bolao.services.IRankingService;
 import bolao.services.IUsuarioService;
 import bolao.util.Constantes;
 
@@ -37,6 +38,9 @@ public class UsuarioService implements IUsuarioService, Serializable {
 	
 	@Autowired
 	private IBolaoService bolaoService;
+	
+	@Autowired
+	private IRankingService rankingService;
 	
 	@Override
 	@Transactional(readOnly = false)
@@ -63,6 +67,8 @@ public class UsuarioService implements IUsuarioService, Serializable {
 			this.usuarioDAO.salvar(usuario);
 				
 			apostaService.addAposta(usuario, this.jogoDAO.listAll());
+			
+			rankingService.colocaUsuarioNoRankingInicial(usuario);
 		}
 		catch (Exception e) {
 			throw new UsuarioException("Erro ao adcionar Usuario", e);

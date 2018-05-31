@@ -180,4 +180,21 @@ public class RankingService implements IRankingService, Serializable {
 			throw new RankingException("Falha ao buscar rankings");
 		}
 	}
+
+	@Override
+	public void colocaUsuarioNoRankingInicial(Usuario usuario) throws RankingException {
+		
+		Ranking ranking = new Ranking();
+		
+		ranking.setUsuario(usuario);
+		ranking.setParcialPostada(0);
+		
+		List<Ranking> rankingInicial = buscarRankingPorParcial(0);
+		
+		rankingInicial.add(ranking);
+		
+		geraPosicaoRanking(rankingInicial);
+				
+		this.salvarRanking(rankingInicial);
+	}
 }
