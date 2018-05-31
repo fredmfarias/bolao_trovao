@@ -36,18 +36,18 @@
 
 						<div class="ui-g">
 							
-							<div class="ui-g-2">
+							<div class="ui-g-3" style="width: 20%;">
 								<figure>
 								  <p><img class="scaled" src="../resources/imagens/escudos/#{aposta.jogo.clubeCasa.escudo}.png"/></p>
 								  <figcaption>#{aposta.jogo.clubeCasa.nome}</figcaption>
 								</figure>
 							</div>
 							
-							<div class="ui-g-8">
+							<div class="ui-g-6" style="width: 60%;">
 								<h:panelGroup id="pgAposta">
 									<div class="ui-g">
-										<div class="ui-g-5">
-											<p:selectOneMenu id="sPlacarMandante" value="#{aposta.apostaPlacarCasaString}" disabled="#{!(apostaMB.permiteAposta(aposta))}">
+										<div class="ui-g-5" style="padding: 0.5em 0.0em 0.5em 0.0em;">
+											<p:selectOneMenu id="sPlacarMandante" value="#{aposta.apostaPlacarCasaString}" disabled="#{!(apostaMB.permiteAposta(aposta))}" style="max-width: 94%">
 									            <f:selectItem itemLabel="Palpite..." itemValue="#{null}" noSelectionOption="true"/>
 												<f:selectItems value="#{apostaMB.palpitesPossiveis}" var="palpite" />
 												
@@ -55,10 +55,10 @@
 									        </p:selectOneMenu>
 										</div>
 										<div class="ui-g-2">
-											<h:outputText style="padding: 5px;" value="X" />
+											<h:outputText value="X" />
 										</div>
-										<div class="ui-g-5">
-											<p:selectOneMenu id="sPlacarVisitante" value="#{aposta.apostaPlacarVisitanteString}" disabled="#{!(apostaMB.permiteAposta(aposta))}">
+										<div class="ui-g-5" style="padding: 0.5em 0.0em 0.5em 0.0em;">
+											<p:selectOneMenu id="sPlacarVisitante" value="#{aposta.apostaPlacarVisitanteString}" disabled="#{!(apostaMB.permiteAposta(aposta))}" style="max-width: 94%">
 									            <f:selectItem itemLabel="Palpite..." itemValue="#{null}" noSelectionOption="true"/>
 												<f:selectItems value="#{apostaMB.palpitesPossiveis}" var="palpite" />
 												
@@ -79,7 +79,7 @@
 								</h:panelGroup>
 							</div>
 							
-							<div class="ui-g-2">	
+							<div class="ui-g-3" style="width: 20%;">	
 								<figure style="float: left;">
 								  <p><img class="scaled" src="../resources/imagens/escudos/#{aposta.jogo.clubeVisitante.escudo}.png"/></p>
 								  <figcaption>#{aposta.jogo.clubeVisitante.nome}</figcaption>
