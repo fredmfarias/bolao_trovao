@@ -107,56 +107,66 @@
 			</p:dataTable>
 		</h:form>
 		
-		<p:dialog header="Detalhe de Palpites" widgetVar="dlg" modal="true" resizable="false">
+		<p:dialog id="dlgApostas" header="Detalhe de Palpites" widgetVar="dlg" modal="true" position="center" responsive="true" 
+			onShow="$('dlgApostas').css('position', 'relative');$('dlgApostas').css('z-index', 9999);" >
 			
-			<p:outputPanel id="apostasDetalhes" style="text-align:center; width: 750px" >
+			<p:outputPanel id="apostasDetalhes" >
 				<p:dataTable id="dtApostas" styleClass="tabela" var="aposta" 
 					value="#{rankingMB.apostas}" widgetVar="apostasTable" 
 					paginator="true"
-					rows="4">
+					rows="4" >
 		
 					<f:facet name="header">
 		            	#{msg['label.apostas']}
 		        	</f:facet>
-									
-					<p:column headerText="#{msg['label.data']}" >						
-						<h:outputText styleClass="dia" value="#{utilMB.dataUtil.obterNomeDiaDaSemana(aposta.jogo.dataJogo)}" />
-						<br />
-						<h:outputText styleClass="data" value="#{utilMB.dataUtil.formatarDDMM(aposta.jogo.dataJogo)}" />
-						<br />
-						<h:outputText styleClass="hora" value="#{utilMB.dataUtil.formatarHHmm(aposta.jogo.dataJogo)}" />
-					</p:column>
-					
-					<p:column width="600" headerText="#{msg['label.confronto']}">
+					<p:column>
 						
 						<h:outputText value="#{msg['label.jogo']} #{aposta.jogo.numeroJogo} - " />
 						<h:outputText style="font-weight: bold;" value="Grupo #{aposta.jogo.grupo}" />
-						
-						<div id="confronto">
+
+						<div class="ui-g">
 							
-							<div id="mandante">
-								<h:outputText styleClass="selecao" value="#{aposta.jogo.clubeCasa.nome}"  />
-						
-								<img src="../resources/imagens/img_trans.gif"
-									class="escudos #{aposta.jogo.clubeCasa.escudo}"/>
+							<div class="ui-g-3" style="width: 20%;">
+								<figure>
+								  <p><img class="scaled" src="../resources/imagens/escudos/#{aposta.jogo.clubeCasa.escudo}.png"/></p>
+								  <figcaption>#{aposta.jogo.clubeCasa.nome}</figcaption>
+								</figure>
 							</div>
 							
-							<div id="placar">
-								<h:outputText styleClass="data" value="#{aposta.apostaPlacarCasa}" />
-																				
-								<h:outputText style="padding: 5px;" value="X" />
+							<div class="ui-g-6" style="width: 60%;">
+								<h:panelGroup id="pgAposta">
+									<div class="ui-g">
+										<div class="ui-g-5" style="padding: 0.5em 0.0em 0.5em 0.0em;">
+											<h:outputText styleClass="data" value="#{aposta.apostaPlacarCasa}" />
+										</div>
+										<div class="ui-g-2">
+											<h:outputText value="X" />
+										</div>
+										<div class="ui-g-5" style="padding: 0.5em 0.0em 0.5em 0.0em;">
+											<h:outputText styleClass="data" value="#{aposta.apostaPlacarVisitante}" />	
+										</div>
+									</div>
+									
+									<h:outputText style="font-weight: bold;" value="#{utilMB.dataUtil.formatarDDMM(aposta.jogo.dataJogo)} " />
+									<h:outputText value="#{utilMB.dataUtil.obterNomeDiaDaSemana(aposta.jogo.dataJogo)} " />
+									<h:outputText style="font-weight: bold;" value="#{utilMB.dataUtil.formatarHHmm(aposta.jogo.dataJogo)} " />
+									<br/>
+									<h:outputText styleClass="estadio" value="#{aposta.jogo.estadio.descricao} " />
+									<br/>
 								
-								<h:outputText styleClass="data" value="#{aposta.apostaPlacarVisitante}" />	
+									<h:outputText id="otInconsistente" styleClass="fa fa-fw fa-exclamation-triangle ultimaAtualizacao inconsistente" rendered="#{aposta.situacao eq 'INCONSISTENTE'}" value="Preencha o restante do palpite | " />
+									<h:outputText id="otUltimaAtualizacao" styleClass="fa fa-fw fa-save ultimaAtualizacao" rendered="#{aposta.ultimaAtualizacao != null}" value=" salvo em #{utilMB.dataUtil.formatarDDMMYYYYHHmmSS(aposta.ultimaAtualizacao)}" />
+								</h:panelGroup>
 							</div>
 							
-							<div id="visitante">	
-								<img src="../resources/imagens/img_trans.gif"
-									class="escudos #{aposta.jogo.clubeVisitante.escudo}" />
-						
-								<h:outputText  styleClass="selecao" value="#{aposta.jogo.clubeVisitante.nome}" />
+							<div class="ui-g-3" style="width: 20%;">	
+								<figure style="float: left;">
+								  <p><img class="scaled" src="../resources/imagens/escudos/#{aposta.jogo.clubeVisitante.escudo}.png"/></p>
+								  <figcaption>#{aposta.jogo.clubeVisitante.nome}</figcaption>
+								</figure>
 							</div>
 						</div>
-					</p:column>
+					</p:column>	
 				</p:dataTable>
 			</p:outputPanel>	
 		</p:dialog>
