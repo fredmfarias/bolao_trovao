@@ -2,13 +2,16 @@ package bolao.apresentacao.mb;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import org.primefaces.PrimeFaces;
 import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.CategoryAxis;
@@ -70,6 +73,18 @@ public class RankingMB extends MB implements Serializable{
 			MessagesProperty.errorMsg("MN0014");
 		}
 	}
+	
+	public void viewLegenda() {
+        Map<String,Object> options = new HashMap<String, Object>();
+        
+        options.put("modal", true);
+        options.put("height", 250);
+        options.put("contentWidth", "100%");
+        options.put("contentHeight", "100%");
+        options.put("headerElement", "customheader");
+        
+        PrimeFaces.current().dialog().openDynamic("/dialogs/legenda", options, null);
+    }
 	
 	public void buscaRanking(){
 		try {
