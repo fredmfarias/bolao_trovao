@@ -108,13 +108,13 @@
 		</h:form>
 		
 		<p:dialog id="dlgApostas" header="Detalhe de Palpites" widgetVar="dlg" modal="true" position="center" responsive="true" 
-			onShow="$('dlgApostas').css('position', 'relative');$('dlgApostas').css('z-index', 9999);" >
+			onShow="$('dlgApostas').css('position', 'relative');$('dlgApostas').css('z-index', 9999);" style="max-width: 600px !important;">
 			
 			<p:outputPanel id="apostasDetalhes" >
 				<p:dataTable id="dtApostas" styleClass="tabela" var="aposta" 
 					value="#{rankingMB.apostas}" widgetVar="apostasTable" 
 					paginator="true"
-					rows="4" >
+					rows="3" >
 		
 					<f:facet name="header">
 		            	#{msg['label.apostas']}
@@ -136,13 +136,13 @@
 							<div class="ui-g-6" style="width: 60%;">
 								<h:panelGroup id="pgAposta">
 									<div class="ui-g">
-										<div class="ui-g-5" style="padding: 0.5em 0.0em 0.5em 0.0em;">
+										<div class="ui-g-5" style="padding: 0.5em 0.0em 0.5em 0.0em; text-align: right;">
 											<h:outputText styleClass="data" value="#{aposta.apostaPlacarCasa}" />
 										</div>
 										<div class="ui-g-2">
 											<h:outputText value="X" />
 										</div>
-										<div class="ui-g-5" style="padding: 0.5em 0.0em 0.5em 0.0em;">
+										<div class="ui-g-5" style="padding: 0.5em 0.0em 0.5em 0.0em; text-align: left;">
 											<h:outputText styleClass="data" value="#{aposta.apostaPlacarVisitante}" />	
 										</div>
 									</div>
@@ -154,8 +154,6 @@
 									<h:outputText styleClass="estadio" value="#{aposta.jogo.estadio.descricao} " />
 									<br/>
 								
-									<h:outputText id="otInconsistente" styleClass="fa fa-fw fa-exclamation-triangle ultimaAtualizacao inconsistente" rendered="#{aposta.situacao eq 'INCONSISTENTE'}" value="Preencha o restante do palpite | " />
-									<h:outputText id="otUltimaAtualizacao" styleClass="fa fa-fw fa-save ultimaAtualizacao" rendered="#{aposta.ultimaAtualizacao != null}" value=" salvo em #{utilMB.dataUtil.formatarDDMMYYYYHHmmSS(aposta.ultimaAtualizacao)}" />
 								</h:panelGroup>
 							</div>
 							
@@ -173,7 +171,7 @@
 		
 		<p:dialog header="Gráfico de Desempenho no Ranking" widgetVar="dlgGrafico" modal="true" resizable="false">
 			<p:outputPanel id="graficoDetalhes" style="text-align:center;" >
-				<p:chart type="line" model="#{rankingMB.graficoRanking}" style="width:600px;" />
+				<p:chart type="line" model="#{rankingMB.graficoRanking}" responsive="true" />
 			</p:outputPanel>
 		</p:dialog>
 	</ui:define>

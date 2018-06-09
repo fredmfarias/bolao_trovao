@@ -31,7 +31,7 @@
 	            Ranking Diário Detalhado
 	        </f:facet>
 	        
-	        <p:column style="width:16px">
+	        <p:column style="width:16px; padding: 4px 4px;">
 	            <p:rowToggler />
 	        </p:column>
 	        
@@ -48,41 +48,48 @@
 	        </p:column>
 	        
 	        <p:rowExpansion>
-	        	<h:dataTable id="dtApostas" var="aposta" 
+	        	<p:dataTable id="dtApostas" var="aposta" styleClass="tabela"
 					value="#{rankingDetalhado.apostasList}" widgetVar="apostasTable" >
 	    			
-	    			<p:column width="600" headerText="#{msg['label.confronto']}">
+	    			<p:column headerText="#{msg['label.confronto']}">
 						
-						<div align="center">
-							<h:outputText value="Pontos obtidos na partida: " />
-							<h:outputText style="font-weight: bold;" value="#{aposta.pontuacao}" />
-						</div>
-						<div id="confronto">
+						<h:outputText value="Pontos obtidos na partida: " />
+						<h:outputText style="font-weight: bold;" value="#{aposta.pontuacao}" />
+
+						<div class="ui-g">
 							
-							<div id="mandante">
-								<h:outputText styleClass="selecao" value="#{aposta.jogo.clubeCasa.nome}"  />
-						
-								<img src="../resources/imagens/img_trans.gif"
-									class="escudos #{aposta.jogo.clubeCasa.escudo}"/>
+							<div class="ui-g-3" style="width: 20%;">
+								<figure>
+								  <p><img class="scaled" src="../resources/imagens/escudos/#{aposta.jogo.clubeCasa.escudo}.png"/></p>
+								  <figcaption>#{aposta.jogo.clubeCasa.nome}</figcaption>
+								</figure>
 							</div>
 							
-							<div id="placar">
-								<h:outputText styleClass="placarDetalhe" value="#{aposta.apostaPlacarCasa}" />
-																				
-								<h:outputText style="padding: 5px;" value="X" />
-								
-								<h:outputText styleClass="placarDetalhe" value="#{aposta.apostaPlacarVisitante}" />	
+							<div class="ui-g-6" style="width: 60%;">
+								<h:panelGroup id="pgAposta">
+									<div class="ui-g">
+										<div class="ui-g-5" style="padding: 0.5em 0.0em 0.5em 0.0em; text-align: right;">
+											<h:outputText styleClass="data" value="#{aposta.apostaPlacarCasa}" />
+										</div>
+										<div class="ui-g-2">
+											<h:outputText value="X" />
+										</div>
+										<div class="ui-g-5" style="padding: 0.5em 0.0em 0.5em 0.0em; text-align: left;">
+											<h:outputText styleClass="data" value="#{aposta.apostaPlacarVisitante}" />	
+										</div>
+									</div>
+								</h:panelGroup>
 							</div>
 							
-							<div id="visitante">	
-								<img src="../resources/imagens/img_trans.gif"
-									class="escudos #{aposta.jogo.clubeVisitante.escudo}" />
-						
-								<h:outputText  styleClass="selecao" value="#{aposta.jogo.clubeVisitante.nome}" />
+							<div class="ui-g-3" style="width: 20%;">	
+								<figure style="float: left;">
+								  <p><img class="scaled" src="../resources/imagens/escudos/#{aposta.jogo.clubeVisitante.escudo}.png"/></p>
+								  <figcaption>#{aposta.jogo.clubeVisitante.nome}</figcaption>
+								</figure>
 							</div>
 						</div>
 					</p:column>    	
-	        	</h:dataTable>
+	        	</p:dataTable>
 	        </p:rowExpansion>
 	 	        
 	    </p:dataTable>
