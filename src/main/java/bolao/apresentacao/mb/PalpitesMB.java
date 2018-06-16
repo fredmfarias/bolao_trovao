@@ -18,6 +18,8 @@ import bolao.util.MessagesProperty;
 @ViewScoped
 public class PalpitesMB extends MB implements Serializable{
 
+	private static final long serialVersionUID = -7068041997771972770L;
+	
 	private List<PalpiteDTO> palpites;
 	private List<Jogo> jogos;
 	private Jogo jogoSelecionado;

@@ -62,7 +62,7 @@ public class JogoDAOHibernate extends GenericHibernate<Jogo> implements JogoDAO,
 	@Override
 	public List<Jogo> listaJogosExibiveis() {
 		String hql = "FROM Jogo j WHERE "
-				+ "(extract(epoch from j.dataJogo - current_timestamp)) < 3600) "
+				+ "extract(epoch from j.dataJogo - current_timestamp) < 3600 "
 				+ "ORDER BY j.numeroJogo DESC";
 		
 		Query consulta = super.getSession().createQuery(hql);

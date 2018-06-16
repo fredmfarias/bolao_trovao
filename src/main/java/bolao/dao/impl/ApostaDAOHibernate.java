@@ -75,7 +75,8 @@ public class ApostaDAOHibernate extends GenericHibernate<Aposta> implements Apos
 		String hql = "SELECT new bolao.dto.PalpiteDTO(a.apostaPlacarCasa, a.apostaPlacarVisitante, u.nome, r.posicao) FROM Aposta a "
 				+ " INNER JOIN a.usuario u "
 				+ " , Ranking r "
-				+ "WHERE r.usuario.id = u.id AND a.jogo.id = :id_jogo AND r.parcialPostada = (SELECT MAX(parcialPostada) FROM Ranking)";
+				+ "WHERE r.usuario.id = u.id AND a.jogo.id = :id_jogo AND r.parcialPostada = (SELECT MAX(parcialPostada) FROM Ranking) "
+				+ "ORDER BY a.apostaPlacarCasa DESC, a.apostaPlacarVisitante DESC, u.nome";
 		
 		Query consulta = super.getSession().createQuery(hql);
 		
