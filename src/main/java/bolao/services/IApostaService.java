@@ -2,6 +2,7 @@ package bolao.services;
 
 import java.util.List;
 
+import bolao.dto.PalpiteDTO;
 import bolao.excecoes.ApostaException;
 import bolao.model.Aposta;
 import bolao.model.Jogo;
@@ -18,4 +19,5 @@ public interface IApostaService {
 	void salvaListAposta(List<Aposta> apostas) throws ApostaException;
 	Aposta salva(Aposta aposta) throws ApostaException;
 	void calculaPontuacao(Aposta aposta);
+	List<PalpiteDTO> buscaPalpitesPorJogo(Jogo jogoSelecionado) throws ApostaException;
 }

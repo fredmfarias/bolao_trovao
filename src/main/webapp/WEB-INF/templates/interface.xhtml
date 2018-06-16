@@ -64,10 +64,13 @@
 							</li>
 						</sec:ifAnyGranted>
 						<li>
-							<a href="#{request.contextPath}/restrito/ranking.jsf"><i class="fa  fa-fw fa-bar-chart-o"></i>Ranking Geral</a>
+							<a href="#{request.contextPath}/restrito/ranking.jsf"><i class="fa  fa-fw fa-trophy"></i>Ranking Geral</a>
 						</li>
 						<li>
-							<a href="#{request.contextPath}/restrito/rankingDetalhado.jsf"><i class="fa  fa-fw fa-line-chart"></i>Ranking Detalhado</a>
+							<a href="#{request.contextPath}/restrito/rankingDetalhado.jsf"><i class="fa  fa-fw fa-line-chart"></i>Ranking Diário</a>
+						</li>		
+						<li>
+							<a href="#{request.contextPath}/restrito/palpitesView.jsf"><i class="fa  fa-fw fa-dashboard"></i>Palpites</a>
 						</li>		
 						<li>
 							<a href="#{request.contextPath}/publico/regulamento.jsf"><i class="fa  fa-fw  fa-file-text"></i>Regulamento</a>
@@ -95,7 +98,17 @@
 	</section>
 		
 	<p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
- 
+	
+	<p:idleMonitor timeout="1740000" 
+			onidle="PF('idleDialog').show()" />
+	
+	<p:dialog header="O que aconteceu?" resizable="false"
+				widgetVar="idleDialog" modal="true" onHide="location.reload()" closable="true" minHeight="100" minWidth="300">
+		
+		<h:outputText value="Você ainda está aqui?" />
+		
+	</p:dialog>
+	
 	<p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
 	    <p:graphicImage name="imagens/loading.gif" />
 	</p:dialog>

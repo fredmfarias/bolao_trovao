@@ -7,6 +7,7 @@ import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import bolao.dao.ApostaDAO;
+import bolao.dto.PalpiteDTO;
 import bolao.model.Aposta;
 import bolao.model.Jogo;
 
@@ -65,6 +66,20 @@ public class ApostaDAOHibernate extends GenericHibernate<Aposta> implements Apos
 		Query consulta = super.getSession().createQuery(hql);
 		
 		consulta.setLong("id_usuario", id_usuario);
+		
+		return consulta.list();
+	}
+
+	@Override
+	public List<PalpiteDTO> buscaPalpitesByJogo(Integer id_jogo) {
+		String hql = "SELECT new bolao.dto.PalpiteDTO(a.apostaPlacarCasa, a.apostaPlacarVisitante, u.nome, r.posicao) FROM Aposta a "
+				+ " INNER JOIN a.usuario u "
+				+ " , Ranking r "
+				+ "WHERE r.usuario.id = u.id AND a.jogo.id = :id_jogo AND r.parcialPostada = (SELECT MAX(parcialPostada) FROM Ranking)";
+		
+		Query consulta = super.getSession().createQuery(hql);
+		
+		consulta.setLong("id_jogo", id_jogo);
 		
 		return consulta.list();
 	}

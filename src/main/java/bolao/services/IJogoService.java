@@ -14,4 +14,5 @@ public interface IJogoService {
 	Jogo buscar(Jogo jogo) throws JogoException;
 	void adcionaJogo(Jogo jogo) throws JogoException;
 	boolean permiteAposta(Jogo jogo) throws JogoException;
+	List<Jogo> buscaTodosJogosExibiveis() throws JogoException;
 }

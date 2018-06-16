@@ -1,0 +1,50 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/interface.xhtml">
+	
+	<ui:define name="titulo">
+		Todos Palpites
+	</ui:define>
+	<ui:define name="conteudo">
+		<h:form id="ranking">
+			
+			<div class="ui-fluid">
+				<div align="right" class="ui-g-12">
+					
+					<p:selectOneMenu value="#{palpitesMB.jogoSelecionado}" style="max-width: 200px;" converter="objectConverter">
+					
+							<f:selectItem itemLabel="Selecione um Jogo..." itemValue="#{null}"/>
+							<f:selectItems value="#{palpitesMB.jogos}" var="jogo" itemLabel="#{jogo.clubeCasa.nome} X #{jogo.clubeVisitante.nome}"/>
+	
+							<p:ajax event="change" listener="#{palpitesMB.buscaApostasJogo()}" update="dtApostas" />
+							
+					</p:selectOneMenu>
+					
+				</div>
+			</div>
+			
+			<p:spacer height="10" ></p:spacer> 
+			
+			<p:dataTable id="dtApostas" var="palpite"
+				value="#{palpitesMB.palpites}" widgetVar="palpitesTable" >
+		        
+		        <p:column headerText="Palpite" groupRow="true" width="25%" style="font-weight: bold; text-align: center;">
+		            <h:outputText value="#{palpite.apostaPlacarCasa} X #{palpite.apostaPlacarVisitante}" />
+		        </p:column>
+		        
+				<p:column headerText="#{msg['label.nome']}" >
+					<h:outputText value="#{palpite.nome}" />
+				</p:column>
+
+				<p:column headerText="Posição Ranking" style="text-align: center;" width="25%">
+					<h:outputText value="#{palpite.posicao}" />
+				</p:column>
+												
+			</p:dataTable>
+		</h:form>
+		
+	</ui:define>
+</ui:composition>

@@ -2,6 +2,7 @@ package bolao.services.impl;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import bolao.dao.ApostaDAO;
+import bolao.dto.PalpiteDTO;
 import bolao.excecoes.ApostaException;
 import bolao.model.Aposta;
 import bolao.model.Jogo;
@@ -200,5 +202,22 @@ public class ApostaService implements IApostaService, Serializable {
 		}
 		
 		return aposta;
+	}
+
+	@Override
+	public List<PalpiteDTO> buscaPalpitesPorJogo(Jogo jogoSelecionado) throws ApostaException {
+		
+		if(jogoSelecionado == null) {
+			return new LinkedList<>();
+		}
+		
+		try{
+			
+			return this.apostaDAO.buscaPalpitesByJogo(jogoSelecionado.getId());
+		}catch(NullPointerException e){
+			throw new ApostaException("Erro ao buscar apostas, jogo nulo");
+		}catch (Exception e) {
+			throw new ApostaException("Nao foi possivel recuperar as apostas do jogo");
+		}
 	}
 }

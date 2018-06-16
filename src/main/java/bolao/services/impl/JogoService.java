@@ -37,7 +37,7 @@ public class JogoService implements IJogoService, Serializable {
 	
 	@Override
 	public List<Jogo> getAllJogos() {
-		return getJogoDAO().listAll();
+		return getJogoDAO().listaTodosOrderByNumeroJogo();
 	}
 
 	public JogoDAO getJogoDAO() {
@@ -148,5 +148,14 @@ public class JogoService implements IJogoService, Serializable {
 		}
 		
 		return true;
+	}
+
+	@Override
+	public List<Jogo> buscaTodosJogosExibiveis() throws JogoException {
+		try{
+			return this.jogoDAO.listaJogosExibiveis();
+		}catch(Exception e){
+			throw new JogoException("Falha ao buscar jogos");
+		}
 	}
 }

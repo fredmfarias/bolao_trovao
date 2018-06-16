@@ -51,16 +51,16 @@
         <location>/publico/404.jsf</location>
     </error-page>
     <error-page>
+        <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+        <location>/publico/expirada.jsf</location>
+    </error-page>
+    <error-page>
         <error-code>500</error-code>
         <location>/publico/500.jsf</location>
     </error-page>
     <error-page>
         <exception-type>java.lang.Throwable</exception-type>
         <location>/publico/500.jsf</location>
-    </error-page>
-    <error-page>
-        <exception-type>javax.faces.application.ViewExpiredException</exception-type>
-        <location>/publico/expirada.jsf</location>
     </error-page>
 
 	<!-- The Bootstrap listener to start up and shut down Spring's root WebApplicationContext. 

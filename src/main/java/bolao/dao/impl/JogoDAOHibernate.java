@@ -48,4 +48,25 @@ public class JogoDAOHibernate extends GenericHibernate<Jogo> implements JogoDAO,
 		
 		return consulta.list();
 	}
+
+	@Override
+	public List<Jogo> listaTodosOrderByNumeroJogo() {
+		String hql = "FROM Jogo j "
+				+ "ORDER BY j.placarCasa DESC, j.numeroJogo";
+		
+		Query consulta = super.getSession().createQuery(hql);
+		
+		return consulta.list();
+	}
+	
+	@Override
+	public List<Jogo> listaJogosExibiveis() {
+		String hql = "FROM Jogo j WHERE "
+				+ "(extract(epoch from j.dataJogo - current_timestamp)) < 3600) "
+				+ "ORDER BY j.numeroJogo DESC";
+		
+		Query consulta = super.getSession().createQuery(hql);
+		
+		return consulta.list();
+	}
 }

@@ -20,8 +20,7 @@
 	            	#{msg['label.jogos']}
 	        	</f:facet>
 								
-				<p:column headerText="#{msg['label.data']}" filterBy="#{jogo.dataJogo}" 
-					filterMatchMode="contains" >
+				<p:column headerText="#{msg['label.confronto']}" filterBy="#{jogo.dataJogo}" filterMatchMode="contains">
 					
 					<f:facet name="filter">
 						<p:selectOneMenu onchange="PF('jogosTable').filter()">
@@ -30,47 +29,50 @@
 						</p:selectOneMenu>
 					</f:facet>
 					
-					<h:outputText styleClass="dia" value="#{utilMB.dataUtil.obterNomeDiaDaSemana(jogo.dataJogo)}" />
-					<br />
-					<h:outputText styleClass="data" value="#{utilMB.dataUtil.formatarDDMM(jogo.dataJogo)}" />
-					<br />
-					<h:outputText styleClass="hora" value="#{utilMB.dataUtil.formatarHHmm(jogo.dataJogo)}" />
-				</p:column>
-				
-				<p:column width="600" headerText="#{msg['label.confronto']}">
-					
 					<h:outputText value="#{msg['label.jogo']} #{jogo.numeroJogo} - " />
 					<h:outputText style="font-weight: bold;" value="Grupo #{jogo.grupo}" />
 					
-					<div id="confronto">
-						
-						<div id="mandante">
-							<h:outputText styleClass="selecao" value="#{jogo.clubeCasa.nome}"  />
-					
-							<img src="../resources/imagens/img_trans.gif"
-								class="escudos #{jogo.clubeCasa.escudo}"/>
+					<div class="ui-g">
+							
+						<div class="ui-g-3" style="width: 20%;">
+							<figure>
+							  <p><img class="scaled" src="../resources/imagens/escudos/#{jogo.clubeCasa.escudo}.png"/></p>
+							  <figcaption>#{jogo.clubeCasa.nome}</figcaption>
+							</figure>
 						</div>
 						
-						<div id="placar">
-							<p:spinner id="spPlacarMandante" size="2" 
-								min="0" max="99" value="#{jogo.placarCasaString}"/>	
-												
-							<h:outputText style="padding: 5px;" value="X" />
-					
-							<p:spinner id="spPlacarVisitante" size="2" 
-								min="0" max="99" value="#{jogo.placarVisitanteString}"/>	
+						<div class="ui-g-6" style="width: 60%;">
+							<h:panelGroup id="pgAposta">
+								<div class="ui-g">
+									<div class="ui-g-5" style="padding: 0.5em 0.0em 0.5em 0.0em;">
+										<p:spinner id="spPlacarMandante" size="2" min="0" max="99" value="#{jogo.placarCasaString}"/>	
+									</div>
+									<div class="ui-g-2">
+										<h:outputText value="X" />
+									</div>
+									<div class="ui-g-5" style="padding: 0.5em 0.0em 0.5em 0.0em;">
+										<p:spinner id="spPlacarVisitante" size="2" min="0" max="99" value="#{jogo.placarVisitanteString}"/>
+									</div>
+								</div>
+								
+								<h:outputText style="font-weight: bold;" value="#{utilMB.dataUtil.formatarDDMM(jogo.dataJogo)} " />
+								<h:outputText value="#{utilMB.dataUtil.obterNomeDiaDaSemana(jogo.dataJogo)} " />
+								<h:outputText style="font-weight: bold;" value="#{utilMB.dataUtil.formatarHHmm(jogo.dataJogo)} " />
+								<br/>
+								<h:outputText styleClass="estadio" value="#{jogo.estadio.descricao} " />
+							</h:panelGroup>
 						</div>
 						
-						<div id="visitante">	
-							<img src="../resources/imagens/img_trans.gif"
-								class="escudos #{jogo.clubeVisitante.escudo}" />
-					
-							<h:outputText  styleClass="selecao" value="#{jogo.clubeVisitante.nome}" />
+						<div class="ui-g-3" style="width: 20%;">	
+							<figure style="float: left;">
+							  <p><img class="scaled" src="../resources/imagens/escudos/#{jogo.clubeVisitante.escudo}.png"/></p>
+							  <figcaption>#{jogo.clubeVisitante.nome}</figcaption>
+							</figure>
 						</div>
 					</div>
 				</p:column>
 				
-				<p:column headerText="Ação" style="text-align: center">
+				<p:column headerText="Ação" style="text-align: center" width="16%">
 					<p:commandButton icon="ui-icon-disk" title="Salvar" action="#{jogoMB.atualizaPlacar()}">
 						<f:setPropertyActionListener value="#{jogo}" target="#{jogoMB.jogoSelecionado}" />
 					</p:commandButton>
