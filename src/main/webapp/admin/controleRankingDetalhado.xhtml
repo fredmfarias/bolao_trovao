@@ -11,44 +11,58 @@
 	<ui:define name="conteudo">
 		<h:form id="ranking">
 			
-			<p:selectManyMenu id="smmJogos" value="#{controleRankingDetalhadoMB.jogosSelecionados}"
-                          var="jogo" filter="true" filterMatchMode="contains" showCheckbox="true"
-                          converter="objectConverter">
-	 
-	            <f:selectItems value="#{controleRankingDetalhadoMB.jogos}" var="j" 
-	            	itemLabel="#{utilMB.dataUtil.formatarDDMMYYYY(j.dataJogo)}" itemValue="#{j}" />
-	 	        
-	 	        <p:column>
-	 	        	<div id="mandante" align="center">
-							<h:outputText styleClass="selecao" value="#{jogo.clubeCasa.nome}"  />
-					</div>
-	 	        </p:column>
-	 	        
-	 	        <p:column>
-	 	        	<div id="placar">
-						<h:outputText styleClass="data" value="#{jogo.placarCasa}" />
-																				
-						<h:outputText style="padding: 5px;" value="X" />
-								
-						<h:outputText styleClass="data" value="#{jogo.placarVisitante}" />						
-					</div>
-	 	        </p:column>
-	 	        
-	 	        <p:column>
-	 	        	<div id="visitante" align="center">	
-						<h:outputText  styleClass="selecao" value="#{jogo.clubeVisitante.nome}" />
-					</div>
-	 	        </p:column>
-        	</p:selectManyMenu>
+			<div class="ui-fluid">
+				
+				<div class="ui-g">
+					<p:selectManyMenu id="smmJogos" value="#{controleRankingDetalhadoMB.jogosSelecionados}"
+		                          var="jogo" filter="true" filterMatchMode="contains" showCheckbox="true"
+		                          converter="objectConverter">
+			 
+			            <f:selectItems value="#{controleRankingDetalhadoMB.jogos}" var="j" 
+			            	itemLabel="#{utilMB.dataUtil.formatarDDMMYYYY(j.dataJogo)}" itemValue="#{j}" />
+			 	        
+			 	        <p:column>
+			 	        	<div id="mandante" align="center">
+									<h:outputText styleClass="selecao" value="#{jogo.clubeCasa.nome}"  />
+							</div>
+			 	        </p:column>
+			 	        
+			 	        <p:column>
+			 	        	<div id="placar">
+								<h:outputText styleClass="data" value="#{jogo.placarCasa}" />
+																						
+								<h:outputText style="padding: 5px;" value="X" />
+										
+								<h:outputText styleClass="data" value="#{jogo.placarVisitante}" />						
+							</div>
+			 	        </p:column>
+			 	        
+			 	        <p:column>
+			 	        	<div id="visitante" align="center">	
+								<h:outputText  styleClass="selecao" value="#{jogo.clubeVisitante.nome}" />
+							</div>
+			 	        </p:column>
+		        	</p:selectManyMenu>
+	        	</div>
+			</div>
 			
-			<p:commandButton value="#{msg['label.gerar.ranking']}" 
-				actionListener="#{controleRankingDetalhadoMB.geraRankingDetalhado()}"
-				update=":dtRankingDetalhado" />
-			
-			<p:commandButton value="#{msg['label.publicar.ranking']}" 
-				actionListener="#{controleRankingDetalhadoMB.publicarRanking()}" 
-				update="smmJogos"/>
-			
+			<br/>
+
+			<div class="ui-fluid">
+				<div class="ui-g">
+					<div class="ui-g-6">
+						<p:commandButton value="#{msg['label.gerar.ranking']}" 
+							actionListener="#{controleRankingDetalhadoMB.geraRankingDetalhado()}"
+							update=":dtRankingDetalhado" />
+					</div>
+					<div class="ui-g-6">
+						<p:commandButton value="#{msg['label.publicar.ranking']}" 
+							actionListener="#{controleRankingDetalhadoMB.publicarRanking()}" 
+							update="smmJogos"/>
+					</div>
+				</div>
+			</div>
+			<br/>
 		</h:form>
 		
 		<p:dataTable id="dtRankingDetalhado" var="rankingDetalhado" 
@@ -88,9 +102,6 @@
 							
 							<div id="mandante">
 								<h:outputText styleClass="selecao" value="#{aposta.jogo.clubeCasa.nome}"  />
-						
-								<img src="../resources/imagens/img_trans.gif"
-									class="escudos #{aposta.jogo.clubeCasa.escudo}"/>
 							</div>
 							
 							<div id="placar">
@@ -102,9 +113,6 @@
 							</div>
 							
 							<div id="visitante">	
-								<img src="../resources/imagens/img_trans.gif"
-									class="escudos #{aposta.jogo.clubeVisitante.escudo}" />
-						
 								<h:outputText  styleClass="selecao" value="#{aposta.jogo.clubeVisitante.nome}" />
 							</div>
 						</div>
