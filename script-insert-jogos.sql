@@ -1,6 +1,6 @@
 --1
 INSERT INTO tb_jogo (id_clube_casa, id_clube_visitante, dataJogo, id_estadio, numeroJogo, rodada, grupo, pesoPontucao ) 
-VALUES ((select id from tb_clube where nome = 'Rússia'), (select id from tb_clube where nome = 'Arábia Saudita'), to_timestamp('2018-14-06 12:00:00', 'YYYY-DD-MM HH24:MI:SS'), (select id from tb_estadio where descricao = 'MOSCOU'),1, 1, 'A', 1);
+VALUES ((select id from tb_clube where nome = 'Catar'), (select id from tb_clube where nome = 'Equador'), to_timestamp('2022-20-11 13:00:00', 'YYYY-DD-MM HH24:MI:SS'), (select id from tb_estadio where descricao = 'AL BAYT'),1, 1, 'A', 1);
 INSERT INTO tb_jogo (id_clube_casa, id_clube_visitante, dataJogo, id_estadio, numeroJogo, rodada, grupo, pesoPontucao ) 
 VALUES ((select id from tb_clube where nome = 'Egito'), (select id from tb_clube where nome = 'Uruguai'), to_timestamp('2018-15-06 09:00:00', 'YYYY-DD-MM HH24:MI:SS'), (select id from tb_estadio where descricao = 'ECATERIMBURGO'),2, 1, 'A', 1);
 INSERT INTO tb_jogo (id_clube_casa, id_clube_visitante, dataJogo, id_estadio, numeroJogo, rodada, grupo, pesoPontucao ) 

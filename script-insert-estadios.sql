@@ -1,4 +1,4 @@
-INSERT INTO tb_estadio (descricao) VALUES ('OLÍMPICO LUJNIKI');
+INSERT INTO tb_estadio (descricao) VALUES ('AL BAYT');
 INSERT INTO tb_estadio (descricao) VALUES ('ECATERIMBURGO');
 INSERT INTO tb_estadio (descricao) VALUES ('SÃO PETERSBURGO');
 INSERT INTO tb_estadio (descricao) VALUES ('OLÍMPICO DE SOCHI');

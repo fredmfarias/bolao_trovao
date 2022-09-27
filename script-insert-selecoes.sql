@@ -1,5 +1,5 @@
-INSERT INTO tb_clube (nome, escudo) VALUES ('Arábia Saudita', 'arabia');
-INSERT INTO tb_clube (nome, escudo) VALUES ('Egito', 'egy');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Catar', 'Catar');
+INSERT INTO tb_clube (nome, escudo) VALUES ('Equador', 'Equador');
 INSERT INTO tb_clube (nome, escudo) VALUES ('Rússia', 'rusia');
 INSERT INTO tb_clube (nome, escudo) VALUES ('Uruguai', 'uru');
 
