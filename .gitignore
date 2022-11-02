@@ -6,3 +6,5 @@
 .idea/
 
 \.tern-project
+/scripts/jogosCopa/node_modules
+/scripts/jogosCopa/imgs

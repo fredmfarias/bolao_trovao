@@ -1,0 +1,434 @@
+[
+	{
+		"id": 289967,
+		"data_realizacao": "2022-11-20T13:00",
+		"hora_realizacao": "13:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 3238,
+				"nome_popular": "Catar",
+				"sigla": "CAT",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/06/Catar.svg"
+			},
+			"visitante": {
+				"id": 2372,
+				"nome_popular": "Equador",
+				"sigla": "EQU",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/07/15/Equador.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Al Bayt"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 289981,
+		"data_realizacao": "2022-11-21T10:00",
+		"hora_realizacao": "10:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2370,
+				"nome_popular": "Inglaterra",
+				"sigla": "ING",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/13/Inglaterra.svg"
+			},
+			"visitante": {
+				"id": 2336,
+				"nome_popular": "Irã",
+				"sigla": "IRA",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/01/Irã.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Internacional Khalifa"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 289980,
+		"data_realizacao": "2022-11-21T13:00",
+		"hora_realizacao": "13:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2347,
+				"nome_popular": "Senegal",
+				"sigla": "SEN",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/03/Senegal.svg"
+			},
+			"visitante": {
+				"id": 2381,
+				"nome_popular": "Holanda",
+				"sigla": "HOL",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/16/Holanda.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Al Thumama"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 290845,
+		"data_realizacao": "2022-11-21T16:00",
+		"hora_realizacao": "16:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2365,
+				"nome_popular": "Estados Unidos",
+				"sigla": "EUA",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/07/16/Estados_Unidos.svg"
+			},
+			"visitante": {
+				"id": 2387,
+				"nome_popular": "País de Gales",
+				"sigla": "GAL",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/17/País_de_Gales.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Ahmad bin Ali"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 289983,
+		"data_realizacao": "2022-11-22T07:00",
+		"hora_realizacao": "07:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2357,
+				"nome_popular": "Argentina",
+				"sigla": "ARG",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/07/15/Argentina.svg"
+			},
+			"visitante": {
+				"id": 2344,
+				"nome_popular": "Arábia Saudita",
+				"sigla": "ARA",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/05/Arábia_Saudita.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Lusail"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 289988,
+		"data_realizacao": "2022-11-22T10:00",
+		"hora_realizacao": "10:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2341,
+				"nome_popular": "Dinamarca",
+				"sigla": "DIN",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/16/Dinamarca.svg"
+			},
+			"visitante": {
+				"id": 2337,
+				"nome_popular": "Tunísia",
+				"sigla": "TUN",
+				"escudo": "https://s.sde.globo.com/media/organizations/2018/03/10/tunisia.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Cidade da Educação"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 289984,
+		"data_realizacao": "2022-11-22T13:00",
+		"hora_realizacao": "13:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2360,
+				"nome_popular": "México",
+				"sigla": "MEX",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/07/15/México.svg"
+			},
+			"visitante": {
+				"id": 2371,
+				"nome_popular": "Polônia",
+				"sigla": "POL",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/02/Polonia_Rl0m1A5.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Estádio 974"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 290928,
+		"data_realizacao": "2022-11-22T16:00",
+		"hora_realizacao": "16:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2385,
+				"nome_popular": "França",
+				"sigla": "FRA",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/03/França.svg"
+			},
+			"visitante": {
+				"id": 2333,
+				"nome_popular": "Austrália",
+				"sigla": "AUS",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/02/Australia.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Al Janoub"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 289994,
+		"data_realizacao": "2022-11-23T07:00",
+		"hora_realizacao": "07:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2332,
+				"nome_popular": "Marrocos",
+				"sigla": "MAR",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/10/Marrocos.svg"
+			},
+			"visitante": {
+				"id": 2379,
+				"nome_popular": "Croácia",
+				"sigla": "CRO",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/16/Croácia.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Al Bayt"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 289992,
+		"data_realizacao": "2022-11-23T10:00",
+		"hora_realizacao": "10:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2384,
+				"nome_popular": "Alemanha",
+				"sigla": "ALE",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/03/Alemanha.svg"
+			},
+			"visitante": {
+				"id": 2369,
+				"nome_popular": "Japão",
+				"sigla": "JAP",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/03/Japao.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Internacional Khalifa"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 290933,
+		"data_realizacao": "2022-11-23T13:00",
+		"hora_realizacao": "13:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2326,
+				"nome_popular": "Espanha",
+				"sigla": "ESP",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/03/Espanha.svg"
+			},
+			"visitante": {
+				"id": 2388,
+				"nome_popular": "Costa Rica",
+				"sigla": "CRC",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/07/14/Costa_Rica.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Al Thumama"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 289993,
+		"data_realizacao": "2022-11-23T16:00",
+		"hora_realizacao": "16:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2392,
+				"nome_popular": "Bélgica",
+				"sigla": "BEL",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/15/Bélgica.svg"
+			},
+			"visitante": {
+				"id": 2361,
+				"nome_popular": "Canadá",
+				"sigla": "CAN",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/07/15/Canadá.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Ahmad bin Ali"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 289996,
+		"data_realizacao": "2022-11-24T07:00",
+		"hora_realizacao": "07:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2320,
+				"nome_popular": "Suíça",
+				"sigla": "SUI",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/15/Suíça.svg"
+			},
+			"visitante": {
+				"id": 2382,
+				"nome_popular": "Camarões",
+				"sigla": "CAM",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/10/Camarões.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Al Janoub"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 289998,
+		"data_realizacao": "2022-11-24T10:00",
+		"hora_realizacao": "10:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2356,
+				"nome_popular": "Uruguai",
+				"sigla": "URU",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/07/16/Uruguai.svg"
+			},
+			"visitante": {
+				"id": 2374,
+				"nome_popular": "Coreia do Sul",
+				"sigla": "COR",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/01/Coreia_do_Sul.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Cidade da Educação"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 289997,
+		"data_realizacao": "2022-11-24T13:00",
+		"hora_realizacao": "13:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2390,
+				"nome_popular": "Portugal",
+				"sigla": "POR",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/17/Portugal.svg"
+			},
+			"visitante": {
+				"id": 2375,
+				"nome_popular": "Gana",
+				"sigla": "GAN",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/08/Gana.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Estádio 974"
+		},
+		"transmissao": null
+	},
+	{
+		"id": 289995,
+		"data_realizacao": "2022-11-24T16:00",
+		"hora_realizacao": "16:00",
+		"placar_oficial_visitante": null,
+		"placar_oficial_mandante": null,
+		"placar_penaltis_visitante": null,
+		"placar_penaltis_mandante": null,
+		"equipes": {
+			"mandante": {
+				"id": 2318,
+				"nome_popular": "Brasil",
+				"sigla": "BRA",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/07/16/Brasil_rgYHF6Z.svg"
+			},
+			"visitante": {
+				"id": 2605,
+				"nome_popular": "Sérvia",
+				"sigla": "SER",
+				"escudo": "https://s.sde.globo.com/media/organizations/2019/09/02/Servia.svg"
+			}
+		},
+		"sede": {
+			"nome_popular": "Lusail"
+		},
+		"transmissao": null
+	}
+]
