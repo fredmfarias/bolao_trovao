@@ -31,6 +31,8 @@ rodadas.rodadas.forEach((rodada) => {
         
         fs.appendFileSync(FILE, 
             `INSERT INTO tb_jogo (id_clube_casa, id_clube_visitante, dataJogo, id_estadio, numeroJogo, rodada, grupo, pesoPontucao)\n VALUES ((select id from tb_clube where nome = '${jogo.equipes.mandante.nome_popular}'), (select id from tb_clube where nome = '${jogo.equipes.visitante.nome_popular}'), to_timestamp('${jogo.data_realizacao.replace('T', ' ')}', 'YYYY-MM-DD HH24:MI'), (select id from tb_estadio where descricao = '${jogo.sede.nome_popular}'), ${numJogo}, ${rodada.rodada}, 'C', ${(jogo.equipes.mandante.nome_popular == 'Brasil' || jogo.equipes.visitante.nome_popular == 'Brasil' ? 2 : 1)});\n`);
+			
+			numJogo++;
     });
 });
 

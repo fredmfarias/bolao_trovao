@@ -192,6 +192,10 @@ public class RankingMB extends MB implements Serializable{
 			return "background-prata";
 		case 3:
 			return "background-bronze";
+		case 4:
+			return "background-quarto";
+		case 5:
+			return "background-quinto";
 		}
 		
 		try {
