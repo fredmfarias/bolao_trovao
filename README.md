@@ -33,3 +33,8 @@ Restart your JVM/PC.
 
 #Create Database
 docker run --name bolao-postgres -e POSTGRES_PASSWORD=bolao -d -p 5432:5432 postgres
+
+#Hospedagem
+- Hospedamos na integrator
+- Eles criam o domínio no regitro br e daí é necessário configurar o dns do integrator lá
+- Renomear o .war para ROOT.war e fazer o deploy pelo gerenciador de arquivos, pelo deploy da integrator não vai.
